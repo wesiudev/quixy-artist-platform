@@ -40,7 +40,8 @@ export const MenuLists = styled.div`
 `;
 export const MenuItem = styled.a<{ active?: any }>`
   position: relative;
-  color: ${({ active }: { active: any }) => (active ? "#8f26f3" : "#ffffff")};
+  color: ${({ active }) => (active ? "#8f26f3" : "#ffffff")};
+
   text-transform: uppercase;
   text-decoration: none;
   font-family: GraublauWeb;
@@ -64,8 +65,7 @@ export const MenuItem = styled.a<{ active?: any }>`
     width: 100%;
     left: 0;
     bottom: -5px;
-    transform: ${({ active }: { active: any }) =>
-      active ? "scaleX(1)" : "scaleX(0)"};
+    transform: ${({ active }) => (active ? "scaleX(1)" : "scaleX(0)")};
   }
 `;
 export const SidebarOverlay = styled.div<{ show: boolean }>`
@@ -114,7 +114,7 @@ export const SideBarWrapper = styled.div<{ show: boolean }>`
 export const SideBarItem = styled.a<{ active?: boolean }>`
   font-size: 20px;
   text-transform: uppercase;
-  color: ${({ active }: { active: any }) => (active ? "#8f26f3" : "white")};
+  color: ${({ active }) => (active ? "#8f26f3" : "white")};
   text-decoration: none;
   width: 60%;
   margin-bottom: 20px;
