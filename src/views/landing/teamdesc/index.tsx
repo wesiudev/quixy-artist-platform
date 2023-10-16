@@ -18,8 +18,10 @@ const TeamsDescPart = () => {
     <TeamDescWrapper className="relative">
       <div className="absolute -top-36  left-0 " id="contact"></div>
       <TitleSection>
-        <p className="teamdesc-title">Dane kontaktowe</p>
-        <p className="font-coco text-xl lg:px-24 text-white font-light">
+        <p className="teamdesc-title !text-left px-3 lg:px-0">
+          Dane kontaktowe
+        </p>
+        <p className="font-coco text-xl  text-white font-light px-3 lg:px-0 text-left">
           Jesteś zainteresowany projektem lub masz pytania dotyczące tatuażu?
           Poniżej udostępniam swoje dane kontaktowe. Możesz również skontaktować
           się ze mną za pośrednictwem mediów społecznościowych typu Instagram,
@@ -64,14 +66,20 @@ const TeamsDescPart = () => {
           className="mt-12 rounded-xl"
         />
       </DescContent>
-      <MorganSection className="w-full !flex !flex-col !justify-center border-l-2 border-r-2 border-[#8f26f3] my-12 pb-12">
-        <h3 className="text-4xl">obrazy na zamówienie</h3>
-        <h4 className="font-coco text-white lg:px-36 text-center">
+      <MorganSection className="w-[90vw] mx-auto lg:w-full !flex !flex-col !justify-center border-l-2 border-r-2 border-[#8f26f3] my-12 pb-12">
+        <h3 className="!text-3xl sm:!text-4xl ">obrazy na zamówienie</h3>
+        <h4 className="font-coco text-white lg:px-36 text-center !px-3">
           Przekształcę Twoje pomysły w piękne dzieła sztuki. Jeśli jesteś
           zainteresowany spersonalizowanym obrazem, który idealnie odzwierciedli
           Twoje myśli i uczucia, zapraszam do kontaktu. Twoja wizja jest moją
           misją, a każdy szczegół ma znaczenie.
         </h4>
+        <Link
+          href="/shop"
+          className="bg-purple-500 text-white drop-shadow-md shadow-black text-3xl p-2 px-4 font-coco font-light hover:bg-purple-400 w-max mx-auto mt-6"
+        >
+          Sprawdź sklep
+        </Link>
       </MorganSection>
     </TeamDescWrapper>
   );

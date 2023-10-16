@@ -10,6 +10,7 @@ import {
 import { Footer, Header } from "@/layouts";
 import CookieInfo from "@/components/cookies/CookieInfo";
 import Loader from "@/components/loader/Loader";
+import { Tattoo } from "@/types";
 
 export default function Page() {
   const [y, setY] = useState(0);
@@ -86,7 +87,7 @@ export default function Page() {
   return (
     <div id="art" className="pt-[140px] transition duration-200 md:pt-50 ">
       <Header />
-      <div className="max-w-screen-lg w-full mx-auto ">
+      <div className="max-w-screen-lg w-full lg:w-9/12 mx-auto ">
         {/* <Loader /> */}
         <CookieInfo />
         <IntroPart />

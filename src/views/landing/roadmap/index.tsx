@@ -29,16 +29,15 @@ const RoadMapPart = () => {
   return (
     <RoadmapWrapper id="about">
       <RoadMapTitleSection>
-        <h3 className="text-[#8f26f3] font-bold text-3xl sm:text-5xl md:text-6xl mb-6 px-3">
-          PASJA SZTUKI
+        <h3 className="text-[#8f26f3] font-bold text-3xl sm:text-5xl sm:!text-center md:text-6xl mb-6 px-3">
+          PROCES TWORZENIA
         </h3>
         <h4 className="text-white font-coco px-3 text-left sm:text-center ">
-          Odkąd pamiętam, moja pasja do sztuki, rysowania i malowania była
-          źródłem niekończącej się inspiracji. To dla mnie nie tylko sposób
-          wyrażania uczuć, ale także podróż w głąb samej siebie, gdzie każdy
-          pociągnięty pędzlem lub ołówkiem kształtował moją tożsamość
-          artystyczną. Dziś, jako młoda artystka, kontynuuję tę nieustanną
-          podróż, gotowa zdobywać świat sztuki swoimi wyjątkowymi dziełami.
+          Witajcie w moim prywatnym studiu tatuażu, gdzie sztuka spotyka się ze
+          skórą! Jako pasjonatka sztuki, jestem podekscytowana, że mogę
+          podzielić się moją miłością do tatuażu jako formy wyrazu
+          artystycznego. Pragnę Was zaprosić do świata, gdzie wyobraźnia staje
+          się rzeczywistością na powierzchni skóry.
         </h4>
       </RoadMapTitleSection>
       {!mobile && (
@@ -101,65 +100,47 @@ const RoadMapPart = () => {
           <RoadMapCardWrapper>
             <RoadMapCardGroup>
               <RoadMapCard id="rmd1">
-                <div className="-mt-12">
-                  <h3 className="text-purple-500 text-6xl font-graublau font-bold mb-3">
-                    Kredka
-                  </h3>
-                  <h4 className="font-coco text-gray-100">
-                    <span className="font-bold">
-                      Wszystko zaczęło się od kredki
-                    </span>
-                    ... Swoje pierwsze prace wykonywałam w zeszycie szkolnym,
-                    gdzie każda strona stawała się płótnem dla moich marzeń i
-                    pomysłów. Od tamtej chwili sztuka stała się moim
-                    nieodłącznym towarzyszem, a każde pociągnięcie ołówka było
-                    jak rozwijająca się opowieść, odkrywająca świat kolorów i
-                    form. To właśnie tam, w tych skromnych zeszytach, narodziła
-                    się moja pasja, która teraz popycha mnie do eksploracji
-                    sztuki na większą skalę i dzielenia się nią z innymi.
-                  </h4>
-                </div>
+                <h3 className="text-green-500 text-6xl font-graublau font-bold mb-3">
+                  Konsultacja
+                </h3>
+                <h4 className="font-coco text-gray-100">
+                  Nasza podróż zaczyna się od rozmowy. Podczas pierwszej
+                  konsultacji wysłuchuję Twoich pomysłów, historii oraz gustów.
+                  Razem omawiamy inspiracje i wymagania dotyczące tatuażu. Na
+                  podstawie naszej rozmowy tworzę wstępny projekt, który będzie
+                  punktem wyjścia do dalszych prac.
+                </h4>
               </RoadMapCard>
               <div />
             </RoadMapCardGroup>
             <RoadMapCardGroup>
               <div />
               <RoadMapCard id="rmd2">
-                <div className="-mt-12">
-                  <h3 className="text-purple-500 text-6xl font-graublau font-bold mb-3">
-                    Groteskowy start
-                  </h3>
-                  <h4 className="font-coco text-gray-100">
-                    Na samym początku, moje twórcze próby były pełne entuzjazmu,
-                    i czułam się dumna z tego, co potrafiłam stworzyć. Jednak z
-                    biegiem czasu zdałam sobie sprawę, że prawdziwy rozwój
-                    wymaga praktyki i cierpliwości. Zrozumiałam, że każdy
-                    artysta zaczyna od prostych prób, a prawdziwa sztuka tkwi w
-                    procesie doskonalenia się. Dziś patrzę na swoje początki z
-                    uśmiechem, widząc w nich jedynie kroki w mojej artystycznej
-                    podróży, która ciągle się rozwija dzięki codziennej pracy i
-                    pozytywnemu podejściu.
-                  </h4>
-                </div>
+                <h3 className="text-green-500 text-6xl font-graublau font-bold mb-3">
+                  Poprawki
+                </h3>
+                <h4 className="font-coco text-gray-100">
+                  Twój feedback jest kluczowy. Po zaprezentowaniu Ci wstępnego
+                  projektu, masz możliwość zgłaszania poprawek i sugestii. Twoje
+                  uwagi są dla mnie bardzo ważne, ponieważ chcę, aby tatuaż był
+                  dokładnie taki, jakiego sobie wymarzyłeś. Dokonujemy wszelkich
+                  niezbędnych poprawek, dopóki nie będziesz w pełni zadowolony z
+                  projektu.
+                </h4>
               </RoadMapCard>
             </RoadMapCardGroup>
             <RoadMapCardGroup>
               <RoadMapCard id="rmd3">
-                <div className="-mt-12">
-                  <h3 className="text-purple-500 text-6xl font-graublau font-bold mb-3">
-                    Unikalny styl
-                  </h3>
-                  <h4 className="font-coco text-gray-100">
-                    Podczas mojej kreatywnej podróży udało mi się odnaleźć
-                    własny, niepowtarzalny sposób wyrażania siebie, z którego
-                    jestem dumna. To nie tylko zbiór technik czy kolorów, ale
-                    wyraz mojej osobowości i pasji, które stopniowo układały się
-                    w spójny język artystyczny. Teraz, gdy patrzę na swoje
-                    prace, widzę nie tylko obrazy, ale też fragmenty mojej duszy
-                    i snów, co sprawia, że każda kreska pociągnięta pędzlem czy
-                    ołówkiem jest dla mnie jak oddech wolności i autentyczności.
-                  </h4>
-                </div>
+                <h3 className="text-green-500 text-6xl font-graublau font-bold mb-3">
+                  Ostateczny Projekt
+                </h3>
+                <h4 className="font-coco text-gray-100">
+                  Kiedy osiągniemy pełną zgodę na projekt, przystępujemy do jego
+                  ostatecznej wersji. Dbam o każdy detal, dopracowując linie,
+                  cienie i kolory, aby zapewnić perfekcyjną jakość. Ostateczny
+                  projekt to odzwierciedlenie naszych wspólnych wysiłków i
+                  Twojej wyjątkowej wizji.
+                </h4>
               </RoadMapCard>
               <div />
             </RoadMapCardGroup>
@@ -167,47 +148,31 @@ const RoadMapPart = () => {
               <div />
               <RoadMapCard id="rmd4">
                 {" "}
-                <div className="-mt-12">
-                  <h3 className="text-purple-500 text-6xl font-graublau font-bold mb-3">
-                    Pierwsze wystawy
-                  </h3>
-                  <h4 className="font-coco text-gray-100">
-                    Były dla mnie niezapomnianym doświadczeniem pełnym emocji i
-                    dreszczy ekscytacji. Prezentując moje prace publiczności po
-                    raz pierwszy, poczułam mieszankę niepewności i dumy. Widok
-                    ludzi, którzy z zainteresowaniem przyglądali się moim
-                    dziełom, był dla mnie potwierdzeniem, że moja pasja może
-                    dotknąć serca innych ludzi. Te pierwsze wystawy były dla
-                    mnie jak otwarcie drzwi do szerszego świata sztuki, gdzie
-                    każda praca stanowiła kawałek mnie i mojego niepowtarzalnego
-                    świata.
-                  </h4>{" "}
-                </div>
+                <h3 className="text-green-500 text-6xl font-graublau font-bold mb-3">
+                  Wykonywanie Tatuażu
+                </h3>
+                <h4 className="font-coco text-gray-100">
+                  Przechodzimy do etapu, który sprawia, że projekt staje się
+                  rzeczywistością. W moim studio zapewniam komfortową atmosferę,
+                  gdzie możesz zrelaksować się i cieszyć procesem. Dbam o
+                  higienę i bezpieczeństwo podczas wykonywania tatuażu, dzięki
+                  czemu możesz być pewien, że jesteś w dobrych rękach.
+                </h4>{" "}
               </RoadMapCard>
             </RoadMapCardGroup>
             <RoadMapCardGroup>
               <RoadMapCard id="rmd5">
-                {" "}
-                <div className="-mt-12">
-                  <Image
-                    src="/images/image/common/blackbellLogo.png"
-                    width={300}
-                    height={200}
-                    alt=""
-                    className="max-h-[100px] mb-3"
-                  />
-                  <h4 className="font-coco text-gray-100">
-                    Blackbell to dla mnie nie tylko nazwa, to także historia,
-                    która zaczyna się malować na waszych ciałach. Z dumą
-                    ogłaszam rozpoczęcie oficjalnej działalności związanej z
-                    tatuowaniem, gdzie każda kreska ma swoje znaczenie, a każdy
-                    detal przekazuje niepowtarzalną historię. Moja pasja do
-                    sztuki przekroczyła granice płótna, tworząc trwałe dzieła
-                    sztuki, które będą towarzyszyć wam przez całe życie.
-                    Dziękuję za zaufanie i możliwość dzielenia się moją unikalną
-                    kreatywnością z wami.
-                  </h4>{" "}
-                </div>
+                <h3 className="text-green-500 text-6xl font-graublau font-bold mb-3">
+                  Gotowe!
+                </h3>
+                <h4 className="font-coco text-gray-100">
+                  Po zakończeniu procesu tatuażu prezentuję Ci gotowe dzieło
+                  sztuki. To moment, w którym Twój pomysł staje się trwałą
+                  częścią Twojego ciała. Podziwiaj swoje nowe tatuaże, które nie
+                  tylko ozdabiają Twoją skórę, ale także opowiadają Twoją
+                  historię. Twoje nowe tatuaże są nie tylko pięknym obrazem, ale
+                  także wyrazem Twojej osobowości i indywidualności.
+                </h4>{" "}
               </RoadMapCard>
               <div />
             </RoadMapCardGroup>
@@ -215,7 +180,7 @@ const RoadMapPart = () => {
         </RoadMapSection>
       )}
       {mobile && (
-        <RoadMapCardGroup>
+        <RoadMapCardGroup className="!px-3">
           <RoadMapCard id="rmd-m1" className="mobile-rm">
             <h3 className="text-purple-500 text-6xl font-graublau font-bold mb-3">
               Kredka
@@ -278,7 +243,7 @@ const RoadMapPart = () => {
           </RoadMapCard>
           <RoadMapCard id="rmd-m5" className="mobile-rm">
             <Image
-              src="/images/image/common/logo.png"
+              src="/images/image/common/blackbellLogo.png"
               width={300}
               height={200}
               alt=""

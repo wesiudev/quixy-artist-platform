@@ -73,7 +73,7 @@ const Header = () => {
               sztuka
             </MenuItem>
             <MenuItem href="#tattoo" active={active === 3}>
-              tattoo
+              zamów
             </MenuItem>
           </MenuLists>
         )}
@@ -90,7 +90,7 @@ const Header = () => {
         {!mobile && (
           <MenuLists>
             <MenuItem href="#about" active={active === 2}>
-              o mnie
+              tattoo
             </MenuItem>
             <MenuItem href="#contact" active={active === 4}>
               kontakt
@@ -147,7 +147,7 @@ const Header = () => {
             href="#tattoo"
             className="!text-2xl"
           >
-            tattoo
+            zamów
           </SideBarItem>
           <SideBarItem
             active={active === 2}
@@ -155,7 +155,7 @@ const Header = () => {
             href="#about"
             className="!text-2xl"
           >
-            o mnie
+            tattoo
           </SideBarItem>
           <SideBarItem
             active={active === 4}

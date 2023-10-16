@@ -8,7 +8,7 @@ export type Section = {
   content: string;
 };
 export type ArtworkData = {
-  src: string;
+  images: string[];
   title: string;
   artist: string;
   year: number;
@@ -34,7 +34,15 @@ export type Service = {
     summary: string;
   };
 };
-
+export type Tattoo = {
+  projectSrc: string;
+  workSrc: string;
+  title: string;
+  description: string;
+  meaning: string;
+  partsOfTheBody: string[];
+  id?: string;
+};
 export type Post = {
   postId: string;
   title: string;

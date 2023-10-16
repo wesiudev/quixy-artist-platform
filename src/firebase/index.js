@@ -24,8 +24,30 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app);
-
-// shop images
+// tattoo list
+async function getTattoos(websiteName) {
+  const docRef = doc(db, websiteName, "tattoos");
+  const docSnap = await getDoc(docRef);
+  return docSnap.data();
+}
+async function addTattoo(websiteName, tattooData) {
+  const docRef = doc(db, websiteName, "tattoos");
+  const docSnap = await getDoc(docRef);
+  if (!docSnap.data()) {
+    await setDoc(doc(db, websiteName, "tattoos"), { tattoos: [tattooData] });
+  } else {
+    await updateDoc(doc(db, websiteName, "tattoos"), {
+      tattoos: arrayUnion(tattooData),
+    });
+  }
+}
+async function deleteTattoo(websiteName, tattooData) {
+  const docRef = doc(db, websiteName, "tattoos");
+  await updateDoc(docRef, {
+    tattoos: arrayRemove(tattooData),
+  });
+}
+// shop products
 async function getImages(websiteName) {
   const docRef = doc(db, websiteName, "products");
   const docSnap = await getDoc(docRef);
@@ -139,4 +161,7 @@ export {
   getOrders,
   addOrder,
   updateOrder,
+  getTattoos,
+  addTattoo,
+  deleteTattoo,
 };

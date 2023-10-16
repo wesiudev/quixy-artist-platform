@@ -32,7 +32,7 @@ const CommunityPart = () => {
       <CommunitySection>
         <JoinDescSection>
           <h1 className="">Social Media</h1>
-          <p className="text-center lg:text-left ">
+          <p className="text-center lg:text-left !px-3 lg:!px-0">
             Dołącz do mojej społeczności i bądź na bieżąco z aktualnościami i
             moimi działaniami. Znajdziesz mnie na Instagramie, Facebooku,
             YouTube. Możesz też kupić obraz na Etsy.

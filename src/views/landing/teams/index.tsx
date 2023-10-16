@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import TattooMap from "./TattooMap";
+import { Tattoo } from "@/types";
 
 const MemberCard = (props: any) => {
   return (
@@ -82,7 +83,7 @@ const TeamsPart = () => {
   const [popupOpen, setPopupOpen] = useState(false);
   return (
     <TeamsWrapper className="relative">
-      <TattooMap isOpen={popupOpen} />
+      <TattooMap isOpen={popupOpen} setIsOpen={setPopupOpen} />
       <div id="tattoo" className="absolute -top-24 left-0 w-full"></div>
       <TeamsIntroSection>
         <div className="flex flex-col text-left sm:text-center mx-auto ">
