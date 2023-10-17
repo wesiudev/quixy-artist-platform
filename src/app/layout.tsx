@@ -7,9 +7,33 @@ export const metadata: Metadata = {
   themeColor: "#1d1d1d",
   publisher: "Black Bell Tattoo & Art",
   manifest: "/manifest.json",
-  icons: {
-    icon: "/favicon.png",
-  },
+  icons: [
+    {
+      url: "/favicon-16x16.png",
+      sizes: "16x16",
+      type: "image/png",
+    },
+    {
+      url: "/favicon-32x32.png",
+      sizes: "32x32",
+      type: "image/png",
+    },
+    {
+      url: "/favicon.ico",
+      sizes: "48x48",
+      type: "image/x-icon",
+    },
+    {
+      url: "/android-chrome-192x192.png",
+      sizes: "192x192",
+      type: "image/png",
+    },
+    {
+      url: "/android-chrome-512x512.png",
+      sizes: "512x512",
+      type: "image/png",
+    },
+  ],
   title:
     "Black Bell Tattoo & Art | Tatuaż Grudziądz i okolice | Sztuka na zamówienie",
   description:
@@ -24,7 +48,7 @@ export const metadata: Metadata = {
     siteName: "Black Bell Tattoo & Art",
     images: [
       {
-        url: "/favicon.png",
+        url: "/favicon.ico",
       },
     ],
   },

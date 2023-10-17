@@ -73,14 +73,14 @@ const Header = () => {
               sztuka
             </MenuItem>
             <MenuItem href="#tattoo" active={active === 3}>
-              zamów
+              wzory
             </MenuItem>
           </MenuLists>
         )}
         <a href="#art">
           <Image
-            width={100}
-            height={100}
+            width={600}
+            height={300}
             src="/images/image/common/blackbellLogo.png"
             alt="logoSVG"
             className="h-[40px] lg:h-[60px] w-auto"
@@ -127,8 +127,8 @@ const Header = () => {
           <div className="logo-wrapper !items-start">
             <Image
               id="logoImg"
-              width={164}
-              height={164}
+              width={600}
+              height={300}
               src="/images/image/common/blackbellLogo.png"
               alt="logoSVG"
             />
@@ -147,7 +147,7 @@ const Header = () => {
             href="#tattoo"
             className="!text-2xl"
           >
-            zamów
+            wzory
           </SideBarItem>
           <SideBarItem
             active={active === 2}
