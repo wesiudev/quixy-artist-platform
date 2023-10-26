@@ -32,16 +32,16 @@ export async function generateMetadata({ params }: { params: any }) {
         break;
       case "description":
         if (category === "artwork") {
-          return "Oryginalne obrazy na płótnie: obrazy olejne, portrety i abstrakcje. Ręcznie malowane ze zdjęć, dostępne także kopie i obrazy na płótnie. Kup unikalny obraz już dziś.";
+          return "Kup oryginalne obrazy na płótnie: obrazy olejne, portrety i abstrakcje. Kup unikalny obraz już dziś.";
         }
         if (category === "sticker") {
-          return "Naklejki na ścianę od prawdziwego artysty – wyraz twórczej pasji. Te naklejki to starannie zaprojektowane dzieła. Wyraź swoją kreatywność z naszymi wyjątkowymi naklejkami. Sprawdź kolekcję już dziś!";
+          return "Kup naklejki na ścianę od prawdziwego artysty – wyraz twórczej pasji. Te naklejki to starannie zaprojektowane dzieła.";
         }
         if (category === "print") {
-          return "Unikalne obrazy na zamówienie od artystki. Oryginalne obrazy olejne, portrety i abstrakcje. Ręcznie malowane ze zdjęć, dostępne także kopie i obrazy na płótnie.";
+          return "Kup unikalne obrazy na zamówienie od artystki. Oryginalne obrazy olejne, portrety i abstrakcje";
         }
         if (category === "inspiration") {
-          return "Malowany obraz na płótnie na zamówienie, który jest źródłem inspiracji. Twój własny obraz na płótnie. Indywidualne projekty, które oddają Twoją wyjątkową wizję. Odkryj proces tworzenia i zamów swoje dzieło już dziś!";
+          return "Kup malowany obraz na płótnie na zamówienie. Indywidualne projekty, które oddają Twoją wyjątkową wizję. Zamów swoje dzieło już dziś!";
         }
         break;
       default:
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: { params: any }) {
   }
   if (product)
     return {
-      title: `Blackbell | Sklep Z Obrazami | ${returnMetadata(
+      title: `BlackbellArt.com | Sklep Z Obrazami | ${returnMetadata(
         "title",
         product.category
       )} ${product?.title}`,
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: { params: any }) {
       openGraph: {
         type: "website",
         url: "https://blackbellart.com",
-        title: `Blackbell Sklep Z Obrazami | ${returnMetadata(
+        title: `BlackbellArt.com | ${returnMetadata(
           "title",
           product.category
         )} ${product?.title}`,
@@ -79,7 +79,7 @@ export async function generateMetadata({ params }: { params: any }) {
 
 export const dynamicParams = false;
 
-export default async function Page({ params }: { params: any }) {
+export default async function Page({ params }: { params: ArtworkData }) {
   const product = await getShopProduct(params.category, params.slug);
 
   if (product) return <></>;
