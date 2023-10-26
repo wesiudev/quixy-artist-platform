@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: { params: any }) {
       title: `BlackbellArt.com | Sklep Z Obrazami | ${returnMetadata(
         "title",
         product.category
-      )} ${product?.title}`,
+      )}`,
       description: ` ${returnMetadata("description", product.category)} ${
         product?.title
       }`,
@@ -63,10 +63,8 @@ export async function generateMetadata({ params }: { params: any }) {
         title: `BlackbellArt.com | ${returnMetadata(
           "title",
           product.category
-        )} ${product?.title}`,
-        description: ` ${returnMetadata("description", product.category)} ${
-          product?.title
-        }`,
+        )}`,
+        description: ` ${returnMetadata("description", product.category)}`,
         siteName: "BlackbellArt",
         images: [
           {

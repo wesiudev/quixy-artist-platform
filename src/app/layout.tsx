@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   themeColor: "#1d1d1d",
   publisher: "Black Bell Tattoo & Art",
   manifest: "/manifest.json",
+  keywords: [
+    "Tatuaż Grudziadz",
+    "Tatuaże Grudziadz",
+    "Studio Tatuażu Grudziądz",
+    "Tatuaż Grudziądz i okolice",
+    "Tatuaż Grudziądz cennik",
+    "Tatuaż Grudziądz opinie",
+    "Tatuaż Grudziądz galeria",
+    "Tatuaż Grudziądz instagram",
+  ],
+  verification: {
+    google: "google85185d3abec28326.html",
+  },
   icons: [
     {
       url: "/favicon-16x16.png",
