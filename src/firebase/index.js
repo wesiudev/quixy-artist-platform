@@ -25,25 +25,10 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app);
 // tattoo list
-let cachedTattoos = {};
-
-async function getTattoos(websiteName, count) {
-  if (cachedTattoos[websiteName]) {
-    const cachedTattoosCount = cachedTattoos[websiteName].length;
-    if (cachedTattoosCount >= count) {
-      return cachedTattoos[websiteName].slice(0, count);
-    }
-  }
-
+async function getTattoos(websiteName) {
   const docRef = doc(db, websiteName, "tattoos");
   const docSnap = await getDoc(docRef);
-  const data = docSnap.data();
-  if (data) {
-    const tattoos = data.tattoos.slice(0, count);
-    cachedTattoos[websiteName] = tattoos;
-    return tattoos;
-  }
-  return null;
+  return docSnap.data();
 }
 async function addTattoo(websiteName, tattooData) {
   const docRef = doc(db, websiteName, "tattoos");
