@@ -4,10 +4,10 @@ var randomId = require("random-id");
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { addTattoo, deleteTattoo, storage } from "../../../firebase/index";
 import { useState } from "react";
-import { FaArrowLeft, FaImage } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import Image from "next/image";
 import { Tattoo } from "@/types";
-import { useEffect } from "react";
+import EditTattoo from "./EditTattoo";
 const bodyParts = [
   "Ramię",
   "Plecy",
@@ -32,7 +32,7 @@ const bodyParts = [
   "Kolano",
   "Łokieć",
 ];
-export default function UploadImage({ images }: any) {
+export default function UploadImage({ tattoos }: any) {
   const [chosenImg, setChosenImg] = useState<any>();
   const [chosenWorkImg, setChosenWorkImg] = useState<any>();
   const [justAdded, setJustAdded] = useState<any[]>([]);
@@ -41,6 +41,18 @@ export default function UploadImage({ images }: any) {
   const [showMessage, setShowMessage] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [imageUrls, setImageUrls] = useState<string[]>([]);
+
+  const initialStateTattoo: Tattoo = {
+    projectSrc: "",
+    workSrc: "",
+    title: "",
+    description: "",
+    meaning: "",
+    partsOfTheBody: [],
+  };
+  const [selectedTattoo, setSelectedTattoo] =
+    useState<Tattoo>(initialStateTattoo);
+
   const initialState: Tattoo = {
     projectSrc: "",
     workSrc: "",
@@ -85,6 +97,19 @@ export default function UploadImage({ images }: any) {
 
   return (
     <div className="relative">
+      <div
+        className={`z-[9999] h-[70vh] overflow-y-scroll w-[90vw] scrollbar fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] bg-slate-700 rounded-xl  duration-500 ${
+          selectedTattoo.projectSrc !== ""
+            ? "scale-100 bg-opacity-90"
+            : "scale-0 bg-opacity-0"
+        }`}
+      >
+        <EditTattoo
+          selectedTattoo={selectedTattoo}
+          initial={initialStateTattoo}
+          setSelectedTattoo={setSelectedTattoo}
+        />
+      </div>
       <div
         className={`z-[9999] h-[70vh] overflow-y-scroll w-[90vw] scrollbar fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] bg-slate-700 rounded-xl  duration-500 ${
           chosenImg ? "scale-100 bg-opacity-90" : "scale-0 bg-opacity-0"
@@ -289,25 +314,26 @@ export default function UploadImage({ images }: any) {
         Wszystkie tatuaże
       </h1>
       <div className="flex flex-row flex-wrap h-max bg-rose-200">
-        {images?.tattoos?.length > 0 &&
-          images.tattoos.map((image: Tattoo, i: any) => (
+        {tattoos?.length > 0 &&
+          tattoos.map((tattoo: Tattoo, i: any) => (
             <div
+              onClick={() => setSelectedTattoo(tattoo)}
               className={`flex flex-col relative h-max ${
-                justDeleted.includes(image.id) ? "hidden" : "block"
+                justDeleted.includes(tattoo.id) ? "hidden" : "block"
               }`}
               key={i}
             >
-              {startDelete === image.id && (
+              {startDelete === tattoo.id && (
                 <div className="bg-white w-full h-full z-[60] absolute left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%] text-center text-xl flex flex-col justify-center">
                   usunąć?
                   <div className="flex flex-row w-full">
                     <button
                       onClick={() => {
-                        deleteTattoo("blackbellart", image),
+                        deleteTattoo("blackbellart", tattoo),
                           setStartDelete(""),
                           setJustDeleted((oldArray) => [
                             ...oldArray!,
-                            image.id,
+                            tattoo.id,
                           ]);
                         setShowMessage("deleted");
                         setTimeout(() => {
@@ -331,12 +357,12 @@ export default function UploadImage({ images }: any) {
                 className={`max-h-[300px] w-auto space-x-3 bg-gray-300 `}
                 width={1024}
                 height={1024}
-                src={image.projectSrc}
+                src={tattoo.projectSrc}
                 alt=""
                 key={i}
               />
               <button
-                onClick={() => setStartDelete(image.id!)}
+                onClick={() => setStartDelete(tattoo.id!)}
                 className="w-3/4 bg-opacity-75 hover:bg-opacity-100 duration-200 absolute bottom-3 left-[50%] -translate-x-[50%] z-50 py-3 text-white font-bold text-xl bg-red-500 hover:bg-red-400 rounded-md"
               >
                 usuń

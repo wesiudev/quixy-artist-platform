@@ -7,6 +7,7 @@ import {
   GetInTouchButton,
   GetInTouchForm,
   JoinDescSection,
+  LinkButton,
   LinkGroup,
   LinkItem,
 } from "./community.styled";
@@ -44,48 +45,48 @@ const CommunityPart = () => {
           <LinkItem
             target="_blank"
             href="https://www.instagram.com/blackbell.ce/"
-            className="flex flex-row items-center hover:text-[#bc3a08] mt-3 ml-3"
+            className="flex flex-row items-center hover:text-[#8f26f3] mt-3 ml-3"
           >
             <FaInstagram className="w-8 h-8 mr-3" />
-            <span className="group-hover:text-[#bc3a08]">Art</span>
+            <span className="group-hover:text-[#8f26f3]">Art</span>
           </LinkItem>
           <LinkItem
             target="_blank"
             href="https://www.facebook.com/blackbell.c.e"
-            className="flex flex-row items-center hover:text-[#bc3a08] mt-3"
+            className="flex flex-row items-center hover:text-[#8f26f3] mt-3"
           >
             <FaFacebook className="w-8 h-8 mr-3" />
-            <span className="group-hover:text-[#bc3a08]">Art</span>
+            <span className="group-hover:text-[#8f26f3]">Art</span>
           </LinkItem>
           <LinkItem
             target="_blank"
             href="https://www.youtube.com/@blackbellart/featured"
-            className="flex flex-row items-center hover:text-[#bc3a08] mt-3"
+            className="flex flex-row items-center hover:text-[#8f26f3] mt-3"
           >
             <FaYoutube className="w-8 h-8 mr-3" />
-            <span className="group-hover:text-[#bc3a08]">Art</span>
+            <span className="group-hover:text-[#8f26f3]">Art</span>
           </LinkItem>
           <LinkItem
             target="_blank"
             href="https://www.instagram.com/blackbellarttattoo/"
-            className="flex flex-row items-center hover:text-[#bc3a08] mt-3"
+            className="flex flex-row items-center hover:text-[#8f26f3] mt-3"
           >
             <FaInstagram className="w-8 h-8 mr-3" />
-            <span className="group-hover:text-[#bc3a08]">Tattoo</span>
+            <span className="group-hover:text-[#8f26f3]">Tattoo</span>
           </LinkItem>
           <LinkItem
             target="_blank"
             href="https://www.etsy.com/pl/shop/BlackbellArtStudio"
-            className="flex flex-row items-center hover:text-[#bc3a08] mt-3"
+            className="flex flex-row items-center hover:text-[#8f26f3] mt-3"
           >
             <FaEtsy className="w-8 h-8 mr-3" />
-            <span className="group-hover:text-[#bc3a08]">Shop</span>
+            <span className="group-hover:text-[#8f26f3]">Shop</span>
           </LinkItem>
         </div>
         <LinkGroup dir="rtl" className="mt-6">
-          <LinkItem onClick={() => setPrivacyOpen(true)}>
+          <LinkButton onClick={() => setPrivacyOpen(true)}>
             {"polityka prywatnosci"}
-          </LinkItem>
+          </LinkButton>
         </LinkGroup>
       </CommunitySection>
     </CommunityWrapper>

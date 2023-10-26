@@ -87,7 +87,20 @@ export const LinkItem = styled.a`
   letter-spacing: 0.3em;
   cursor: pointer;
   :hover {
-    color: #bc3a08;
+    color: #8f26f3;
+  }
+`;
+export const LinkButton = styled.button`
+  text-transform: uppercase;
+  font-family: GraublauWeb;
+  transition: 0.2s all;
+  color: #b8b8b8;
+  font-size: clamp(12px, 1.3vw, 16px);
+  line-height: 18px;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  :hover {
+    color: #8f26f3;
   }
 `;
 
@@ -116,7 +129,7 @@ export const FormInputWrapper = styled.div`
       width: 80px;
       height: 3px;
       position: absolute;
-      background: linear-gradient(270.03deg, #bc3a08 0.05%, #941a0b 100%);
+      background: linear-gradient(270.03deg, #8f26f3 0.05%, #941a0b 100%);
     }
     @media screen and (max-width: 450px) {
       padding: 10px 0;
@@ -155,7 +168,7 @@ export const GetInTouchButton = styled.div`
     text-transform: uppercase;
     font-family: GraublauWeb;
     font-weight: 700;
-    color: #bc3a08;
+    color: #8f26f3;
     svg {
       margin-left: 10px;
     }
@@ -164,7 +177,7 @@ export const GetInTouchButton = styled.div`
       position: absolute;
       content: "";
       height: 1.5px;
-      background-color: #bc3a08;
+      background-color: #8f26f3;
       width: 100%;
       left: 0;
       bottom: -5px;

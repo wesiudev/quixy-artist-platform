@@ -25,10 +25,25 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app);
 // tattoo list
-async function getTattoos(websiteName) {
+let cachedTattoos = {};
+
+async function getTattoos(websiteName, count) {
+  if (cachedTattoos[websiteName]) {
+    const cachedTattoosCount = cachedTattoos[websiteName].length;
+    if (cachedTattoosCount >= count) {
+      return cachedTattoos[websiteName].slice(0, count);
+    }
+  }
+
   const docRef = doc(db, websiteName, "tattoos");
   const docSnap = await getDoc(docRef);
-  return docSnap.data();
+  const data = docSnap.data();
+  if (data) {
+    const tattoos = data.tattoos.slice(0, count);
+    cachedTattoos[websiteName] = tattoos;
+    return tattoos;
+  }
+  return null;
 }
 async function addTattoo(websiteName, tattooData) {
   const docRef = doc(db, websiteName, "tattoos");
@@ -46,6 +61,18 @@ async function deleteTattoo(websiteName, tattooData) {
   await updateDoc(docRef, {
     tattoos: arrayRemove(tattooData),
   });
+}
+async function updateTattoo(websiteName, tattooId, updatedTattoo) {
+  const docRef = doc(db, websiteName, "tattoos");
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    const tattoos = docSnap.data().tattoos;
+    const tattooIndex = tattoos.findIndex((tattoo) => tattoo.id === tattooId);
+    if (tattooIndex !== -1) {
+      tattoos[tattooIndex] = updatedTattoo;
+      await updateDoc(docRef, { tattoos });
+    }
+  }
 }
 // shop products
 async function getImages(websiteName) {
@@ -164,4 +191,5 @@ export {
   getTattoos,
   addTattoo,
   deleteTattoo,
+  updateTattoo,
 };

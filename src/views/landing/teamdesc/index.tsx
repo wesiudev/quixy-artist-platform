@@ -15,8 +15,8 @@ import { FaEnvelope, FaPhone } from "react-icons/fa";
 
 const TeamsDescPart = () => {
   return (
-    <TeamDescWrapper className="relative">
-      <div className="absolute -top-36  left-0 " id="contact"></div>
+    <TeamDescWrapper className="relative  !px-6 sm:px-0">
+      <div className="absolute -top-36  left-0" id="contact"></div>
       <TitleSection>
         <p className="teamdesc-title !text-left px-3 lg:px-0">
           Dane kontaktowe
@@ -34,24 +34,31 @@ const TeamsDescPart = () => {
             {" "}
             <b className="text-white opacity-20">blackbell.c.e</b>
           </Link>
-          <DescListTitle className="font-coco font-bold text-3xl">
+          <DescListTitle className="font-coco font-bold text-3xl pb-6">
             {"Eliza Czerwińska"}
+            <div className="w-[170px] h-auto mt-3 mx-auto md:mx-0">
+              <Image
+                src="/images/image/common/blackbellLogo.png"
+                width={200}
+                height={100}
+                alt=""
+                className=""
+              />
+            </div>
           </DescListTitle>
-          <DescListItem className="w-max mx-auto lg:mx-0 text-xl">
-            ART & TATTOO
-          </DescListItem>
+
           <Link
             className="w-max mx-auto lg:mx-0 text-left  text-white font-coco text-[16px] flex flex-row items-center text-xl"
             href="tel:570974740"
           >
-            <FaPhone className="mr-3 text-purple-500" />
+            <FaPhone className="mr-3 text-[#8f26f3]" />
             +48 570 974 740
           </Link>
           <Link
             className="w-max mx-auto lg:mx-0 text-left  text-white font-coco text-[16px] pt-[10px] flex flex-row items-center text-xl"
             href="mailto:eliza.czer09@gmail.com"
           >
-            <FaEnvelope className="mr-3 text-purple-500" />{" "}
+            <FaEnvelope className="mr-3 text-[#8f26f3]" />{" "}
             eliza.czer09@gmail.com
           </Link>
           {/* <LinkedInItem>
@@ -76,7 +83,7 @@ const TeamsDescPart = () => {
         </h4>
         <Link
           href="/shop"
-          className="bg-purple-500 text-white drop-shadow-md shadow-black text-3xl p-2 px-4 font-coco font-light hover:bg-purple-400 w-max mx-auto mt-6"
+          className="bg-[#8f26f3] text-white drop-shadow-md shadow-black text-3xl p-2 px-4 font-coco font-light hover:bg-purple-400 w-max mx-auto mt-6"
         >
           Sprawdź sklep
         </Link>

@@ -22,7 +22,7 @@ const CookieInfo = () => {
   return (
     <>
       <div
-        className={`rounded-xl fixed duration-500 delay-500 -translate-x-[50%]  left-[50%]  bg-white text-black p-6 lg:p-12 z-[5000] prose lg:prose-xl w-[80vw] lg:w-max scrollbar overflow-y-scroll font-coco ${
+        className={`rounded-xl fixed duration-500 delay-500 -translate-x-[50%]  left-[50%]  bg-white text-black p-6 lg:p-12 z-[5000] prose lg:prose-xl w-[80vw] lg:w-max font-coco ${
           showCookieInfo
             ? "-translate-y-[50%] scale-100 top-[50%]"
             : "-translate-y-[20%] scale-50 top-[100%]"
@@ -31,7 +31,7 @@ const CookieInfo = () => {
         <h1 className="text-lg font-bold mb-2">
           Strona Artystki Blackbell używa cookies
         </h1>
-        <p className="mb-2">
+        <p className="mb-2 !text-sm md:!text-lg lg:!text-xl">
           Używamy plików cookie w celu personalizacji treści i reklam,
           dostarczania funkcji mediów społecznościowych oraz analizowania ruchu
           na naszej stronie. Dzielmy się również informacjami na temat Twojego
@@ -46,19 +46,14 @@ const CookieInfo = () => {
         </div>
         <div className="flex justify-center items-center space-x-3">
           <button
-            className="bg-[#8f26f3] duration-100 text-white py-2 px-4 rounded"
+            className="bg-[#8f26f3] duration-100 text-white py-2 px-4 rounded w-full"
             onClick={handleAccept}
           >
             Akceptuj
           </button>
+
           <button
-            className="bg-[#8f26f3] duration-100 text-white py-2 px-4 rounded"
-            onClick={handleAccept}
-          >
-            Akceptuj tylko <br /> wymagane
-          </button>
-          <button
-            className="bg-[#8f26f3] duration-100 text-white py-2 px-4 rounded"
+            className="bg-[#8f26f3] duration-100 text-white py-2 px-4 rounded w-full"
             onClick={handleAccept}
           >
             Odrzuć

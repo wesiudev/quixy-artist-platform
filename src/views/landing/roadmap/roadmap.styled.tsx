@@ -65,6 +65,8 @@ export const RoadMapLine = styled.div`
       width: 80%;
     }
     ::after {
+      top: 10%;
+      left: 10%;
       position: absolute;
       content: "";
       width: 50%;

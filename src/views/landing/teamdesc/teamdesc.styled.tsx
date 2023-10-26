@@ -69,7 +69,7 @@ export const DescListItem = styled.div`
   display: flex;
   align-items: center;
   color: #f4f4f4;
-  padding: 10px 0;
+
   :before {
     margin-right: 15px;
 
