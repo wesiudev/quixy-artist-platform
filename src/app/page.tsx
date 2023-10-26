@@ -85,9 +85,12 @@ export default function Page() {
   }, [handleScroll]);
 
   return (
-    <div id="art" className="pt-[140px] transition duration-200 md:pt-50 ">
+    <div
+      id="art"
+      className="pt-[140px] transition duration-200 md:pt-50 overflow-x-hidden"
+    >
       <Header />
-      <div className="max-w-screen-lg w-full mx-auto ">
+      <div className="max-w-screen-lg md:w-9/12 lg:w-9/12 xl:w-full mx-auto ">
         <Loader />
         <CookieInfo />
         <IntroPart />
