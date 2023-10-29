@@ -17,8 +17,7 @@ export default function ContactForm() {
     message: "",
   });
   const [loading, setLoading] = useState(false);
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     const isValid = validateForm();
     if (isValid) {
       const res = await fetch(
@@ -96,10 +95,7 @@ export default function ContactForm() {
     );
   }
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="w-full p-6  mx-auto  mb-24 md:rounded-lg bg-form-img bg-cover bg-center font-coco"
-    >
+    <div className="w-full p-6  mx-auto  mb-24 md:rounded-lg bg-form-img bg-cover bg-center font-coco">
       <h1 className="text-3xl text-center text-white bg-[#282828] my-12 p-3 rounded-lg">
         Masz pomysł na tatuaż?
       </h1>
@@ -193,11 +189,16 @@ export default function ContactForm() {
         </div>
         <a
           href="#success"
+          onClick={() => handleSubmit()}
+          // disabled={loading || isSent}
           type="submit"
           className="disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-white-500 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           {isSent ? (
-            <span className="text-white">Wiadomość wysłana</span>
+            <div className="flex flex-row items-center">
+              <FaCheck className="mr-3 text-green-500 text-xl" />{" "}
+              <span className="text-white">Wiadomość wysłana</span>
+            </div>
           ) : (
             <>{loading ? "Ładowanie..." : "Wyślij"}</>
           )}
@@ -217,6 +218,6 @@ export default function ContactForm() {
           </>
         )}
       </div>
-    </form>
+    </div>
   );
 }
