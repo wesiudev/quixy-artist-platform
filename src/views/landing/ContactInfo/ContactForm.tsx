@@ -1,7 +1,7 @@
 import { storage } from "@/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import React, { useState } from "react";
-import { FaCheck, FaImage } from "react-icons/fa";
+import { FaCheck, FaImage, FaSmile, FaSmileBeam } from "react-icons/fa";
 import SpinningWheel from "./SpinningWheel";
 var randomId = require("random-id");
 export default function ContactForm() {
@@ -186,21 +186,31 @@ export default function ContactForm() {
           </div>
         </div>
         <button
+          disabled={isSent}
           type="submit"
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="disabled:bg-gray-500 disabled:text-white-500 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          Wyślij
+          {isSent ? (
+            <div className="flex flex-row items-center">
+              <FaCheck className="mr-3 text-green-500 text-xl" />{" "}
+              <span className="text-white">Wiadomość wysłana</span>
+            </div>
+          ) : (
+            "Wyślij"
+          )}
         </button>
       </div>
       <div
         className={`${
-          isSent ? "my-6 h-12 p-3" : "my-0 h-0 p-0"
+          isSent ? "my-6  p-3" : "my-0 p-0"
         }  duration-500 flex flex-row items-center  w-full justify-center bg-[#282828]  rounded-lg`}
       >
         {isSent && (
           <>
-            <FaCheck className="mr-3 text-green-500 text-xl" />{" "}
-            <span className="text-white"> Wiadomość wysłana pomyślnie.</span>
+            <span className="text-white text-center flex flex-row items-center justify-center font-light">
+              Dziękuję za wiadomość. Odezwę się niedługo!{" "}
+              <FaSmileBeam className="ml-3 text-yellow-400 text-2xl" />
+            </span>
           </>
         )}
       </div>

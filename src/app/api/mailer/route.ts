@@ -29,10 +29,10 @@ export async function POST(request: Request) {
           <p style="margin-bottom: 0;">${message}</p>
           ${
             chosenImg !== ""
-              ? `<p style="margin-bottom: 0;">Załączony obrazek:</p>`
-              : ""
+              ? `<p style="margin-bottom: 0;">Załączony obrazek:</p>
+                 <img src="${chosenImg}" alt="Załączony obrazek" style="width: 50%; height: auto; margin-top: 20px;margin:0 auto;">`
+              : `<p style="margin-bottom: 0;">Brak załączników</p>`
           }
-            ${`<img src="${chosenImg} alt="Brak załączonych obrazków" style="width: 50%; height: auto; margin-top: 20px;margin:0 auto;">`}
         </div>
         <img src="https://blackbellart.com/_ipx/w_640,q_75/%2Fimages%2Fimage%2Fcommon%2FblackbellLogo.png?url=%2Fimages%2Fimage%2Fcommon%2FblackbellLogo.png&w=640&q=75" alt="Blackbell Logo" style=" width: 300px; height: auto;margin:20px auto;">
 
