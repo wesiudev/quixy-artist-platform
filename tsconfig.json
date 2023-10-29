@@ -29,7 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/firebase/index.js",
-    "src/app/api/**/*.ts"
+    "src/app/api/**/*.ts",
+    "src/app/api/mailer/route.ts"
   ],
   "exclude": ["node_modules"]
 }

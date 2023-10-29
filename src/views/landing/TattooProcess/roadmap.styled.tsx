@@ -150,7 +150,7 @@ export const RoadMapCardGroup = styled.div`
   position: relative;
   .mobile-rm {
     position: relative;
-    width: calc(100% - 50px);
+    width: calc(100%);
   
 
   }

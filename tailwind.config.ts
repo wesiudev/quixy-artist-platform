@@ -14,6 +14,7 @@ const config: Config = {
         coco: ["var(--font-cocosharp)"],
       },
       backgroundImage: {
+        "form-img": "url('/images/bg-lines/form.png')",
         "hero-svg": "url('/images/bg-lines/hero-bg-line.svg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

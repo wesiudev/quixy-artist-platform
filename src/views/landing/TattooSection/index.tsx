@@ -85,12 +85,12 @@ const TeamsPart = () => {
     <TeamsWrapper className="relative">
       <TattooMap isOpen={popupOpen} setIsOpen={setPopupOpen} />
       <div id="tattoo" className="absolute -top-24 left-0 w-full"></div>
-      <TeamsIntroSection>
+      <TeamsIntroSection className=" px-6 md:px-0">
         <div className="flex flex-col text-left sm:text-center mx-auto ">
-          <h3 className="text-[#8f26f3] font-bold text-3xl sm:text-5xl md:text-6xl mb-6 px-3">
+          <h3 className="text-[#8f26f3] font-bold text-3xl sm:text-5xl md:text-6xl mb-6">
             WYKONUJĘ TATUAŻE
           </h3>
-          <h4 className="text-white font-coco px-3 text-left sm:text-center ">
+          <h4 className="text-white font-coco text-left sm:text-center ">
             Jestem elastycznym artystą, który wychodzi naprzeciw oczekiwaniom
             klientów, tworząc wzory na bieżąco, zgodnie z ich pomysłami i
             wyobrażeniami. Moja praca opiera się na współpracy i zrozumieniu

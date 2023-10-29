@@ -12,16 +12,18 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
+import ContactForm from "./ContactForm";
 
 const TeamsDescPart = () => {
   return (
-    <TeamDescWrapper className="relative  !px-6 sm:px-0">
+    <TeamDescWrapper className="relative  sm:px-0">
       <div className="absolute -top-36  left-0" id="contact"></div>
+      <ContactForm />
       <TitleSection>
-        <p className="teamdesc-title !text-left px-3 lg:px-0">
+        <p className="teamdesc-title !text-center px-3 lg:px-0">
           Dane kontaktowe
         </p>
-        <p className="font-coco text-xl  text-white font-light px-3 lg:px-0 text-left">
+        <p className="font-coco text-base md:text-xl  text-white font-light px-3 lg:px-0 !text-center">
           Jesteś zainteresowany projektem lub masz pytania dotyczące tatuażu?
           Poniżej udostępniam swoje dane kontaktowe. Możesz również skontaktować
           się ze mną za pośrednictwem mediów społecznościowych typu Instagram,
@@ -48,14 +50,14 @@ const TeamsDescPart = () => {
           </DescListTitle>
 
           <Link
-            className="w-max mx-auto lg:mx-0 text-left  text-white font-coco text-[16px] flex flex-row items-center text-xl"
+            className="text-left  text-white font-coco text-[16px] flex flex-row items-center text-xl"
             href="tel:570974740"
           >
             <FaPhone className="mr-3 text-[#8f26f3]" />
             +48 570 974 740
           </Link>
           <Link
-            className="w-max mx-auto lg:mx-0 text-left  text-white font-coco text-[16px] pt-[10px] flex flex-row items-center text-xl"
+            className=" text-left  text-white font-coco text-[16px] pt-[10px] flex flex-row items-center text-xl"
             href="mailto:eliza.czer09@gmail.com"
           >
             <FaEnvelope className="mr-3 text-[#8f26f3]" />{" "}
@@ -70,10 +72,10 @@ const TeamsDescPart = () => {
           width={1024}
           height={1024}
           alt="blackbell shop artist picture"
-          className="mt-12 rounded-xl"
+          className="mt-12 rounded-xl md:pl-3"
         />
       </DescContent>
-      <MorganSection className="w-[90vw] mx-auto lg:w-full !flex !flex-col !justify-center border-l-2 border-r-2 border-[#8f26f3] my-12 pb-12">
+      <MorganSection className="w-full !flex !flex-col !justify-center  border-[#8f26f3] my-12 pb-12">
         <h3 className="!text-3xl sm:!text-4xl ">obrazy na zamówienie</h3>
         <h4 className="font-coco text-white lg:px-36 text-center !px-3">
           Przekształcę Twoje pomysły w piękne dzieła sztuki. Jeśli jesteś

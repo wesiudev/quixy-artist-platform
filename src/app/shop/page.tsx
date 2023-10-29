@@ -6,6 +6,7 @@ import { FaEtsy, FaGithub, FaInstagram } from "react-icons/fa";
 
 export default async function Shop() {
   const products = await getShopProduct();
+
   return (
     <div className="min-h-screen bg-green-300 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
