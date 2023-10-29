@@ -2,6 +2,7 @@ import { storage } from "@/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import React, { useState } from "react";
 import { FaCheck, FaImage, FaSmile, FaSmileBeam } from "react-icons/fa";
+import { redirect } from "next/navigation";
 import SpinningWheel from "./SpinningWheel";
 var randomId = require("random-id");
 export default function ContactForm() {
@@ -38,6 +39,7 @@ export default function ContactForm() {
         setMessage("");
         setChosenImg("");
         setIsSent(true);
+        redirect("/#customer-form-completed");
       } else {
         alert("Coś poszło nie tak, spróbuj ponownie później");
       }
@@ -85,11 +87,13 @@ export default function ContactForm() {
     return isValid;
   };
   function handleImageUpload(img: File) {
+    setLoading(true);
     const randId = `image-${randomId(20, "aA0")}`;
     const imageRef = ref(storage, randId);
     uploadBytes(imageRef, img).then(() =>
       getDownloadURL(imageRef).then((url) => {
         setChosenImg(url);
+        setLoading(false);
       })
     );
   }
@@ -111,7 +115,7 @@ export default function ContactForm() {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow-sm shadow-black appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
           {errors.name && (
             <span className="text-red-500 text-sm">{errors.name}</span>
@@ -127,7 +131,7 @@ export default function ContactForm() {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow-sm shadow-black appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
           {errors.email && (
             <span className="text-red-500 text-sm">{errors.email}</span>
@@ -142,7 +146,7 @@ export default function ContactForm() {
           id="message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none"
+          className="shadow-sm shadow-black appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none"
           rows={5}
         />
         {errors.message && (
@@ -153,15 +157,15 @@ export default function ContactForm() {
         <div className="flex flex-row items-center justify-between mr-3">
           <div className="w-full">
             <input
+              disabled={isSent}
               id="image"
               type="file"
               accept="image/*"
+              onClick={() => {
+                chosenImg && setChosenImg("");
+              }}
               onChange={(event: any) => {
                 handleImageUpload(event.target.files[0]);
-                setLoading(true);
-                setTimeout(() => {
-                  setLoading(false);
-                }, 2000);
               }}
               className="hidden"
             />
@@ -179,16 +183,20 @@ export default function ContactForm() {
                   <FaCheck className="text-green-400 mr-2" />
                 )}
                 <span className="text-white font-bold">
-                  {chosenImg ? "Załączono obrazek" : "Dodaj wzór"}
+                  {chosenImg ? (
+                    "Załączono obrazek"
+                  ) : (
+                    <>{loading ? "" : "Dodaj wzór"}</>
+                  )}
                 </span>
               </div>
             </label>
           </div>
         </div>
         <button
-          disabled={isSent}
+          disabled={loading || isSent}
           type="submit"
-          className="disabled:bg-gray-500 disabled:text-white-500 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-white-500 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           {isSent ? (
             <div className="flex flex-row items-center">
@@ -196,7 +204,7 @@ export default function ContactForm() {
               <span className="text-white">Wiadomość wysłana</span>
             </div>
           ) : (
-            "Wyślij"
+            <>{loading ? "Ładowanie..." : "Wyślij"}</>
           )}
         </button>
       </div>
