@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { FaCheck, FaImage, FaSmile, FaSmileBeam } from "react-icons/fa";
 import { redirect } from "next/navigation";
 import SpinningWheel from "./SpinningWheel";
+import { useRouter } from "next/navigation";
 var randomId = require("random-id");
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -17,6 +18,7 @@ export default function ContactForm() {
     phone: "",
     message: "",
   });
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,7 +41,7 @@ export default function ContactForm() {
         setMessage("");
         setChosenImg("");
         setIsSent(true);
-        redirect("/#customer-form-completed");
+        router.push("/#success");
       } else {
         alert("Coś poszło nie tak, spróbuj ponownie później");
       }
@@ -99,6 +101,7 @@ export default function ContactForm() {
   }
   return (
     <form
+      id="success"
       onSubmit={handleSubmit}
       className="w-full p-6  mx-auto  mb-24 md:rounded-lg bg-form-img bg-cover bg-center font-coco"
     >
@@ -194,7 +197,7 @@ export default function ContactForm() {
           </div>
         </div>
         <button
-          disabled={loading || isSent}
+          // disabled={loading || isSent}
           type="submit"
           className="disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-white-500 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
