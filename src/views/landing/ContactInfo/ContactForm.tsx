@@ -21,14 +21,17 @@ export default function ContactForm() {
     e.preventDefault();
     const isValid = validateForm();
     if (isValid) {
-      const res = await fetch("/api/mailer", {
-        method: "POST",
-        body: JSON.stringify({ name, email, message, chosenImg }),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      }).then((res) => res.json());
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SITE_URL}/api/mailer`,
+        {
+          method: "POST",
+          body: JSON.stringify({ name, email, message, chosenImg }),
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      ).then((res) => res.json());
       if (res?.message?.accepted?.length > 0) {
         setName("");
         setEmail("");
@@ -184,7 +187,7 @@ export default function ContactForm() {
         </div>
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Wyślij
         </button>
