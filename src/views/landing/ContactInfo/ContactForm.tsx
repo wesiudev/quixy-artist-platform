@@ -1,10 +1,8 @@
 import { storage } from "@/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import React, { useState } from "react";
-import { FaCheck, FaImage, FaSmile, FaSmileBeam } from "react-icons/fa";
-import { redirect } from "next/navigation";
+import { FaCheck, FaImage, FaSmileBeam } from "react-icons/fa";
 import SpinningWheel from "./SpinningWheel";
-import { useRouter } from "next/navigation";
 var randomId = require("random-id");
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -18,7 +16,6 @@ export default function ContactForm() {
     phone: "",
     message: "",
   });
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,7 +38,6 @@ export default function ContactForm() {
         setMessage("");
         setChosenImg("");
         setIsSent(true);
-        router.push("#success");
       } else {
         alert("Coś poszło nie tak, spróbuj ponownie później");
       }
@@ -101,7 +97,6 @@ export default function ContactForm() {
   }
   return (
     <form
-      id="success"
       onSubmit={handleSubmit}
       className="w-full p-6  mx-auto  mb-24 md:rounded-lg bg-form-img bg-cover bg-center font-coco"
     >
@@ -196,20 +191,17 @@ export default function ContactForm() {
             </label>
           </div>
         </div>
-        <button
-          // disabled={loading || isSent}
+        <a
+          href="#success"
           type="submit"
           className="disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-white-500 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           {isSent ? (
-            <div className="flex flex-row items-center">
-              <FaCheck className="mr-3 text-green-500 text-xl" />{" "}
-              <span className="text-white">Wiadomość wysłana</span>
-            </div>
+            <span className="text-white">Wiadomość wysłana</span>
           ) : (
             <>{loading ? "Ładowanie..." : "Wyślij"}</>
           )}
-        </button>
+        </a>
       </div>
       <div
         className={`${
