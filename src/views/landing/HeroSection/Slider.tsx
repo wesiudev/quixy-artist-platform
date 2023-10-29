@@ -33,7 +33,7 @@ const Slider = () => {
         <SwiperSlide>
           {({ isActive }) => (
             <Image
-              src={`${imgSrc}/1.png`}
+              src={`${imgSrc}/1.webp`}
               alt="slide_image"
               width={470}
               height={790}
@@ -46,7 +46,7 @@ const Slider = () => {
         <SwiperSlide>
           {({ isActive }) => (
             <Image
-              src={`${imgSrc}/2.png`}
+              src={`${imgSrc}/2.webp`}
               alt="slide_image"
               width={470}
               height={790}
@@ -59,7 +59,7 @@ const Slider = () => {
         <SwiperSlide>
           {({ isActive }) => (
             <Image
-              src={`${imgSrc}/3.png`}
+              src={`${imgSrc}/3.webp`}
               alt="slide_image"
               width={470}
               height={790}
@@ -72,7 +72,7 @@ const Slider = () => {
         <SwiperSlide>
           {({ isActive }) => (
             <Image
-              src={`${imgSrc}/4.png`}
+              src={`${imgSrc}/4.webp`}
               alt="slide_image"
               width={470}
               height={790}
@@ -82,21 +82,21 @@ const Slider = () => {
             />
           )}
         </SwiperSlide>
-        {/* <SwiperSlide>
+        <SwiperSlide>
           {({ isActive }) => (
             <Image
-              src={`${imgSrc}/5.png`}
+              src={`${imgSrc}/5.webp`}
               alt="slide_image"
               width={470}
               height={790}
               className={`${isActive ? "scale-105" : "blur-sm"} duration-1000 `}
             />
           )}
-        </SwiperSlide> */}
-        {/* <SwiperSlide>
+        </SwiperSlide>
+        <SwiperSlide>
           {({ isActive }) => (
             <Image
-              src={`${imgSrc}/6.png`}
+              src={`${imgSrc}/6.webp`}
               alt="slide_image"
               width={470}
               height={790}
@@ -105,11 +105,11 @@ const Slider = () => {
               } duration-1000 max-h-[50vh]`}
             />
           )}
-        </SwiperSlide> */}
+        </SwiperSlide>
         <SwiperSlide>
           {({ isActive }) => (
             <Image
-              src={`${imgSrc}/7.png`}
+              src={`${imgSrc}/7.webp`}
               alt="slide_image"
               width={470}
               height={790}
@@ -122,7 +122,7 @@ const Slider = () => {
         <SwiperSlide>
           {({ isActive }) => (
             <Image
-              src={`${imgSrc}/8.png`}
+              src={`${imgSrc}/8.webp`}
               alt="slide_image"
               width={470}
               height={790}
@@ -132,19 +132,7 @@ const Slider = () => {
             />
           )}
         </SwiperSlide>
-        {/* <SwiperSlide>
-          {({ isActive }) => (
-            <Image
-              src={`${imgSrc}/9.png`}
-              alt="slide_image"
-              width={470}
-              height={790}
-              className={`${
-                isActive ? "scale-105" : "blur-sm"
-              } duration-1000 max-h-[50vh]`}
-            />
-          )}
-        </SwiperSlide> */}
+
         <div className="slider-controler">
           <div className="swiper-button-prev slider-arrow text-white text-2xl font-bold">
             <BsChevronLeft />

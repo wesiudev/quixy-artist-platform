@@ -68,7 +68,7 @@ const TeamsDescPart = () => {
           </LinkedInItem> */}
         </DescList>
         <Image
-          src="/images/image/common/blackbell.jpg"
+          src="/images/image/common/blackbell.webp"
           width={1024}
           height={1024}
           alt="blackbell shop artist picture"

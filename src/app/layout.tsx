@@ -1,6 +1,7 @@
 import "../assets/globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Providers } from "../../redux/Provider";
 
 export const metadata: Metadata = {
   viewport: "width=device-width, initial-scale=1",
@@ -96,7 +97,9 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${cocosharp.variable} bg-[#1d1d1d] `}>{children}</body>
+      <body className={`${cocosharp.variable} bg-[#1d1d1d] `}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

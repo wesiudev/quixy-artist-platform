@@ -4,26 +4,14 @@ import {
   CommunitySection,
   CommunityWrapper,
   FormInputWrapper,
-  GetInTouchButton,
-  GetInTouchForm,
   JoinDescSection,
   LinkButton,
   LinkGroup,
   LinkItem,
 } from "./community.styled";
 
-import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { FaEtsy, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import PrivacyPolicy from "./PrivacyPolicy";
-
-const FormInput = ({ label, value, onChange, name }: any) => {
-  return (
-    <FormInputWrapper>
-      <span>{label}</span>
-      <input value={value} onChange={onChange} name={name} />
-    </FormInputWrapper>
-  );
-};
 
 const CommunityPart = () => {
   const [isPrivacyOpen, setPrivacyOpen] = useState(false);

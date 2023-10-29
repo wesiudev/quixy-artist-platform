@@ -11,6 +11,8 @@ import { Footer, Header } from "@/layouts";
 import CookieInfo from "@/components/cookies/CookieInfo";
 import Loader from "@/components/loader/Loader";
 import { Tattoo } from "@/types";
+import { useDispatch, useSelector } from "react-redux";
+import { setTattoos } from "../../redux/slices/tattoosSlice";
 
 export default function Page() {
   const [y, setY] = useState(0);
@@ -83,14 +85,24 @@ export default function Page() {
       window.removeEventListener("resize", () => {});
     };
   }, [handleScroll]);
-
+  const dispatch = useDispatch();
+  const tattoos: Tattoo[] = useSelector((state: any) => state.tattoos);
+  useEffect(() => {
+    if (tattoos.length === 0) {
+      fetch(`/api/tattoo`)
+        .then((res) => res.json())
+        .then((data) => {
+          dispatch(setTattoos(data));
+        });
+    }
+  }, []);
   return (
     <div
       id="art"
       className="pt-[140px] transition duration-200 md:pt-50 overflow-x-hidden"
     >
       <Header />
-      <div className="max-w-screen-lg md:w-9/12 lg:w-9/12 xl:w-full mx-auto ">
+      <div className="max-w-screen-lg md:w-9/12 xl:w-full mx-auto ">
         <Loader />
         <CookieInfo />
         <IntroPart />

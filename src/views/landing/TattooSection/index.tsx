@@ -22,7 +22,7 @@ const MemberCard = (props: any) => {
           src={props.img}
           width={300}
           height={500}
-          alt="mem1"
+          alt={`${props.alt} ${props.name}`}
           className="h-[90%] w-auto -translate-x-[50%] -translate-y-[50%] left-[50%] top-[50%] hover:scale-[2] duration-1000 delay-200 ease-in"
         />
       </MemberImgWrapper>
@@ -107,48 +107,54 @@ const TeamsPart = () => {
       </TeamsIntroSection>
       <MemberSection>
         <MemberCard
-          img="/images/image/team/mem1.png"
+          img="/images/image/team/tatuaz-blackbellart-grudziadz1.webp"
           id="mem1"
           dir={1}
           name="Faun"
           role="&copy;Blackbell Tattoo"
+          alt="BlackbellArt Grudziądz Tatuaże - "
         />
         <MemberCard
-          img="/images/image/team/mem2.png"
+          img="/images/image/team/tatuaz-blackbellart-grudziadz2.webp"
           dir={0}
           id="mem2"
           name="Ostrze Wikinga"
           align="right"
           role="&copy;Blackbell Tattoo"
+          alt="BlackbellArt Grudziądz Tatuaże - "
         />
         <MemberCard
-          img="/images/image/team/mem3.png"
+          img="/images/image/team/tatuaz-blackbellart-grudziadz3.webp"
           id="mem3"
           dir={1}
           name="Oko opatrznosci"
           role="&copy;Blackbell Tattoo"
+          alt="BlackbellArt Grudziądz Tatuaże - "
         />
         <MemberCard
-          img="/images/image/team/mem4.png"
+          img="/images/image/team/tatuaz-blackbellart-grudziadz4.webp"
           dir={mobile ? 0 : 1}
           id="mem4"
           align="left"
           name="Trójoki pajak"
           role="&copy;Blackbell Tattoo"
+          alt="BlackbellArt Grudziądz Tatuaże - "
         />
         <MemberCard
-          img="/images/image/team/mem5.png"
+          img="/images/image/team/tatuaz-blackbellart-grudziadz5.webp"
           id="mem5"
           dir={mobile ? 1 : 0}
           name="Posejdon"
           role="&copy;Blackbell Tattoo"
+          alt="BlackbellArt Grudziądz Tatuaże - "
         />
         <MemberCard
-          img="/images/image/team/mem6.png"
+          img="/images/image/team/tatuaz-blackbellart-grudziadz6.webp"
           id="mem6"
           dir={mobile ? 0 : 1}
           name="Tom z Blantem"
           role="&copy;Blackbell Tattoo"
+          alt="BlackbellArt Grudziądz Tatuaże - "
         />
       </MemberSection>
       <TeamsTitles>

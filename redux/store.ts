@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import appState from "./slices/appState";
+
+import tattoosReducer from "./slices/tattoosSlice"; // import the new reducer
 
 export const store = configureStore({
   reducer: {
-    appState: appState,
+    tattoos: tattoosReducer, // add the new reducer to the store
   },
 });
 
