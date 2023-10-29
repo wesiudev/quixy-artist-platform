@@ -28,10 +28,11 @@ export async function POST(request: Request) {
         <div style="background-color:#fff; padding: 10px 20px 20px 20px; border-radius: 5px;color:black;">
           <p style="margin-bottom: 0;">${message}</p>
           ${
-            chosenImg &&
-            `<p style="margin-bottom: 0;">Załączony obrazek:</p>
-          <img src="${chosenImg} alt="Brak załączonych obrazków" style="width: 50%; height: auto; margin-top: 20px;margin:0 auto;">`
+            chosenImg !== undefined
+              ? `<p style="margin-bottom: 0;">Załączony obrazek:</p>`
+              : ""
           }
+            ${`<img src="${chosenImg} alt="Brak załączonych obrazków" style="width: 50%; height: auto; margin-top: 20px;margin:0 auto;">`}
         </div>
         <img src="https://blackbellart.com/_ipx/w_640,q_75/%2Fimages%2Fimage%2Fcommon%2FblackbellLogo.png?url=%2Fimages%2Fimage%2Fcommon%2FblackbellLogo.png&w=640&q=75" alt="Blackbell Logo" style=" width: 300px; height: auto;margin:20px auto;">
 
@@ -39,5 +40,11 @@ export async function POST(request: Request) {
     `,
   });
 
-  return NextResponse.json({ message: info });
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+
+  return new Response(JSON.stringify({ message: info }), { headers });
 }
