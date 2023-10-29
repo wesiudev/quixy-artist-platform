@@ -28,7 +28,7 @@ export async function POST(request: Request) {
         <div style="background-color:#fff; padding: 10px 20px 20px 20px; border-radius: 5px;color:black;">
           <p style="margin-bottom: 0;">${message}</p>
           ${
-            chosenImg !== undefined
+            chosenImg !== ""
               ? `<p style="margin-bottom: 0;">Załączony obrazek:</p>`
               : ""
           }
@@ -40,11 +40,5 @@ export async function POST(request: Request) {
     `,
   });
 
-  const headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
-  };
-
-  return new Response(JSON.stringify({ message: info }), { headers });
+  return NextResponse.json({ message: info });
 }
