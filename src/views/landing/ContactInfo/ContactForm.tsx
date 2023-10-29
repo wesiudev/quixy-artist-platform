@@ -41,7 +41,7 @@ export default function ContactForm() {
         setMessage("");
         setChosenImg("");
         setIsSent(true);
-        router.push("/#success");
+        router.push("#success");
       } else {
         alert("Coś poszło nie tak, spróbuj ponownie później");
       }
