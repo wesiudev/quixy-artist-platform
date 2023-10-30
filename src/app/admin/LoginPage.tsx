@@ -1,7 +1,7 @@
 "use client";
 import { auth } from "@/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import Link from "next/link";
+
 import { useState } from "react";
 
 export default function LoginPage() {

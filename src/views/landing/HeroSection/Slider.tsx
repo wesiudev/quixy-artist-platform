@@ -33,19 +33,6 @@ const Slider = () => {
         <SwiperSlide>
           {({ isActive }) => (
             <Image
-              src={`${imgSrc}/1.webp`}
-              alt="slide_image"
-              width={470}
-              height={790}
-              className={`${
-                isActive ? "scale-105" : "blur-sm"
-              } scale-105 duration-1000  max-w-[80vw] `}
-            />
-          )}
-        </SwiperSlide>
-        <SwiperSlide>
-          {({ isActive }) => (
-            <Image
               src={`${imgSrc}/2.webp`}
               alt="slide_image"
               width={470}
@@ -53,6 +40,19 @@ const Slider = () => {
               className={`${
                 isActive ? "scale-105" : "blur-sm"
               } duration-1000  max-w-[80vw]`}
+            />
+          )}
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          {({ isActive }) => (
+            <Image
+              src={`${imgSrc}/1.webp`}
+              alt="slide_image"
+              width={470}
+              height={790}
+              className={`${
+                isActive ? "scale-105" : "blur-sm"
+              } scale-105 duration-1000  max-w-[80vw] `}
             />
           )}
         </SwiperSlide>
@@ -102,7 +102,7 @@ const Slider = () => {
               height={790}
               className={`${
                 isActive ? "scale-105" : "blur-sm"
-              } duration-1000 max-h-[50vh]`}
+              } duration-1000 max-h-[80vh]`}
             />
           )}
         </SwiperSlide>
@@ -132,7 +132,6 @@ const Slider = () => {
             />
           )}
         </SwiperSlide>
-
         <div className="slider-controler">
           <div className="swiper-button-prev slider-arrow text-white text-2xl font-bold">
             <BsChevronLeft />

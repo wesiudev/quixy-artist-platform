@@ -53,15 +53,17 @@ export default function EditTattoo({
                 !chosenImg && "flex-col"
               }`}
             >
-              <Image
-                src={selectedTattoo.projectSrc}
-                width={512}
-                height={512}
-                alt=""
-                className={`${
-                  isLoading ? "blur-sm" : "blur-none"
-                } duration-500 h-[300px] w-auto mt-12 mx-auto border-8 border-orange-500 rounded-xl bg-orange-300 mb-12`}
-              />
+              {selectedTattoo.projectSrc && (
+                <Image
+                  src={selectedTattoo.projectSrc}
+                  width={512}
+                  height={512}
+                  alt=""
+                  className={`${
+                    isLoading ? "blur-sm" : "blur-none"
+                  } duration-500 h-[300px] w-auto mt-12 mx-auto border-8 border-orange-500 rounded-xl bg-orange-300 mb-12`}
+                />
+              )}
               {chosenImg !== "" ? (
                 <div className="h-full w-full bg-gray-400 text-white flex flex-col items-center justify-center">
                   <input
@@ -79,15 +81,19 @@ export default function EditTattoo({
                   />
                 </div>
               ) : (
-                <Image
-                  src={chosenImg ? URL.createObjectURL(chosenImg) : ""}
-                  width={512}
-                  height={512}
-                  alt=""
-                  className={`${
-                    isLoading ? "blur-sm" : "blur-none"
-                  } duration-500 h-[300px] w-auto mt-12 mx-auto border-8 border-green-500 rounded-xl bg-green-300`}
-                />
+                <>
+                  {chosenImg && (
+                    <Image
+                      src={chosenImg ? URL.createObjectURL(chosenImg) : ""}
+                      width={512}
+                      height={512}
+                      alt=""
+                      className={`${
+                        isLoading ? "blur-sm" : "blur-none"
+                      } duration-500 h-[300px] w-auto mt-12 mx-auto border-8 border-green-500 rounded-xl bg-green-300`}
+                    />
+                  )}
+                </>
               )}
             </div>
           </div>

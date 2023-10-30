@@ -144,7 +144,7 @@ const TeamsPart = () => {
           img="/images/image/team/tatuaz-blackbellart-grudziadz5.webp"
           id="mem5"
           dir={mobile ? 1 : 0}
-          name="Posejdon"
+          name="Syrena"
           role="&copy;Blackbell Tattoo"
           alt="BlackbellArt Grudziądz Tatuaże - "
         />

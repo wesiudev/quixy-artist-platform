@@ -33,8 +33,8 @@ const bodyParts = [
   "Łokieć",
 ];
 export default function UploadImage({ tattoos }: any) {
-  const [chosenImg, setChosenImg] = useState<any>();
-  const [chosenWorkImg, setChosenWorkImg] = useState<any>();
+  const [chosenImg, setChosenImg] = useState<any>("");
+  const [chosenWorkImg, setChosenWorkImg] = useState<any>("");
   const [justAdded, setJustAdded] = useState<any[]>([]);
   const [startDelete, setStartDelete] = useState("");
   const [justDeleted, setJustDeleted] = useState<any[]>([]);
@@ -98,7 +98,7 @@ export default function UploadImage({ tattoos }: any) {
   return (
     <div className="relative">
       <div
-        className={`z-[9999] h-[70vh] overflow-y-scroll w-[90vw] scrollbar fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] bg-slate-700 rounded-xl  duration-500 ${
+        className={`z-[9999] h-[90vh] overflow-y-scroll w-[90vw] scrollbar fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] bg-slate-700 rounded-xl  duration-500 ${
           selectedTattoo.projectSrc !== ""
             ? "scale-100 bg-opacity-90"
             : "scale-0 bg-opacity-0"
@@ -111,7 +111,7 @@ export default function UploadImage({ tattoos }: any) {
         />
       </div>
       <div
-        className={`z-[9999] h-[70vh] overflow-y-scroll w-[90vw] scrollbar fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] bg-slate-700 rounded-xl  duration-500 ${
+        className={`z-[9999] h-[90vh] overflow-y-scroll w-[90vw] scrollbar fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] bg-slate-700 rounded-xl  duration-500 ${
           chosenImg ? "scale-100 bg-opacity-90" : "scale-0 bg-opacity-0"
         }`}
       >
@@ -122,15 +122,17 @@ export default function UploadImage({ tattoos }: any) {
             </h1>
             <div className="flex flex-row w-full space-x-12 items-center justify-center">
               <div className="">
-                <Image
-                  src={chosenImg ? URL.createObjectURL(chosenImg) : ""}
-                  width={512}
-                  height={512}
-                  alt=""
-                  className={`${
-                    isLoading ? "blur-sm" : "blur-none"
-                  } duration-500 h-[300px] w-auto mt-12 mx-auto border-8 border-green-500 rounded-xl bg-green-300`}
-                />
+                {chosenImg !== "" && (
+                  <Image
+                    src={chosenImg ? URL.createObjectURL(chosenImg) : ""}
+                    width={512}
+                    height={512}
+                    alt=""
+                    className={`${
+                      isLoading ? "blur-sm" : "blur-none"
+                    } duration-500 h-[300px] w-auto mt-12 mx-auto border-8 border-green-500 rounded-xl bg-green-300`}
+                  />
+                )}
               </div>
               <div className="">
                 {!imageUrls[1] ? (
@@ -150,17 +152,23 @@ export default function UploadImage({ tattoos }: any) {
                     />
                   </div>
                 ) : (
-                  <Image
-                    src={
-                      chosenWorkImg ? URL.createObjectURL(chosenWorkImg) : ""
-                    }
-                    width={512}
-                    height={512}
-                    alt=""
-                    className={`${
-                      isLoading ? "blur-sm" : "blur-none"
-                    } duration-500 h-[300px] w-auto mt-12 mx-auto border-8 border-green-500 rounded-xl bg-green-300`}
-                  />
+                  <>
+                    {chosenWorkImg !== "" && (
+                      <Image
+                        src={
+                          chosenWorkImg
+                            ? URL.createObjectURL(chosenWorkImg)
+                            : ""
+                        }
+                        width={512}
+                        height={512}
+                        alt=""
+                        className={`${
+                          isLoading ? "blur-sm" : "blur-none"
+                        } duration-500 h-[300px] w-auto mt-12 mx-auto border-8 border-green-500 rounded-xl bg-green-300`}
+                      />
+                    )}
+                  </>
                 )}
               </div>
             </div>
@@ -314,8 +322,8 @@ export default function UploadImage({ tattoos }: any) {
         Wszystkie tatuaże
       </h1>
       <div className="flex flex-row flex-wrap h-max bg-rose-200">
-        {tattoos?.length > 0 &&
-          tattoos.map((tattoo: Tattoo, i: any) => (
+        {tattoos?.tattoos.length > 0 &&
+          tattoos.tattoos.map((tattoo: Tattoo, i: any) => (
             <div
               onClick={() => setSelectedTattoo(tattoo)}
               className={`flex flex-col relative h-max ${
@@ -353,14 +361,16 @@ export default function UploadImage({ tattoos }: any) {
                   </div>
                 </div>
               )}
-              <Image
-                className={`max-h-[300px] w-auto space-x-3 bg-gray-300 `}
-                width={1024}
-                height={1024}
-                src={tattoo.projectSrc}
-                alt=""
-                key={i}
-              />
+              {tattoo.projectSrc && (
+                <Image
+                  className={`max-h-[300px] w-auto space-x-3 bg-gray-300 `}
+                  width={1024}
+                  height={1024}
+                  src={tattoo.projectSrc}
+                  alt=""
+                  key={i}
+                />
+              )}
               <button
                 onClick={() => setStartDelete(tattoo.id!)}
                 className="w-3/4 bg-opacity-75 hover:bg-opacity-100 duration-200 absolute bottom-3 left-[50%] -translate-x-[50%] z-50 py-3 text-white font-bold text-xl bg-red-500 hover:bg-red-400 rounded-md"
