@@ -2,6 +2,7 @@ import "../assets/globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Providers } from "../../redux/Provider";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   viewport: "width=device-width, initial-scale=1",
@@ -99,6 +100,19 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${cocosharp.variable} bg-[#1d1d1d] `}>
         <Providers>{children}</Providers>
+        <Script
+          strategy="afterInteractive"
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1CSY7FWMBY"
+        />
+        <Script strategy="afterInteractive" id="google-analytics">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-1CSY7FWMBY');
+          `}
+        </Script>
       </body>
     </html>
   );
