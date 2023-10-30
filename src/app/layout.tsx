@@ -98,7 +98,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${cocosharp.variable} bg-[#1d1d1d] `}>
+      <body className={`${cocosharp.variable} bg-[#1d1d1d]`}>
         <Providers>{children}</Providers>
         <Script
           strategy="afterInteractive"
