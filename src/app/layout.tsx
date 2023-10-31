@@ -100,11 +100,8 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${cocosharp.variable} bg-[#1d1d1d]`}>
         <Providers>{children}</Providers>
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=GT-WRDF58Q"
-        />
-        <Script strategy="afterInteractive" id="google-analytics">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=GT-WRDF58Q" />
+        <Script id="google-analytics">
           {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
