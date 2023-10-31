@@ -102,14 +102,14 @@ export default async function RootLayout({
         <Providers>{children}</Providers>
         <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-11391120305"
+          src="https://www.googletagmanager.com/gtag/js?id=GT-WRDF58Q"
         />
         <Script strategy="afterInteractive" id="google-analytics">
           {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'AW-11391120305');
+              gtag('config', 'GT-WRDF58Q');
           `}
         </Script>
       </body>
