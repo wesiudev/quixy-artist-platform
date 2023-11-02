@@ -49,16 +49,15 @@ export const metadata: Metadata = {
       type: "image/png",
     },
   ],
-  title: "Tatuaż Grudziądz i okolice | Sztuka na zamówienie | BlackbellArt.com",
+  title: "Studio Tatuażu Blackbell - Umów się na tatuaż - BlackbellArt.com",
   description:
-    "Cześć! Wykonuję tatuaże na terenie Grudziądza i okolic. Posiadam małe studio w którym Cię ugoszczę. Szukasz sztuki na zamówienie? Mam niemałe portfolio artystyczne, które zobaczysz na mojej stronie.",
+    "Studio Tatuażu w Grudziądzu. Wejdź na stronę, aby przeglądać wzory, umówić się na tatuaż lub dowiedzieć się więcej.",
   openGraph: {
     type: "website",
     url: "https://blackbellart.com",
-    title:
-      "Tatuaż Grudziądz i okolice | Sztuka na zamówienie | BlackbellArt.com",
+    title: "Studio Tatuażu Blackbell - Umów się na tatuaż - BlackbellArt.com",
     description:
-      "Cześć! Wykonuję tatuaże na terenie Grudziądza i okolic. Posiadam małe studio w którym Cię ugoszczę. Szukasz sztuki na zamówienie? Mam niemałe portfolio artystyczne, które zobaczysz na mojej stronie.",
+      "Studio Tatuażu w Grudziądzu. Wejdź na stronę, aby przeglądać wzory, umówić się na tatuaż lub dowiedzieć się więcej.",
     siteName: "Black Bell Tattoo & Art",
     images: [
       {
