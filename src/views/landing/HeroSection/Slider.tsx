@@ -38,8 +38,8 @@ const Slider = () => {
               width={470}
               height={790}
               className={`${
-                isActive ? "scale-105" : "blur-sm"
-              } duration-1000  max-w-[80vw]`}
+                isActive && "scale-125"
+              } duration-1000 max-h-[50vh]`}
             />
           )}
         </SwiperSlide>{" "}
@@ -50,9 +50,9 @@ const Slider = () => {
               alt="slide_image"
               width={470}
               height={790}
-              className={`${
-                isActive ? "scale-105" : "blur-sm"
-              } scale-105 duration-1000  max-w-[80vw] `}
+              className={` ${
+                isActive && "scale-125"
+              } duration-1000 max-h-[50vh]`}
             />
           )}
         </SwiperSlide>
@@ -63,9 +63,9 @@ const Slider = () => {
               alt="slide_image"
               width={470}
               height={790}
-              className={`${
-                isActive ? "scale-105" : "blur-sm"
-              } duration-1000  max-w-[80vw]  `}
+              className={` ${
+                isActive && "scale-125"
+              } duration-1000 max-h-[50vh]`}
             />
           )}
         </SwiperSlide>
@@ -77,8 +77,8 @@ const Slider = () => {
               width={470}
               height={790}
               className={`${
-                isActive ? "scale-105" : "blur-sm"
-              } duration-1000  max-w-[80vw]  `}
+                isActive && "scale-125"
+              } duration-1000 max-h-[50vh]`}
             />
           )}
         </SwiperSlide>
@@ -89,7 +89,9 @@ const Slider = () => {
               alt="slide_image"
               width={470}
               height={790}
-              className={`${isActive ? "scale-105" : "blur-sm"} duration-1000 `}
+              className={`${
+                isActive && "scale-125"
+              } duration-1000 max-h-[50vh]`}
             />
           )}
         </SwiperSlide>
@@ -101,8 +103,8 @@ const Slider = () => {
               width={470}
               height={790}
               className={`${
-                isActive ? "scale-105" : "blur-sm"
-              } duration-1000 max-h-[80vh]`}
+                isActive && "scale-125"
+              } duration-1000 max-h-[50vh]`}
             />
           )}
         </SwiperSlide>
@@ -114,8 +116,8 @@ const Slider = () => {
               width={470}
               height={790}
               className={`${
-                isActive ? "scale-105" : "blur-sm"
-              } duration-1000 max-w-[80vw]  `}
+                isActive && "scale-125"
+              } duration-1000 max-h-[50vh]`}
             />
           )}
         </SwiperSlide>
@@ -127,8 +129,8 @@ const Slider = () => {
               width={470}
               height={790}
               className={`${
-                isActive ? "scale-105" : "blur-sm"
-              } duration-1000 max-w-[80vw] `}
+                isActive && "scale-125"
+              } duration-1000 max-h-[50vh]`}
             />
           )}
         </SwiperSlide>

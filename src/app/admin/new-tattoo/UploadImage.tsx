@@ -100,7 +100,7 @@ export default function UploadImage({ tattoos }: any) {
       <div
         className={`z-[9999] h-[90vh] overflow-y-scroll w-[90vw] scrollbar fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] bg-slate-700 rounded-xl  duration-500 ${
           selectedTattoo.projectSrc !== ""
-            ? "scale-100 bg-opacity-90"
+            ? "scale-100 bg-opacity-100"
             : "scale-0 bg-opacity-0"
         }`}
       >

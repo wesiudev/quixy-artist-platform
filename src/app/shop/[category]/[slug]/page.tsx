@@ -11,6 +11,14 @@ export async function generateStaticParams() {
   }));
 }
 
+export const dynamicParams = false;
+
+export default async function Page({ params }: { params: ArtworkData }) {
+  const product = await getShopProduct(params.category, params.slug);
+
+  if (product) return <></>;
+}
+
 export async function generateMetadata({ params }: { params: any }) {
   // fetch data
   const product = await getShopProduct(params.category, params.slug);
@@ -73,12 +81,4 @@ export async function generateMetadata({ params }: { params: any }) {
         ],
       },
     };
-}
-
-export const dynamicParams = false;
-
-export default async function Page({ params }: { params: ArtworkData }) {
-  const product = await getShopProduct(params.category, params.slug);
-
-  if (product) return <></>;
 }

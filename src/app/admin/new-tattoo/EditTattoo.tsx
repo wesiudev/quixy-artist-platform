@@ -41,13 +41,8 @@ export default function EditTattoo({
             WYŁONCZ
           </button>
           <div className="flex flex-col items-center justify-center w-full p-12">
-            <h1 className="text-3xl text-white">
-              Aktualizujesz {selectedTattoo.title}
-            </h1>
-            <h2 className="text-xl text-yellow-400">
-              {" "}
-              {selectedTattoo.description}
-            </h2>
+            <h1 className="text-3xl text-white">Aktualizujesz tatuaż</h1>
+
             <div
               className={`flex flex-row items-center ${
                 !chosenImg && "flex-col"
@@ -65,7 +60,7 @@ export default function EditTattoo({
                 />
               )}
               {chosenImg !== "" ? (
-                <div className="h-full w-full bg-gray-400 text-white flex flex-col items-center justify-center">
+                <div className="h-full w-full bg-gray-400 text-white flex flex-row items-center justify-center">
                   <input
                     className="w-full h-24 relative before:left-0 top-0 before:absolute before:h-full before:w-full before:bg-gray-500 before:text-white before:text-3xl before:text-center before:flex before:items-center before:justify-center  before:content-['DODAJ_GOTOWY']"
                     type="file"
@@ -95,6 +90,82 @@ export default function EditTattoo({
                   )}
                 </>
               )}
+            </div>
+            <div className="mt-12">
+              <div className="flex flex-col  items-center space-y-3">
+                <label
+                  htmlFor="description"
+                  className="text-lg text-white font-medium mb-2 w-full"
+                >
+                  Description
+                </label>
+                <input
+                  type="text"
+                  id="description"
+                  name="description"
+                  value={selectedTattoo.description}
+                  onChange={(e) =>
+                    setSelectedTattoo({
+                      ...selectedTattoo,
+                      description: e.target.value,
+                    })
+                  }
+                  className="border border-gray-400 p-2 rounded-lg mb-4 min-w-[500px]"
+                />
+
+                <label
+                  htmlFor="meaning"
+                  className="text-lg text-white font-medium mb-2 w-full"
+                >
+                  Meaning
+                </label>
+                <input
+                  type="text"
+                  id="meaning"
+                  name="meaning"
+                  value={selectedTattoo.meaning}
+                  onChange={(e) =>
+                    setSelectedTattoo({
+                      ...selectedTattoo,
+                      meaning: e.target.value,
+                    })
+                  }
+                  className="border border-gray-400 p-2 rounded-lg mb-4 min-w-[500px]"
+                />
+
+                <label
+                  htmlFor="title"
+                  className="text-lg text-white font-medium mb-2 w-full"
+                >
+                  Title
+                </label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  value={selectedTattoo.title}
+                  onChange={(e) =>
+                    setSelectedTattoo({
+                      ...selectedTattoo,
+                      title: e.target.value,
+                    })
+                  }
+                  className="border border-gray-400 p-2 rounded-lg mb-4 min-w-[500px]"
+                />
+              </div>
+              <button
+                onClick={() => {
+                  updateTattoo(
+                    "blackbellart",
+                    selectedTattoo.id,
+                    selectedTattoo
+                  ),
+                    setSelectedTattoo(initial);
+                }}
+                className="bg-blue-500 hover:bg-blue-700 p-3 text-white font-anton w-full mt-4 text-3xl"
+              >
+                UPDATE
+              </button>
             </div>
           </div>
         </div>

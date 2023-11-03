@@ -7,8 +7,8 @@ export function polishToEnglish(sentence: string): string {
     ń: "n",
     ś: "s",
     ó: "o",
-    ż: "ż",
-    ź: "ź",
+    ż: "z",
+    ź: "z",
     // Add more translation mappings as needed
   };
 

@@ -11,8 +11,6 @@ import {
 } from "./teams.styled";
 import Image from "next/image";
 import Link from "next/link";
-import TattooMap from "./TattooMap";
-import { Tattoo } from "@/types";
 
 const MemberCard = (props: any) => {
   return (
@@ -80,10 +78,9 @@ const TeamsPart = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [handleScroll]);
-  const [popupOpen, setPopupOpen] = useState(false);
+
   return (
     <TeamsWrapper className="relative">
-      <TattooMap isOpen={popupOpen} setIsOpen={setPopupOpen} />
       <div id="tattoo" className="absolute -top-24 left-0 w-full"></div>
       <TeamsIntroSection className=" px-6 md:px-0">
         <div className="flex flex-col text-left sm:text-center mx-auto ">
@@ -159,12 +156,12 @@ const TeamsPart = () => {
       </MemberSection>
       <TeamsTitles>
         <div className="flex items-center lg:items-end justify-center lg:justify-center h-full mt-12">
-          <button
-            onClick={() => setPopupOpen(true)}
-            className="mt-12 lg:mt-0 teams-title font-coco font-bold text-transparent hover:text-white hover:bg-white hover:bg-opacity-10 stroke duration-200 flex flex-row items-center p-10 border-2 border-[#8f26f3]"
+          <Link
+            href="studio-tatuazu-grudziadz-wzory"
+            className="!text-3xl sm:!text-4xl lg:!text-5xl mt-12 lg:mt-0 teams-title font-coco font-bold text-transparent hover:text-white hover:bg-white hover:bg-opacity-10 stroke duration-200 flex flex-row items-center  p-6 sm:p-10 border-2 border-[#8f26f3]"
           >
-            WIĘCEJ PRAC
-          </button>
+            Zobacz tatuaże
+          </Link>
         </div>
       </TeamsTitles>
     </TeamsWrapper>

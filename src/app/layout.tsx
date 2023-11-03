@@ -1,9 +1,75 @@
-import "../assets/globals.css";
+import "../styles/globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Anton } from "next/font/google";
 import { Providers } from "../../redux/Provider";
 import Script from "next/script";
 
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="pl">
+      <body className={`${cocosharp.variable} ${anton.variable} bg-[#1d1d1d]`}>
+        <Providers>{children}</Providers>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=GT-WRDF58Q" />
+        <Script id="google-analytics">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'GT-WRDF58Q');
+          `}
+        </Script>
+      </body>
+    </html>
+  );
+}
+
+const anton = Anton({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-anton",
+});
+
+const cocosharp = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/BoldItalic.ttf",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/Bold.ttf",
+      weight: "700",
+    },
+    {
+      path: "../../public/fonts/ExtraLight.ttf",
+      weight: "200",
+    },
+    {
+      path: "../../public/fonts/Light.ttf",
+      weight: "300",
+    },
+    {
+      path: "../../public/fonts/LightItalic.ttf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/Regular.ttf",
+      weight: "500",
+    },
+  ],
+  variable: "--font-cocosharp",
+});
 export const metadata: Metadata = {
   viewport: "width=device-width, initial-scale=1",
   themeColor: "#1d1d1d",
@@ -51,13 +117,13 @@ export const metadata: Metadata = {
   ],
   title: "Studio Tatuażu Blackbell - Umów się na tatuaż - BlackbellArt.com",
   description:
-    "Studio Tatuażu w Grudziądzu. Wejdź na stronę, aby przeglądać wzory, umówić się na tatuaż lub dowiedzieć się więcej.",
+    "Salon Tatuażu w Grudziądzu. Wejdź na stronę, aby przeglądać wzory, umówić się na tatuaż lub dowiedzieć się więcej.",
   openGraph: {
     type: "website",
     url: "https://blackbellart.com",
     title: "Studio Tatuażu Blackbell - Umów się na tatuaż - BlackbellArt.com",
     description:
-      "Studio Tatuażu w Grudziądzu. Wejdź na stronę, aby przeglądać wzory, umówić się na tatuaż lub dowiedzieć się więcej.",
+      "Salon Tatuażu w Grudziądzu. Wejdź na stronę, aby przeglądać wzory, umówić się na tatuaż lub dowiedzieć się więcej.",
     siteName: "Black Bell Tattoo & Art",
     images: [
       {
@@ -90,61 +156,3 @@ export const metadata: Metadata = {
     ],
   },
 };
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body className={`${cocosharp.variable} bg-[#1d1d1d]`}>
-        <Providers>{children}</Providers>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=GT-WRDF58Q" />
-        <Script id="google-analytics">
-          {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'GT-WRDF58Q');
-          `}
-        </Script>
-      </body>
-    </html>
-  );
-}
-const cocosharp = localFont({
-  src: [
-    {
-      path: "../../public/fonts/Italic.ttf",
-      weight: "400",
-      style: "italic",
-    },
-    {
-      path: "../../public/fonts/BoldItalic.ttf",
-      weight: "700",
-      style: "italic",
-    },
-    {
-      path: "../../public/fonts/Bold.ttf",
-      weight: "700",
-    },
-    {
-      path: "../../public/fonts/ExtraLight.ttf",
-      weight: "200",
-    },
-    {
-      path: "../../public/fonts/Light.ttf",
-      weight: "300",
-    },
-    {
-      path: "../../public/fonts/LightItalic.ttf",
-      weight: "300",
-      style: "italic",
-    },
-    {
-      path: "../../public/fonts/Regular.ttf",
-      weight: "500",
-    },
-  ],
-  variable: "--font-cocosharp",
-});

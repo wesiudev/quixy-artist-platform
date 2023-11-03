@@ -12,6 +12,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         coco: ["var(--font-cocosharp)"],
+        anton: ["var(--font-anton)"],
       },
       backgroundImage: {
         "form-img": "url('/images/bg-lines/form.png')",

@@ -7,11 +7,11 @@ const IntroPart = () => {
     <>
       <IntroWrapper>
         <IntroTitle className="lg:mt-0">
-          <p className="text-[#8f26f3] italic !text-3xl sm:!text-4xl mg:!text-5xl lg:!text-7xl xl:text-8xl">
-            razem tworzymy piekno
+          <p className="text-[#8f26f3] italic !text-3xl sm:!text-4xl mg:!text-5xl lg:!text-7xl xl:text-8xl font-coco">
+            razem tworzymy piękno
           </p>
-          <p className="text-white italic !text-3xl sm:!text-4xl mg:!text-5xl lg:!text-7xl xl:text-8xl">
-            sztuka bez granic
+          <p className="text-white italic !text-3xl sm:!text-4xl mg:!text-5xl lg:!text-7xl xl:text-8xl font-coco">
+            sztuka i tatuaże
           </p>
         </IntroTitle>
         <Slider />
