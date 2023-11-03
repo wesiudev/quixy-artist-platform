@@ -6,7 +6,7 @@ import { FaArtstation, FaHome } from "react-icons/fa";
 export default function Navigation() {
   const [isMenuShow, setMenuShow] = useState(false);
   return (
-    <div className="fixed top-0 left-0 z-[51]  border-b-2 border-[#606060] w-screen flex flex-row items-center justify-between px-3 bg-[#303030]">
+    <div className="fixed top-0 left-0 z-[55] border-b-2 border-[#606060] w-screen flex flex-row items-center justify-between px-3 bg-[#303030]">
       <h1 className="text-white text-4xl   relative drop-shadow-md shadow-black font-anton p-3">
         Tatuaże blackbell
       </h1>
@@ -31,9 +31,10 @@ export default function Navigation() {
         </svg>
       </button>
       <div
-        className={`font-coco fixed right-0 top-0 h-screen lg:flex lg:h-max justify-center items-center flex flex-col space-y-6 lg:space-y-0 lg:flex-row   w-[100vw] lg:w-[60vw]  lg:justify-end lg:items-end p-3 lg:pr-12 lg:pl-0 text-5xl lg:text-3xl lg:space-x-6 text-white
-            ${isMenuShow ? "z-[55] bg-[#303030]" : "-z-[25] lg:z-[55]"}
-            `}
+        className={`font-anton fixed right-0 top-0  lg:flex lg:h-max justify-center items-center flex flex-col space-y-6 lg:space-y-0 lg:flex-row   w-[100vw] lg:w-[60vw]  lg:justify-end lg:items-end p-3 lg:pr-12 lg:pl-0 text-5xl lg:text-3xl lg:space-x-6 text-white
+            ${
+              isMenuShow ? "z-[55] bg-[#303030] h-screen" : "-z-[25] lg:z-[55]"
+            }`}
       >
         <Link
           href="/"

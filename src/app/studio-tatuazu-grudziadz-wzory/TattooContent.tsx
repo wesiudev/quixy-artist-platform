@@ -69,14 +69,14 @@ export default function TattooContent({
               />
 
               <div className="font-anton flex flex-col p-3 bg-[#404040] min-h-screen w-screen lg:w-[40vw]">
-                <h1 className=" text-white text-left text-5xl py-6">
+                <h1 className=" text-white text-left text-5xl py-6 lg:pr-6">
                   {hovered.title}{" "}
                   {hovered.workSrc !== "none" && (
                     <span className="text-red-500"> (Niedostępny)</span>
                   )}
                 </h1>
                 {hovered.description && (
-                  <h3 className="text-2xl text-gray-300 font-coco font-medium">
+                  <h3 className="text-2xl text-gray-300 font-coco font-medium lg:pr-6">
                     {hovered.description}
                   </h3>
                 )}
@@ -122,7 +122,7 @@ export default function TattooContent({
           Blog
         </Link> */}
         </div>
-        <div className="relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 min-h-screen gap-3 lg:w-[60vw] px-3 lg:px-12 py-12 bg-[#404040] border-l-2 border-[#505050] lg:mt-[62px]">
+        <div className="z-50 relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 min-h-screen gap-3 lg:w-[60vw] px-3 lg:px-12 py-12 bg-[#404040] border-l-2 border-[#505050] lg:mt-[62px]">
           <div className="absolute left-3 top-2 lg:top-3 z-[50]">
             <div className="w-6 h-6 group">
               <FaInfoCircle className="text-3xl text-gray-500" />
@@ -181,7 +181,7 @@ export default function TattooContent({
                   item.title
                 )}`}
                 key={i}
-                className="lg:hidden aspect-square h-full relative flex items-center justify-center"
+                className="z-[50] lg:hidden aspect-square h-full relative flex items-center justify-center"
               >
                 <div
                   className={`w-full h-full border-2 border-[#606060] hover:border-green-400 ${
