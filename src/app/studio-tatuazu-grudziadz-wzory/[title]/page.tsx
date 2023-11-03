@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Navigation from "./Navigation";
 import { FaInfoCircle } from "react-icons/fa";
+import didYouKnowArray from "./didyouknow.json";
+import DidYouKnow from "./DidYouKnow";
 export async function generateStaticParams() {
   const tattoos = await getTattoos("blackbellart");
   return tattoos?.tattoos.map((tattoo: Tattoo) => ({
@@ -105,6 +107,56 @@ export default async function Page({ params }: { params: Tattoo }) {
           </Link>
         ))}
       </div>
+      <div className="mx-auto mt-12 flex flex-col  text-white w-full pb-6 font-anton">
+        <DidYouKnow array={didYouKnowArray.didYouKnowArray} />
+      </div>
+      <div className="mx-auto mt-12 flex flex-col  text-white w-full pb-6 font-anton">
+        <div className="justify-center items-center flex text-center flex-col">
+          <div className="mb-3">
+            <Link
+              target="_blank"
+              href="https://blackbellart.com"
+              className="text-purple-300 text-4xl"
+            >
+              Blackbell Tattoo
+            </Link>
+          </div>
+          <div className="text-xl text-gray-400">
+            developer:{" "}
+            <Link target="_blank" href="https://www.quixy.pl">
+              <span className="text-yellow-400"> Quixy</span> - Strony
+              Internetowe Grudziądz
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
+}
+
+export async function generateMetadata({ params }: { params: any }) {
+  // fetch data
+  const tattoo: Tattoo = await getTattoos("blackbellart").then((res) =>
+    res?.tattoos.find(
+      (tattoo: Tattoo) => polishToEnglish(tattoo.title) === params.title
+    )
+  );
+
+  if (tattoo)
+    return {
+      title: `Grudziądz Tatuaże | BlackbellArt.com: Znajdź Wzory Tatuażu, Które Cię Inspirują`,
+      description: `Zobacz tatuaż ${tattoo.title}. Sprawdź nasze wzory tatuaży i wybierz ten, który najbardziej Ci się podoba.`,
+      openGraph: {
+        type: "website",
+        url: "https://blackbellart.com",
+        title: `Grudziądz Tatuaże | BlackbellArt.com: Znajdź Wzory Tatuażu, Które Cię Inspirują`,
+        description: `Zobacz tatuaż ${tattoo.title}. Sprawdź nasze wzory tatuaży i wybierz ten, który najbardziej Ci się podoba.`,
+        siteName: "BlackbellArt",
+        images: [
+          {
+            url: "/favicons/favicon.ico",
+          },
+        ],
+      },
+    };
 }

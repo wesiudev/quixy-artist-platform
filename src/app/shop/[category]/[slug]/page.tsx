@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: { params: any }) {
         siteName: "BlackbellArt",
         images: [
           {
-            url: "/favicon.ico",
+            url: "/favicons/favicon.ico",
           },
         ],
       },

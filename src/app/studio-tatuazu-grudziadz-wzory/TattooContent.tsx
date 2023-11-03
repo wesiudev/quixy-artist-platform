@@ -1,12 +1,18 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { setTattoos } from "../../../redux/slices/tattoosSlice";
-import { FaArtstation, FaHome, FaInfoCircle } from "react-icons/fa";
+import { FaHome, FaInfoCircle } from "react-icons/fa";
 import { polishToEnglish } from "@/utils/polishToEnglish";
 import { useState } from "react";
 import { Tattoo } from "@/types";
-export default function TattooContent({ tattoos }: { tattoos: Tattoo[] }) {
+import DidYouKnow from "./[title]/DidYouKnow";
+export default function TattooContent({
+  tattoos,
+  array,
+}: {
+  tattoos: Tattoo[];
+  array: string[];
+}) {
   const [hovered, setHovered] = useState<Tattoo>();
   const [selectedByUser, setSelectedByUser] = useState<Tattoo>();
   const [isMenuShow, setMenuShow] = useState(false);
@@ -202,6 +208,31 @@ export default function TattooContent({ tattoos }: { tattoos: Tattoo[] }) {
               </Link>
             </>
           ))}
+        </div>
+      </div>
+      <div className="mx-auto mt-12 flex flex-col  text-white w-full pb-6 font-anton lg:justify-end lg:items-end">
+        <div className="lg:w-[60vw] lg:pr-8">
+          <DidYouKnow array={array} />
+        </div>
+      </div>
+      <div className="mx-auto mt-12 flex flex-col lg:items-end lg:justify-end text-white w-full pb-6 font-anton">
+        <div className="lg:w-[60vw] justify-center items-center flex text-center flex-col">
+          <div className="mb-3">
+            <Link
+              target="_blank"
+              href="https://blackbellart.com"
+              className="text-purple-300 text-4xl"
+            >
+              Blackbell Tattoo
+            </Link>
+          </div>
+          <div className="text-xl text-gray-400">
+            developer:{" "}
+            <Link target="_blank" href="https://www.quixy.pl">
+              <span className="text-yellow-400"> Quixy</span> - Strony
+              Internetowe Grudziądz
+            </Link>
+          </div>
         </div>
       </div>
     </div>

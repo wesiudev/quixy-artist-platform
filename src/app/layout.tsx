@@ -76,41 +76,53 @@ export const metadata: Metadata = {
   publisher: "Black Bell Tattoo & Art",
   manifest: "/manifest.json",
   keywords: [
-    "Tatuaż Grudziadz",
-    "Tatuaże Grudziadz",
-    "Studio Tatuażu Grudziądz",
-    "Tatuaż Grudziądz i okolice",
-    "Tatuaż Grudziądz cennik",
-    "Tatuaż Grudziądz opinie",
-    "Tatuaż Grudziądz galeria",
-    "Tatuaż Grudziądz instagram",
+    "Najlepsi artyści tatuażu w Grudziądzu",
+    "Projekt tatuażu Grudziądz",
+    "Profesjonalne studio tatuażu Grudziądz",
+    "Unikalne tatuaże Grudziądz",
+    "Salon tatuażu Grudziądz",
+    "Tatuaż na zamówienie Grudziądz",
+    "Sztuka tatuażu Grudziądz",
+    "Ceny tatuażu Grudziądz",
+    "Porady dotyczące pielęgnacji tatuażu",
+    "Umówienie się na tatuaż Grudziądz",
+    "Bezpieczny tatuaż Grudziądz",
+    "Tatuaż na nadgarstku Grudziądz",
+    "Kolorowe tatuaże Grudziądz",
+    "Tatuaż dla kobiet Grudziądz",
+    "Tatuaż dla mężczyzn Grudziądz",
+    "Tatuaż z cytatem Grudziądz",
+    "Mały tatuaż Grudziądz",
+    "Tatuaż na przedramieniu Grudziądz",
+    "Tatuaż dla par Grudziądz",
+    "Tatuaż religijny Grudziądz",
   ],
   verification: {
     google: "google85185d3abec28326.html",
   },
   icons: [
     {
-      url: "/favicon-16x16.png",
+      url: "/favicons/favicon-16x16.png",
       sizes: "16x16",
       type: "image/png",
     },
     {
-      url: "/favicon-32x32.png",
+      url: "/favicons/favicon-32x32.png",
       sizes: "32x32",
       type: "image/png",
     },
     {
-      url: "/favicon.ico",
+      url: "/favicons/favicon.ico",
       sizes: "48x48",
       type: "image/x-icon",
     },
     {
-      url: "/android-chrome-192x192.png",
+      url: "/favicons/android-chrome-192x192.png",
       sizes: "192x192",
       type: "image/png",
     },
     {
-      url: "/android-chrome-512x512.png",
+      url: "/favicons/android-chrome-512x512.png",
       sizes: "512x512",
       type: "image/png",
     },
@@ -128,29 +140,29 @@ export const metadata: Metadata = {
     images: [
       {
         type: "image/x-icon",
-        url: "/favicon.ico",
+        url: "/favicons/favicon.ico",
       },
       {
-        url: "/favicon-16x16.png",
+        url: "/favicons/favicon-16x16.png",
 
         type: "image/png",
       },
       {
-        url: "/favicon-32x32.png",
+        url: "/favicons/favicon-32x32.png",
 
         type: "image/png",
       },
       {
-        url: "/favicon.ico",
+        url: "/favicons/favicon.ico",
 
         type: "image/x-icon",
       },
       {
-        url: "/android-chrome-192x192.png",
+        url: "/favicons/android-chrome-192x192.png",
         type: "image/png",
       },
       {
-        url: "/android-chrome-512x512.png",
+        url: "/favicons/android-chrome-512x512.png",
         type: "image/png",
       },
     ],
