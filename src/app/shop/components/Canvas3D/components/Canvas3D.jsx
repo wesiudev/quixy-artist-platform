@@ -43,7 +43,7 @@ export default function Canvas3D({ image, shape }) {
     <div className="w-full lg:w-1/2 z-[55] bg-white overflow-x-hidden ">
       <View
         orbit
-        className="!h-[50vh] lg:!h-[100vh] block lg:fixed  left-0 top-[91px] lg:top-[66px] w-full lg:w-1/2 bg-gradient-to-br from-purple-300 via-gray-400 to-zinc-400
+        className="!h-[50vh] lg:!h-[100vh] block lg:fixed  left-0 top-[91px] lg:top-[66px] w-full lg:w-1/2 bg-gradient-radial from-yellow-300 via-blue-300 to-blue-400
         rounded-b-xl lg:rounded-none"
       >
         <React.Suspense fallback={null}>
