@@ -13,7 +13,6 @@ export default function ShopLayout({
       {" "}
       <TopBar />
       {children}
-      <ShopFooter />
     </div>
   );
 }

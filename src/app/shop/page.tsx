@@ -4,6 +4,7 @@ import React from "react";
 import ShopHeader from "./components/ShopHeader";
 import Products from "./components/Products";
 import Orders from "./components/Orders";
+import ShopFooter from "./components/ShopFooter";
 
 export default async function Shop() {
   const { products } = await getShopProduct();
@@ -13,6 +14,8 @@ export default async function Shop() {
       <ShopHeader />
       <Products products={products} />
       <Orders />
+
+      <ShopFooter />
     </div>
   );
 }

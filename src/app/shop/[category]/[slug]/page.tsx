@@ -4,6 +4,8 @@ import { getShopProduct } from "@/lib/getShopProduct";
 import { ArtworkData } from "@/types";
 import { Layout } from "../../components/Canvas3D/components/dom/Layout";
 import Canvas3D from "../../components/Canvas3D/components/Canvas3D";
+import ShopFooter from "../../components/ShopFooter";
+import Orders from "../../components/Orders";
 
 export async function generateStaticParams() {
   const products = await getShopProduct();
@@ -21,21 +23,24 @@ export default async function Page({ params }: { params: ArtworkData }) {
     params.slug
   );
 
-  console.log(product);
   return (
-    <div className="relative font-coco grid grid-cols-1 lg:grid-cols-2 lg:pb-0 mt-[66px] lg:px-[8vw] xl:px-[12vw] min-h-screen">
+    <div className="relative font-coco grid grid-cols-1 lg:grid-cols-2 lg:pb-0 mt-[66px] min-h-screen">
       <Layout>
         <Canvas3D image={product.images[0]} shape="square" />
       </Layout>
 
-      <div className="w-[100%] relative z-[55] select-none mt-[50vh] lg:mt-[0vh] lg:absolute lg:right-0 lg:top-0 lg:w-[50vw] p-3 lg:p-6 xl:p-8 min-h-screen">
-        <h2 className="text-zinc-800 drop-shadow-lg shadow-black text-4xl sm:text-3xl xl:text-4xl text-center lg:text-left font-bold">
-          {product.title} <br />{" "}
-          <span className="text-zinc-600 drop-shadow-lg shadow-black text-lg">
-            ({product.dimensions})
-          </span>
-        </h2>
-        <p></p>
+      <div className="bg-white w-[100%] relative z-[55] select-none mt-[50vh] lg:mt-[0vh] lg:absolute lg:right-0 lg:top-0 lg:w-[50vw] min-h-screen">
+        <div className="p-3 lg:p-6 xl:p-8 ">
+          <h2 className="text-zinc-800 drop-shadow-lg shadow-black text-4xl sm:text-3xl xl:text-4xl text-center lg:text-left font-bold">
+            {product.title} <br />{" "}
+            <span className="text-zinc-600 drop-shadow-lg shadow-black text-lg">
+              ({product.dimensions})
+            </span>
+          </h2>
+          <p></p>
+        </div>
+        <Orders />
+        <ShopFooter />
       </div>
     </div>
   );
