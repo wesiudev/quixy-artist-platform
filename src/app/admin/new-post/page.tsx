@@ -208,7 +208,7 @@ export default function NewPost() {
           {input.url !== "" && (
             <button
               onClick={() => {
-                addBlogPost(`${process.env.NEXT_PUBLIC_APP_NAME}`, input);
+                addBlogPost(input);
               }}
               className="py-6 bg-green-500 text-2xl text-white hover:bg-green-400 duration-200"
             >
