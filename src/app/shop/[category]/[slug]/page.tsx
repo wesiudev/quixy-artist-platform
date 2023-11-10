@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: ArtworkData }) {
           <p></p>
         </div>
         <Orders />
-        <ShopFooter />
+        <ShopFooter isProductSlug={true} />
       </div>
     </div>
   );

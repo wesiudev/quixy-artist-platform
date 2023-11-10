@@ -1,6 +1,6 @@
 import ContactForm from "../ContactInfo/ContactForm";
 
-export default function Orders({ isProductSlug }: { isProductSlug: boolean }) {
+export default function Orders() {
   return (
     <div className="relative bg-[#d1d3d6] mt-12 bg-form-orders bg-no-repeat bg-cover font-coco w-full h-max">
       <div className="absolute inset-x-0 bottom-0">

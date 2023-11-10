@@ -3,7 +3,11 @@
 import PrivacyPolicy from "@/views/landing/SocialMedia/PrivacyPolicy";
 import { useState } from "react";
 
-export default function PrivacyButton() {
+export default function PrivacyButton({
+  isProductSlug,
+}: {
+  isProductSlug?: boolean;
+}) {
   const [isPrivacyOpen, setPrivacyOpen] = useState(false);
 
   return (
@@ -11,7 +15,9 @@ export default function PrivacyButton() {
       {isPrivacyOpen && <PrivacyPolicy setOpen={setPrivacyOpen} />}{" "}
       <button
         onClick={() => setPrivacyOpen(!isPrivacyOpen)}
-        className="mt-2 hover:text-green-300 xl:text-right"
+        className={`mt-2 hover:text-green-300  ${
+          isProductSlug ? "xl:text-left" : "xl:text-right"
+        }`}
       >
         Polityka prywatności
       </button>

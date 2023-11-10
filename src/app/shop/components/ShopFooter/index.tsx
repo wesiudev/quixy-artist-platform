@@ -11,11 +11,31 @@ import {
 } from "react-icons/fa";
 import PrivacyButton from "./PrivacyButton";
 
-export default function ShopFooter() {
+export default function ShopFooter({
+  isProductSlug,
+}: {
+  isProductSlug?: boolean;
+}) {
   return (
-    <footer className="bg-[#303030] w-full py-24 px-5 lg:px-[8vw] xl:px-[12vw] font-coco">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        <section className="xl:block flex flex-col items-center justify-center text-center xl:text-left">
+    <footer
+      className={`bg-[#303030] w-full py-24 px-5 ${
+        isProductSlug
+          ? "px-6 md:px-[8vw] lg:px-3 lg:pl-12 xl:px-12"
+          : "lg:px-[8vw] xl:px-[12vw]"
+      } font-coco`}
+    >
+      <div
+        className={`grid grid-cols-1 ${
+          isProductSlug
+            ? "grid-cols-1 md:grid-cols-2"
+            : "sm:grid-cols-2 lg:grid-cols-3"
+        }`}
+      >
+        <section
+          className={`xl:block flex flex-col  xl:text-left ${
+            isProductSlug ? "" : "items-center justify-center text-center"
+          }`}
+        >
           <h2 className="text-2xl font-bold text-green-300 w-full">Kontakt</h2>
           <address className="text-gray-200 mt-3">
             <p>ul. Janusza Korczaka 15</p>
@@ -23,7 +43,7 @@ export default function ShopFooter() {
             <p>NIP: 8762502388</p>
           </address>
           <Link
-            className="text-left text-white font-coco flex flex-row items-center text-lg mt-1 w-max"
+            className="text-left text-white font-coco flex flex-row items-center text-lg lg:text-base  xl:text-lg mt-1 w-max"
             href="tel:570974740"
             title="Zadzwoń"
           >
@@ -31,7 +51,7 @@ export default function ShopFooter() {
             +48 570 974 740
           </Link>
           <Link
-            className="text-left text-white font-coco flex flex-row items-center text-lg mt-1 w-max"
+            className="text-left text-white font-coco flex flex-row items-center text-lg lg:text-base  xl:text-lg mt-1 w-max"
             href="mailto:eliza.czer09@gmail.com"
             title="Wyślij email"
           >
@@ -39,7 +59,11 @@ export default function ShopFooter() {
             eliza.czer09@gmail.com
           </Link>
         </section>
-        <section className="xl:block flex flex-col items-center justify-center">
+        <section
+          className={`xl:block flex flex-col ${
+            isProductSlug ? "mt-12 md:mt-0" : "items-center justify-center"
+          }`}
+        >
           <h2 className="text-2xl font-bold text-green-300">Social Media</h2>
           <div className="text-white font-coco">
             <Link
@@ -72,9 +96,19 @@ export default function ShopFooter() {
             </Link>
           </div>
         </section>
-        <section className="flex flex-col mt-12 lg:mt-0">
-          <div className="grid grid-cols-1 xl:grid-cols-2 text-white ">
-            <div className="xl:pr-2 py-3 xl:block flex flex-col items-center justify-center">
+        <section
+          className={`flex flex-col   ${isProductSlug ? "mt-12" : "lg:mt-0"}`}
+        >
+          <div
+            className={`grid grid-cols-1 ${
+              isProductSlug ? "xl:grid-cols-1" : "xl:grid-cols-2"
+            } text-white`}
+          >
+            <div
+              className={`xl:pr-2 py-3 xl:block flex flex-col ${
+                isProductSlug ? "" : "items-center justify-center text-center"
+              }`}
+            >
               <Link
                 href="/sitemap-0.xml"
                 className="flex flex-row items-center hover:text-green-300 w-max"
@@ -108,7 +142,13 @@ export default function ShopFooter() {
                 Design tatuaży
               </Link>
             </div>
-            <div className="xl:pl-2 mt-3 xl:mt-0 w-full flex flex-col items-center justify-center xl:items-end py-3">
+            <div
+              className={`xl:pl-2 mt-3 xl:mt-0 w-full flex flex-col py-3 ${
+                isProductSlug
+                  ? "items-start"
+                  : "xl:items-end justify-center items-center"
+              }`}
+            >
               <Link
                 href="/regulations"
                 className="hover:text-green-300"
@@ -116,7 +156,7 @@ export default function ShopFooter() {
               >
                 Regulamin sklepu
               </Link>
-              <PrivacyButton />
+              <PrivacyButton isProductSlug={isProductSlug} />
             </div>
           </div>
         </section>
