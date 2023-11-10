@@ -16,6 +16,7 @@ const config: Config = {
       },
       backgroundImage: {
         "form-img": "url('/images/bg-lines/form.png')",
+        "form-orders": "url('/images/shop/bg-orders.webp')",
         "hero-svg": "url('/images/bg-lines/hero-bg-line.svg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -23,6 +24,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
 };
 export default config;

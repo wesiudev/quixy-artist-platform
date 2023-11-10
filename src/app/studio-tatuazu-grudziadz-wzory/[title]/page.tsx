@@ -8,19 +8,20 @@ import { FaInfoCircle } from "react-icons/fa";
 import didYouKnowArray from "./didyouknow.json";
 import DidYouKnow from "./DidYouKnow";
 export async function generateStaticParams() {
-  const tattoos = await getTattoos("blackbellart");
+  const tattoos = await getTattoos();
   return tattoos?.tattoos.map((tattoo: Tattoo) => ({
     title: polishToEnglish(tattoo.title),
   }));
 }
 export default async function Page({ params }: { params: Tattoo }) {
-  const tattoo: Tattoo = await getTattoos("blackbellart").then((res) =>
+  const tattoo: Tattoo = await getTattoos().then((res) =>
     res?.tattoos.find(
       (tattoo: Tattoo) => polishToEnglish(tattoo.title) === params.title
     )
   );
   const tattoos = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/tattoo`
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/tattoo`,
+    { next: { revalidate: 180 } }
   ).then((res) => res.json());
 
   return (
@@ -136,7 +137,7 @@ export default async function Page({ params }: { params: Tattoo }) {
 
 export async function generateMetadata({ params }: { params: any }) {
   // fetch data
-  const tattoo: Tattoo = await getTattoos("blackbellart").then((res) =>
+  const tattoo: Tattoo = await getTattoos().then((res) =>
     res?.tattoos.find(
       (tattoo: Tattoo) => polishToEnglish(tattoo.title) === params.title
     )
@@ -148,7 +149,7 @@ export async function generateMetadata({ params }: { params: any }) {
       description: `Zobacz tatuaż ${tattoo.title}. Sprawdź nasze wzory tatuaży i wybierz ten, który najbardziej Ci się podoba.`,
       openGraph: {
         type: "website",
-        url: "https://blackbellart.com",
+        url: "https://blackbellart.com/studio-tatuazu-grudziadz-wzory",
         title: `Grudziądz Tatuaże | BlackbellArt.com: Znajdź Wzory Tatuażu, Które Cię Inspirują`,
         description: `Zobacz tatuaż ${tattoo.title}. Sprawdź nasze wzory tatuaży i wybierz ten, który najbardziej Ci się podoba.`,
         siteName: "BlackbellArt",

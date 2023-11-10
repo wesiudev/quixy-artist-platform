@@ -12,7 +12,7 @@ import CookieInfo from "@/components/cookies/CookieInfo";
 import Loader from "@/components/loader/Loader";
 import { Tattoo } from "@/types";
 import { useDispatch, useSelector } from "react-redux";
-import { setTattoos } from "../../redux/slices/tattoosSlice";
+import { setTattoos } from "@/redux/slices/tattoosSlice";
 
 export default function Page() {
   const [y, setY] = useState(0);

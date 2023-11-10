@@ -10,6 +10,11 @@ const nextConfig = {
         hostname: "firebasestorage.googleapis.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        port: "",
+      },
     ],
   },
 };

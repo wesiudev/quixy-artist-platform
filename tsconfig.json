@@ -30,7 +30,10 @@
     ".next/types/**/*.ts",
     "src/firebase/index.js",
     "src/app/api/**/*.ts",
-    "src/app/api/mailer/route.ts"
+    "src/app/api/mailer/route.ts",
+    "src/app/shop/components/ItemPreview3D/components/canvas/View.jsx",
+    "src/app/shop/components/ItemPreview3D/components/canvas/Shapes.jsx",
+    "src/app/shop/components/ItemPreview3D/components/Canvas3D.jsx"
   ],
   "exclude": ["node_modules"]
 }

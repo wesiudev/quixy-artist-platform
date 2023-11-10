@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { FaHome, FaInfoCircle } from "react-icons/fa";
+import { FaArtstation, FaHome, FaInfoCircle } from "react-icons/fa";
 import { polishToEnglish } from "@/utils/polishToEnglish";
 import { useState } from "react";
 import { Tattoo } from "@/types";
@@ -30,9 +30,7 @@ export default function TattooContent({
       {/* left side fixed */}
 
       <div
-        className={`lg:overflow-y-scroll lg:overflow-x-hidden borderBar lg:fixed lg:top-0 lg:left-0 ${
-          selectedByUser && "lg:h-screen"
-        } lg:w-[40vw] lg:pt-12 border-[#505050] lg:block flex flex-row items-center justify-between px-3 lg:px-0`}
+        className={`lg:overflow-y-scroll lg:overflow-x-hidden borderBar lg:fixed lg:top-0 lg:left-0 lg:h-screen lg:w-[40vw] lg:pt-12 border-[#505050] lg:block flex flex-row items-center justify-between px-3 lg:px-0`}
       >
         <h1 className="text-white text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-center relative drop-shadow-md shadow-black font-anton pl-3 lg:pl-0 py-12 lg:py-0">
           Tatuaże blackbell
@@ -60,32 +58,36 @@ export default function TattooContent({
         <div className="hidden lg:block w-full h-full mt-12">
           {hovered && (
             <div className="w-[100vw] lg:w-[40vw] lg:h-full h-max bg-[#303030] lg:pr-[15px]">
-              <Image
-                width={512}
-                height={512}
-                src={hovered.projectSrc}
-                alt={`Tatuaż Grudziądz Wzory ${hovered.title}`}
-                className="bg-[#303030] border-2 border-[#606060] w-full p-6"
-              />
-
-              <div className="font-anton flex flex-col p-3 bg-[#404040] min-h-screen w-screen lg:w-[40vw]">
-                <h1 className=" text-white text-left text-5xl py-6 lg:pr-6">
-                  {hovered.title}{" "}
-                  {hovered.workSrc !== "none" && (
-                    <span className="text-red-500"> (Niedostępny)</span>
+              <div className="font-anton flex flex-col bg-[#404040] min-h-screen w-screen lg:w-[40vw]">
+                <div className="p-3">
+                  <h1 className=" text-white text-left text-5xl py-6 lg:pr-6">
+                    {hovered.title}{" "}
+                    {hovered.workSrc !== "none" && (
+                      <span className="text-red-500"> (Niedostępny)</span>
+                    )}
+                  </h1>
+                  {hovered.description && (
+                    <h3 className="text-2xl text-gray-300 font-coco font-medium lg:pr-6">
+                      {hovered.description}
+                    </h3>
                   )}
-                </h1>
-                {hovered.description && (
-                  <h3 className="text-2xl text-gray-300 font-coco font-medium lg:pr-6">
-                    {hovered.description}
-                  </h3>
-                )}
-                {hovered.meaning && (
-                  <h2 className="text-xl mt-8 pr-[15px]">
-                    <span className="text-green-400">Znaczenie tatuażu: </span>
-                    <span className="text-white">{hovered.meaning}</span>
-                  </h2>
-                )}
+
+                  {hovered.meaning && (
+                    <h2 className="text-xl mt-8 pr-[15px]">
+                      <span className="text-green-400">
+                        Znaczenie tatuażu:{" "}
+                      </span>
+                      <span className="text-white">{hovered.meaning}</span>
+                    </h2>
+                  )}
+                </div>
+                <Image
+                  width={512}
+                  height={512}
+                  src={hovered.projectSrc}
+                  alt={`Tatuaż Grudziądz Wzory ${hovered.title}`}
+                  className="bg-[#303030] border-2 border-[#606060] w-full p-6 mt-6 lg:-ml-3"
+                />
               </div>
             </div>
           )}
@@ -110,17 +112,17 @@ export default function TattooContent({
             <FaHome className="mr-2 !text-purple-300" />
             Strona główna
           </Link>
-          {/* <Link
-          href="/blog"
-          className={`${
-            isMenuShow
-              ? "scale-100 duration-300 delay-500"
-              : "scale-0 lg:scale-100"
-          } flex flex-row items-center hover:text-yellow-300 lg:duration-150 lg:delay-0`}
-        >
-          <FaArtstation className="mr-2 !text-yellow-300" />
-          Blog
-        </Link> */}
+          <Link
+            href="/blog"
+            className={`${
+              isMenuShow
+                ? "scale-100 duration-300 delay-500"
+                : "scale-0 lg:scale-100"
+            } flex flex-row items-center hover:text-yellow-300 lg:duration-150 lg:delay-0`}
+          >
+            <FaArtstation className="mr-2 !text-yellow-300" />
+            Blog
+          </Link>
         </div>
         <div className="z-50 relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 min-h-screen gap-3 lg:w-[60vw] px-3 lg:px-12 py-12 bg-[#404040] border-l-2 border-[#505050] lg:mt-[62px]">
           <div className="absolute left-3 top-2 lg:top-3 z-[50]">

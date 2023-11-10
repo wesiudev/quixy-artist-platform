@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Anton } from "next/font/google";
-import { Providers } from "../../redux/Provider";
+import { Providers } from "@/redux/Provider";
 import Script from "next/script";
 
 export default async function RootLayout({
@@ -116,55 +116,18 @@ export const metadata: Metadata = {
       sizes: "48x48",
       type: "image/x-icon",
     },
-    {
-      url: "/favicons/android-chrome-192x192.png",
-      sizes: "192x192",
-      type: "image/png",
-    },
-    {
-      url: "/favicons/android-chrome-512x512.png",
-      sizes: "512x512",
-      type: "image/png",
-    },
   ],
-  title: "Studio Tatuażu Blackbell - Umów się na tatuaż - BlackbellArt.com",
+  title:
+    "Studio Tatuażu Grudziądz - Unikalne wzory | Personalizowanie Projektów",
   description:
-    "Salon Tatuażu w Grudziądzu. Wejdź na stronę, aby przeglądać wzory, umówić się na tatuaż lub dowiedzieć się więcej.",
+    "Salon Tatuażu w Grudziądzu. Sprawdź wzory i zarezerwuj termin. Stworzę tatuaż według Twoich indywidualnych potrzeb.",
   openGraph: {
     type: "website",
     url: "https://blackbellart.com",
-    title: "Studio Tatuażu Blackbell - Umów się na tatuaż - BlackbellArt.com",
+    title:
+      "Studio Tatuażu Grudziądz - Unikalne wzory | Personalizowanie Projektów",
     description:
-      "Salon Tatuażu w Grudziądzu. Wejdź na stronę, aby przeglądać wzory, umówić się na tatuaż lub dowiedzieć się więcej.",
+      "Salon Tatuażu w Grudziądzu. Sprawdź wzory i zarezerwuj termin. Stworzę tatuaż według Twoich indywidualnych potrzeb.",
     siteName: "Black Bell Tattoo & Art",
-    images: [
-      {
-        type: "image/x-icon",
-        url: "/favicons/favicon.ico",
-      },
-      {
-        url: "/favicons/favicon-16x16.png",
-
-        type: "image/png",
-      },
-      {
-        url: "/favicons/favicon-32x32.png",
-
-        type: "image/png",
-      },
-      {
-        url: "/favicons/favicon.ico",
-
-        type: "image/x-icon",
-      },
-      {
-        url: "/favicons/android-chrome-192x192.png",
-        type: "image/png",
-      },
-      {
-        url: "/favicons/android-chrome-512x512.png",
-        type: "image/png",
-      },
-    ],
   },
 };

@@ -46,14 +46,7 @@ const CommunityPart = () => {
             <FaFacebook className="w-8 h-8 mr-3" />
             <span className="group-hover:text-[#8f26f3]">Art</span>
           </LinkItem>
-          <LinkItem
-            target="_blank"
-            href="https://www.youtube.com/@blackbellart/featured"
-            className="flex flex-row items-center hover:text-[#8f26f3] mt-3"
-          >
-            <FaYoutube className="w-8 h-8 mr-3" />
-            <span className="group-hover:text-[#8f26f3]">Art</span>
-          </LinkItem>
+
           <LinkItem
             target="_blank"
             href="https://www.instagram.com/blackbellarttattoo/"
@@ -61,14 +54,6 @@ const CommunityPart = () => {
           >
             <FaInstagram className="w-8 h-8 mr-3" />
             <span className="group-hover:text-[#8f26f3]">Tattoo</span>
-          </LinkItem>
-          <LinkItem
-            target="_blank"
-            href="https://www.etsy.com/pl/shop/BlackbellArtStudio"
-            className="flex flex-row items-center hover:text-[#8f26f3] mt-3"
-          >
-            <FaEtsy className="w-8 h-8 mr-3" />
-            <span className="group-hover:text-[#8f26f3]">Shop</span>
           </LinkItem>
         </div>
         <LinkGroup dir="rtl" className="mt-6">

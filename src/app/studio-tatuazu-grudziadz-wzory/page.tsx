@@ -4,7 +4,8 @@ import didYouKnowArray from "./[title]/didyouknow.json";
 
 export default async function Page() {
   const tattoos = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/tattoo`
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/tattoo`,
+    { next: { revalidate: 180 } }
   ).then((res) => res.json());
 
   return (
@@ -66,16 +67,6 @@ export const metadata: Metadata = {
       sizes: "48x48",
       type: "image/x-icon",
     },
-    {
-      url: "/favicons/android-chrome-192x192.png",
-      sizes: "192x192",
-      type: "image/png",
-    },
-    {
-      url: "/favicons/android-chrome-512x512.png",
-      sizes: "512x512",
-      type: "image/png",
-    },
   ],
   title: "Studio Tatuażu Blackbell - Przeglądaj Wzory - BlackbellArt.com",
   description:
@@ -91,29 +82,6 @@ export const metadata: Metadata = {
       {
         type: "image/x-icon",
         url: "/favicons/favicon.ico",
-      },
-      {
-        url: "/favicons/favicon-16x16.png",
-
-        type: "image/png",
-      },
-      {
-        url: "/favicons/favicon-32x32.png",
-
-        type: "image/png",
-      },
-      {
-        url: "/favicons/favicon.ico",
-
-        type: "image/x-icon",
-      },
-      {
-        url: "/favicons/android-chrome-192x192.png",
-        type: "image/png",
-      },
-      {
-        url: "/favicons/android-chrome-512x512.png",
-        type: "image/png",
       },
     ],
   },

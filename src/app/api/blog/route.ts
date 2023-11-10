@@ -5,24 +5,19 @@ import { Post } from "@/types";
 export async function GET(req: NextRequest) {
   const secret = req.nextUrl.searchParams.get("secret");
   const url = req.nextUrl.searchParams.get("url");
+  const blogType = req.nextUrl.searchParams.get("blogType");
 
   if (secret !== process.env.API_SECRET_KEY) {
     return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
   }
-  const posts = await getBlogPosts("blackbellart");
+  const posts = await getBlogPosts();
   if (url) {
-    const post = posts?.posts.find((post: Post) => url === post.url);
-    if (!post) {
-      return new NextResponse("not found", { status: 404 });
-    }
-    if (post) {
-      return NextResponse.json({
-        post,
-      });
-    }
-  } else {
+    const post = posts?.posts.find(
+      (post: Post) => url === post.url && blogType === post.blogType
+    );
+
     return NextResponse.json({
-      posts,
+      post,
     });
   }
 }

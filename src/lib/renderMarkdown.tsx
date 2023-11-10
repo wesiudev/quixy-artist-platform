@@ -1,20 +1,18 @@
+import Image from "next/image";
+import { polishToEnglish } from "../utils/polishToEnglish";
 export const parseMarkdown = (input: any) => {
   // Basic Markdown parsing logic
   const lines = input.split("\n");
   let insideList = false;
   const parsedLines = lines.map((line: any) => {
-    // Parse headings
-    if (line.startsWith("# ")) {
-      const level = line.lastIndexOf("#") + 1;
-      const text = line.substring(level + 1);
-      return `<h${level} class="text-3xl">${text}</h${level}>`;
-    }
     // Parse image syntax ![alt text](image-url) [link text](link-url)
     const imageMatch = line.match(/!\[([^\]]+)\]\(([^)]+)\)/);
     if (imageMatch) {
       const altText = imageMatch[1];
       const imageUrl = imageMatch[2];
-      return `<img class="mx-auto max-w-full flex flex-col" src="${imageUrl}" alt="${altText}" /><a class="opacity-50" href="${imageUrl}">Źródło: ${altText}</a>`;
+      return `<Image loading="lazy" decoding="async" width=${500} height=${500} className="mx-auto flex flex-col" src=${imageUrl} alt=${polishToEnglish(
+        altText
+      )} />`;
     }
     // Parse link syntax [link text](link-url)
     const linkMatches = line.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g);
@@ -23,6 +21,20 @@ export const parseMarkdown = (input: any) => {
       const linkUrl = linkMatch[2];
       const linkHtml = `<a class="font-bold" href="${linkUrl}">${linkText}</a>`;
       line = line.replace(linkMatch[0], linkHtml);
+    }
+    // Parse headings
+    if (line.startsWith("h2 ")) {
+      const text = line.substring(3);
+      return `<h2 class="!text-3xl">${text}</h1>`;
+    } else if (line.startsWith("p ")) {
+      const text = line.substring(2);
+      return `<p class="!text-xl ">${text}</p>`;
+    } else if (line.startsWith("h3 ")) {
+      const text = line.substring(3);
+      return `<h3 class="!text-2xl ">${text}</h3>`;
+    } else if (line.startsWith("h4 ")) {
+      const text = line.substring(3);
+      return `<h4 class="!text-lg !font-normal">${text}</h4>`;
     }
 
     // Parse ordered lists
@@ -52,5 +64,3 @@ export const parseMarkdown = (input: any) => {
 
   return parsedLines.join("\n");
 };
-
-// [Quixy](https://quixy.pl) nie jest jedynie firmą tworzącą strony internetowe; to prawdziwy architekt wirtualnych przestrzeni, gdzie projektowanie stron przekształca się w sztukę. Nasze misternie zaprojektowane interfejsy użytkownika są owocem pasji i precyzji, gdzie każdy element jest starannie przemyślany, od [doboru kolorów](https://quixy.pl/blog/dlaczego-kolor-ma-znaczenie-psychologia-barw-w-projektowaniu) po układ, aby zapewnić Twojej stronie nie tylko unikalność, ale także niepowtarzalną elegancję. Tutaj nie chodzi jedynie o estetykę; to ożywienie Twojej wizji, zamienionej w wirtualną rzeczywistość. Z nami Twoja strona staje się opowieścią, przyciągającą spojrzenia i zachwycającą zmysły odwiedzających. Pozwól swojej stronie zaświecić jak nigdy dotąd - to możliwe dzięki Quixy. Zapraszamy Cię do naszego bloga, gdzie znajdziesz inspirujące artykuły dotyczące doboru kolorów, jak również wiele innych fascynujących tematów:

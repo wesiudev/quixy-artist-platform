@@ -20,17 +20,20 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASURMENT_ID,
 };
+
+const websiteName = process.env.NEXT_PUBLIC_APP_NAME;
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app);
 // tattoo list
-async function getTattoos(websiteName) {
+async function getTattoos() {
   const docRef = doc(db, websiteName, "tattoos");
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 }
-async function addTattoo(websiteName, tattooData) {
+async function addTattoo(tattooData) {
   const docRef = doc(db, websiteName, "tattoos");
   const docSnap = await getDoc(docRef);
   if (!docSnap.data()) {
@@ -41,13 +44,13 @@ async function addTattoo(websiteName, tattooData) {
     });
   }
 }
-async function deleteTattoo(websiteName, tattooData) {
+async function deleteTattoo(tattooData) {
   const docRef = doc(db, websiteName, "tattoos");
   await updateDoc(docRef, {
     tattoos: arrayRemove(tattooData),
   });
 }
-async function updateTattoo(websiteName, tattooId, updatedTattoo) {
+async function updateTattoo(tattooId, updatedTattoo) {
   const docRef = doc(db, websiteName, "tattoos");
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
@@ -60,12 +63,12 @@ async function updateTattoo(websiteName, tattooId, updatedTattoo) {
   }
 }
 // shop products
-async function getImages(websiteName) {
+async function getImages() {
   const docRef = doc(db, websiteName, "products");
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 }
-async function addImage(websiteName, imageData) {
+async function addImage(imageData) {
   const docRef = doc(db, websiteName, "products");
   const docSnap = await getDoc(docRef);
   if (!docSnap.data()) {
@@ -76,19 +79,19 @@ async function addImage(websiteName, imageData) {
     });
   }
 }
-async function deleteImage(websiteName, imageData) {
+async function deleteImage(imageData) {
   const docRef = doc(db, websiteName, "products");
   await updateDoc(docRef, {
     products: arrayRemove(imageData),
   });
 }
 // blog
-async function getBlogPosts(websiteName) {
+async function getBlogPosts() {
   const docRef = doc(db, websiteName, "blog");
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 }
-async function addBlogPost(websiteName, post) {
+async function addBlogPost(post) {
   const docRef = doc(db, websiteName, "blog");
   const docSnap = await getDoc(docRef);
   if (!docSnap.data()) {
@@ -99,7 +102,7 @@ async function addBlogPost(websiteName, post) {
     });
   }
 }
-async function updateBlogPost(websiteName, postId, updatedPost) {
+async function updateBlogPost(postId, updatedPost) {
   const docRef = doc(db, websiteName, "blog");
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
@@ -112,12 +115,12 @@ async function updateBlogPost(websiteName, postId, updatedPost) {
   }
 }
 // exhibitions
-async function getExhibitions(websiteName) {
+async function getExhibitions() {
   const docRef = doc(db, websiteName, "exhibitions");
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 }
-async function addExhibition(websiteName, exhibition) {
+async function addExhibition(exhibition) {
   const docRef = doc(db, websiteName, "exhibitions");
   const docSnap = await getDoc(docRef);
   if (!docSnap.data()) {
@@ -131,12 +134,12 @@ async function addExhibition(websiteName, exhibition) {
   }
 }
 // orders
-async function getOrders(websiteName) {
+async function getOrders() {
   const docRef = doc(db, websiteName, "orders");
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 }
-async function addOrder(websiteName, order) {
+async function addOrder(order) {
   const docRef = doc(db, websiteName, "orders");
   const docSnap = await getDoc(docRef);
   if (!docSnap.data()) {
@@ -147,7 +150,7 @@ async function addOrder(websiteName, order) {
     });
   }
 }
-async function updateOrder(websiteName, orderId, updatedOrder) {
+async function updateOrder(orderId, updatedOrder) {
   const docRef = doc(db, websiteName, "orders");
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {

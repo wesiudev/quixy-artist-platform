@@ -2,6 +2,8 @@
 
 import { getShopProduct } from "@/lib/getShopProduct";
 import { ArtworkData } from "@/types";
+import { Layout } from "../../components/Canvas3D/components/dom/Layout";
+import Canvas3D from "../../components/Canvas3D/components/Canvas3D";
 
 export async function generateStaticParams() {
   const products = await getShopProduct();
@@ -14,9 +16,29 @@ export async function generateStaticParams() {
 export const dynamicParams = false;
 
 export default async function Page({ params }: { params: ArtworkData }) {
-  const product = await getShopProduct(params.category, params.slug);
+  const product: ArtworkData = await getShopProduct(
+    params.category,
+    params.slug
+  );
 
-  if (product) return <></>;
+  console.log(product);
+  return (
+    <div className="relative font-coco grid grid-cols-1 lg:grid-cols-2 lg:pb-0 mt-[66px] lg:px-[8vw] xl:px-[12vw] min-h-screen">
+      <Layout>
+        <Canvas3D image={product.images[0]} shape="square" />
+      </Layout>
+
+      <div className="w-[100%] relative z-[55] select-none mt-[50vh] lg:mt-[0vh] lg:absolute lg:right-0 lg:top-0 lg:w-[50vw] p-3 lg:p-6 xl:p-8 min-h-screen">
+        <h2 className="text-zinc-800 drop-shadow-lg shadow-black text-4xl sm:text-3xl xl:text-4xl text-center lg:text-left font-bold">
+          {product.title} <br />{" "}
+          <span className="text-zinc-600 drop-shadow-lg shadow-black text-lg">
+            ({product.dimensions})
+          </span>
+        </h2>
+        <p></p>
+      </div>
+    </div>
+  );
 }
 
 export async function generateMetadata({ params }: { params: any }) {
@@ -58,13 +80,11 @@ export async function generateMetadata({ params }: { params: any }) {
   }
   if (product)
     return {
-      title: `BlackbellArt.com | Sklep Z Obrazami | ${returnMetadata(
+      title: `Sklep z Obrazami | ${returnMetadata(
         "title",
         product.category
-      )}`,
-      description: ` ${returnMetadata("description", product.category)} ${
-        product?.title
-      }`,
+      )} | BlackbellArt.com`,
+      description: returnMetadata("description", product.category),
       openGraph: {
         type: "website",
         url: "https://blackbellart.com",
@@ -72,7 +92,7 @@ export async function generateMetadata({ params }: { params: any }) {
           "title",
           product.category
         )}`,
-        description: ` ${returnMetadata("description", product.category)}`,
+        description: returnMetadata("description", product.category),
         siteName: "BlackbellArt",
         images: [
           {
