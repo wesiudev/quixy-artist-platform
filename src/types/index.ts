@@ -22,7 +22,7 @@ export type ArtworkData = {
   dimensions: string;
   price: number;
   isPrint: boolean;
-  sections: Section[];
+  sections: any[];
   category?: Category;
   slug?: string;
   description: string;
