@@ -68,14 +68,14 @@ export default function NewPost() {
   const blogTypes = ["art", "tattoo"];
   return (
     <>
-      <EditSection
+      {/* <EditSection
         selectedSection={selectedSection}
         setSelectedSection={setSelectedSection}
         selectedPost={input}
         setSelectedPost={setInput}
         setSectionEditorOpen={setSectionEditorOpen}
         sectionEditorOpen={sectionEditorOpen}
-      />
+      /> */}
 
       <div className="relative">
         {messageVisible && (

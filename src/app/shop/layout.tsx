@@ -1,7 +1,4 @@
-import Link from "next/link";
-import ShopHeader from "./components/ShopHeader";
 import TopBar from "./components/ShopHeader/TopBar";
-import ShopFooter from "./components/ShopFooter";
 import { Metadata } from "next";
 
 export default function ShopLayout({
@@ -22,7 +19,28 @@ export const metadata: Metadata = {
   themeColor: "#1d1d1d",
   publisher: "Black Bell Tattoo & Art",
   manifest: "/manifest.json",
-  keywords: "",
+  keywords: [
+    "BlackbellArt",
+    "Sklep ze sztuką",
+    "Obrazy na płótnie",
+    "Sztuka na zamówienie",
+    "Naklejki",
+    "Oryginalne obrazy",
+    "Naklejki na ścianę",
+    "Inspiracja artystyczna",
+    "Tworzenie własnych projektów",
+    "Sztuka personalizowana",
+    "Kup obrazy online",
+    "Oryginalne dzieła sztuki",
+    "Sztuka współczesna",
+    "Galeria sztuki BlackbellArt",
+    "Artystyczne inspiracje",
+    "Dekoracje ścienne",
+    "Sztuka do mieszkania",
+    "Projektowanie przestrzeni",
+    "Galeria obrazów online",
+    "Kreatywne aranżacje mieszkania",
+  ],
   verification: {
     google: "google85185d3abec28326.html",
   },
