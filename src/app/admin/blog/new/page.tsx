@@ -1,74 +1,74 @@
 "use client";
-// import { renderMarkdown } from "@/lib/parseMarkdown";
-// import { polishToEnglish } from "../../../../../utils/polishToEnglish";
-// import { addBlogPost } from "@/firebase";
-// import Link from "next/link";
-// import { useState } from "react";
-// import { FaLink, FaLongArrowAltLeft } from "react-icons/fa";
-// import * as Scroll from "react-scroll";
-// import PostImages from "./PostImages";
-// import SectionContentEditor from "./PostSections/SectionContentEditor";
-// import TagsHandler from "./TagsHandler";
-// import { EditorState } from "draft-js";
-// import EditSection from "../edit/EditSection";
-// import SectionsList from "./PostSections/SectionsList";
-// import FaqHandler from "./FaqHandler";
-// var randomId = require("random-id");
+import { renderMarkdown } from "@/lib/parseMarkdown";
+import { polishToEnglish } from "../../../../../utils/polishToEnglish";
+import { addBlogPost } from "@/firebase";
+import Link from "next/link";
+import { useState } from "react";
+import { FaLink, FaLongArrowAltLeft } from "react-icons/fa";
+import * as Scroll from "react-scroll";
+import PostImages from "./PostImages";
+import SectionContentEditor from "./PostSections/SectionContentEditor";
+import TagsHandler from "./TagsHandler";
+import { EditorState } from "draft-js";
+import EditSection from "../edit/EditSection";
+import SectionsList from "./PostSections/SectionsList";
+import FaqHandler from "./FaqHandler";
+var randomId = require("random-id");
 export default function NewPost() {
-  // const [input, setInput] = useState({
-  //   postId: randomId(30, "aA0"),
-  //   title: "",
-  //   intro: "",
-  //   outro: "",
-  //   metaTitle: "",
-  //   mainImage: "",
-  //   metaDescription: "",
-  //   sections: [],
-  //   tags: [],
-  //   faq: [],
-  //   url: "",
-  //   blogType: "",
-  // });
-  // const [selectedSection, setSelectedSection] = useState({
-  //   title: "",
-  //   content: EditorState.createEmpty(),
-  //   id: 0,
-  // });
-  // const [sectionEditorOpen, setSectionEditorOpen] = useState(false);
-  // const [tagInput, setTagInput] = useState("");
-  // const [messageVisible, setMessageVisible] = useState(false);
-  // const addSection = (title: string, content: EditorState) => {
-  //   setInput((prevInput: any) => ({
-  //     ...prevInput,
-  //     sections: [...prevInput.sections, { title: title, content: content }],
-  //   }));
-  // };
-  // const addTag = () => {
-  //   setInput((prevInput: any) => ({
-  //     ...prevInput,
-  //     tags: [...prevInput.tags, { name: `#${tagInput}` }],
-  //   }));
-  // };
+  const [input, setInput] = useState({
+    postId: randomId(30, "aA0"),
+    title: "",
+    intro: "",
+    outro: "",
+    metaTitle: "",
+    mainImage: "",
+    metaDescription: "",
+    sections: [],
+    tags: [],
+    faq: [],
+    url: "",
+    blogType: "",
+  });
+  const [selectedSection, setSelectedSection] = useState({
+    title: "",
+    content: EditorState.createEmpty(),
+    id: 0,
+  });
+  const [sectionEditorOpen, setSectionEditorOpen] = useState(false);
+  const [tagInput, setTagInput] = useState("");
+  const [messageVisible, setMessageVisible] = useState(false);
+  const addSection = (title: string, content: EditorState) => {
+    setInput((prevInput: any) => ({
+      ...prevInput,
+      sections: [...prevInput.sections, { title: title, content: content }],
+    }));
+  };
+  const addTag = () => {
+    setInput((prevInput: any) => ({
+      ...prevInput,
+      tags: [...prevInput.tags, { name: `#${tagInput}` }],
+    }));
+  };
 
-  // let ScrollTo = Scroll.Link;
-  // {
-  //   /* {"![alt text](image-url) [link text](link-url)"} */
-  // }
+  let ScrollTo = Scroll.Link;
+  {
+    /* {"![alt text](image-url) [link text](link-url)"} */
+  }
 
-  // const removeSection = (idx: number) => {
-  //   const newSections = [...input.sections];
-  //   newSections.splice(idx, 1);
-  //   setInput({ ...input, sections: newSections });
-  // };
-  // const removeTag = (idx: number) => {
-  //   const newTags = [...input.tags];
-  //   newTags.splice(idx, 1);
-  //   setInput({ ...input, tags: newTags });
-  // };
-  // const blogTypes = ["art", "tattoo"];
+  const removeSection = (idx: number) => {
+    const newSections = [...input.sections];
+    newSections.splice(idx, 1);
+    setInput({ ...input, sections: newSections });
+  };
+  const removeTag = (idx: number) => {
+    const newTags = [...input.tags];
+    newTags.splice(idx, 1);
+    setInput({ ...input, tags: newTags });
+  };
+  const blogTypes = ["art", "tattoo"];
   return (
     <>
-      {/* <EditSection
+      <EditSection
         selectedSection={selectedSection}
         setSelectedSection={setSelectedSection}
         selectedPost={input}
@@ -298,7 +298,7 @@ export default function NewPost() {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 }

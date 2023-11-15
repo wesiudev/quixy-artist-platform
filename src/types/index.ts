@@ -27,6 +27,7 @@ export type ArtworkData = {
   slug?: string;
   description: string;
   alignment: Alignment;
+  keywords: string;
 };
 export type Service = {
   image: {

@@ -1,5 +1,3 @@
-import { getImages } from "@/firebase/index";
-
 import UploadImage from "./UploadImage";
 import { getShopProduct } from "@/lib/getShopProduct";
 

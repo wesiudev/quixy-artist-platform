@@ -2,7 +2,7 @@
 import Link from "next/link";
 var randomId = require("random-id");
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { addImage, deleteImage, storage } from "../../../../firebase/index";
+import { addProduct, deleteProduct, storage } from "../../../../firebase/index";
 import { useState } from "react";
 import { FaArrowLeft, FaInfo, FaInfoCircle } from "react-icons/fa";
 import Image from "next/image";
@@ -41,6 +41,7 @@ export default function UploadImage({ products }: any) {
     isPrint: false,
     sections: [],
     alignment: "square",
+    keywords: "",
   };
   const [artworkData, setArtworkData] = useState(initialState);
   function uploadImage() {
@@ -61,8 +62,9 @@ export default function UploadImage({ products }: any) {
       description: artworkData.description,
       category: selectedCategory,
       alignment: selectedAlignment,
+      keywords: artworkData.keywords,
     };
-    addImage(req);
+    addProduct(req);
     setLoading(false);
   }
 
@@ -382,6 +384,23 @@ export default function UploadImage({ products }: any) {
           </div>
           <div className="p-6 rounded-xl bg-white border-4 border-black w-full mt-6">
             <div className="flex flex-col">
+              <span className="font-bold mb-5 text-3xl">Słowa kluczowe</span>
+              <input
+                className={`font-bold text-zinc-700 drop-shadow-md shadow-black p-3 rounded-md ${
+                  artworkData.keywords
+                    ? "border-2 border-green-500"
+                    : "border-2"
+                }`}
+                type="number"
+                value={artworkData.keywords}
+                onChange={(e) =>
+                  handleArtworkDataChange("keywords", e.target.value)
+                }
+              />
+            </div>
+          </div>
+          <div className="p-6 rounded-xl bg-white border-4 border-black w-full mt-6">
+            <div className="flex flex-col">
               <span className="font-bold mb-5 text-3xl">
                 SEKCJA POD PRODUKTEM (POD SŁOWA KLUCZOWE)
               </span>
@@ -496,7 +515,7 @@ export default function UploadImage({ products }: any) {
                   <div className="flex flex-row w-full">
                     <button
                       onClick={() => {
-                        deleteImage(image),
+                        deleteProduct(image),
                           setStartDelete(""),
                           setJustDeleted((oldArray) => [
                             ...oldArray!,
