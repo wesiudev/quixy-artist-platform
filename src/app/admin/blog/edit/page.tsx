@@ -18,7 +18,7 @@ export default function Page() {
 
   return (
     <>
-      {posts?.posts && <Edit posts={posts.posts} />}{" "}
+      {/* {posts?.posts && <Edit posts={posts.posts} />}{" "}
       {posts?.posts?.length === 0 && (
         <div className="flex flex-col items-center justify-center space-y-6 w-max  h-max absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]">
           <h1 className="text-3xl w-max mx-auto text-white drop-shadow shadow-black">
@@ -31,7 +31,7 @@ export default function Page() {
             Dodaj post
           </Link>
         </div>
-      )}
+      )} */}
     </>
   );
 }
