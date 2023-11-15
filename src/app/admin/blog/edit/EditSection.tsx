@@ -4,6 +4,7 @@ import { Editor } from "react-draft-wysiwyg";
 import { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { type } from "os";
+import useWindowDimensions from "@/utils/useWindowDimensions";
 
 export default function EditSection({
   selectedSection,
@@ -35,7 +36,7 @@ export default function EditSection({
     }
   };
   const [isResizing, setIsResizing] = useState(false);
-  const [width, setWidth] = useState(600);
+  const [componentWidth, setComponentWidth] = useState(600);
   const handleMouseDown = () => {
     setIsResizing(true);
   };
@@ -43,13 +44,11 @@ export default function EditSection({
   const handleMouseUp = () => {
     setIsResizing(false);
   };
-
+  const { width } = useWindowDimensions();
   const handleMouseMove = (event: MouseEvent) => {
     if (isResizing) {
-      if (window !== undefined) {
-        const newWidth = window?.innerWidth - event?.clientX;
-        setWidth(newWidth);
-      }
+      const newWidth = width - event?.clientX;
+      setComponentWidth(newWidth);
     }
   };
 
@@ -63,7 +62,7 @@ export default function EditSection({
   }, [isResizing]);
   return (
     <div
-      style={{ width: `${width}px` }}
+      style={{ width: `${componentWidth}px` }}
       className={`h-screen z-[1000] fixed right-0 top-0 bg-[#222430]  text-white  ease-in-out ${
         sectionEditorOpen ? "translate-x-[0%]" : "translate-x-[120%]"
       } ${isResizing ? "select-none duration-0" : "duration-500"}`}
