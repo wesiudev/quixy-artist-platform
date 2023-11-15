@@ -1,6 +1,6 @@
 "use client";
 import { renderMarkdown } from "@/lib/parseMarkdown";
-import { polishToEnglish } from "@/utils/polishToEnglish";
+import { polishToEnglish } from "../../../../../utils/polishToEnglish";
 import { updateBlogPost } from "@/firebase";
 import Link from "next/link";
 import { useState } from "react";

@@ -8,7 +8,7 @@ import {
   View as ViewImpl,
 } from "@react-three/drei";
 import { Three } from "../../helpers/components/Three";
-import useWindowDimensions from "@/utils/useWindowDimensions";
+import useWindowDimensions from "../../../../../../../utils/useWindowDimensions";
 
 export const Common = ({ color }) => {
   const { width, height } = useWindowDimensions();

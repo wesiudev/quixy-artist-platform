@@ -1,6 +1,6 @@
 import { getPost } from "@/lib/getPost";
 import { Post } from "@/types";
-import { polishToEnglish } from "@/utils/polishToEnglish";
+import { polishToEnglish } from "../../../../utils/polishToEnglish";
 import { renderMarkdown } from "@/lib/parseMarkdown";
 import Link from "next/link";
 import ScrollTo from "@/components/ScrollTo";

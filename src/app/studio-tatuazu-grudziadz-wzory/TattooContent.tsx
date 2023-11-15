@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaArtstation, FaHome, FaInfoCircle } from "react-icons/fa";
-import { polishToEnglish } from "@/utils/polishToEnglish";
+import { polishToEnglish } from "../../../utils/polishToEnglish";
 import { useState } from "react";
 import { Tattoo } from "@/types";
 import DidYouKnow from "./[title]/DidYouKnow";

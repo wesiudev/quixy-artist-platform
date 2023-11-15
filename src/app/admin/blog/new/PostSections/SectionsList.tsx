@@ -1,3 +1,4 @@
+"use client";
 import { Post } from "@/types";
 import { FaEdit, FaTrash } from "react-icons/fa";
 

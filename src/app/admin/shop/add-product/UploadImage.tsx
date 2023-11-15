@@ -6,7 +6,7 @@ import { addImage, deleteImage, storage } from "../../../../firebase/index";
 import { useState } from "react";
 import { FaArrowLeft, FaInfo, FaInfoCircle } from "react-icons/fa";
 import Image from "next/image";
-import { polishToEnglish } from "@/utils/polishToEnglish";
+import { polishToEnglish } from "../../../../../utils/polishToEnglish";
 import { ArtworkData, Section } from "@/types";
 
 export default function UploadImage({ products }: any) {

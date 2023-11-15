@@ -1,20 +1,20 @@
 "use client";
-import Link from "next/link";
-import Edit from "./Edit";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setPosts } from "@/redux/slices/posts";
-import { getPost } from "@/lib/getPost";
-import { getBlogPosts } from "@/firebase";
+// import Link from "next/link";
+// import Edit from "./Edit";
+// import { useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setPosts } from "@/redux/slices/posts";
+// import { getPost } from "@/lib/getPost";
+// import { getBlogPosts } from "@/firebase";
 
 export default function Page() {
-  const dispatch = useDispatch();
-  const { posts } = useSelector((state: any) => state.posts);
-  useEffect(() => {
-    if (posts?.length === 0) {
-      getBlogPosts().then((data) => dispatch(setPosts(data)));
-    }
-  }, [posts]);
+  // const dispatch = useDispatch();
+  // const { posts } = useSelector((state: any) => state.posts);
+  // useEffect(() => {
+  //   if (posts?.length === 0) {
+  //     getBlogPosts().then((data) => dispatch(setPosts(data)));
+  //   }
+  // }, [posts]);
 
   return (
     <>

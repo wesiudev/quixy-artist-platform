@@ -1,5 +1,5 @@
 import { ArtworkData } from "@/types";
-import { polishToEnglish } from "@/utils/polishToEnglish";
+import { polishToEnglish } from "../../../../../utils/polishToEnglish";
 import Image from "next/image";
 import Link from "next/link";
 

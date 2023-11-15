@@ -1,6 +1,6 @@
 "use client";
 import * as Scroll from "react-scroll";
-import { polishToEnglish } from "@/utils/polishToEnglish";
+import { polishToEnglish } from "../../utils/polishToEnglish";
 import { Section } from "@/types";
 import { FaLink } from "react-icons/fa";
 
