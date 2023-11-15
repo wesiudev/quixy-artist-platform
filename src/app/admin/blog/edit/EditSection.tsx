@@ -32,7 +32,6 @@ export default function EditSection({
       setSelectedPost({ ...selectedPost, sections: updatedSections });
     }
   };
-
   return (
     <div
       className={`h-screen w-[80vw] z-[1000] fixed right-0 top-0 bg-[#222430]  text-white  ease-in-out ${

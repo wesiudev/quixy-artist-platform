@@ -1,13 +1,13 @@
 "use client";
 import { renderMarkdown } from "@/lib/parseMarkdown";
 import { polishToEnglish } from "@/utils/polishToEnglish";
-import { addBlogPost, updateBlogPost } from "@/firebase";
+import { updateBlogPost } from "@/firebase";
 import Link from "next/link";
 import { useState } from "react";
 import { FaEdit, FaLink, FaLongArrowAltLeft, FaTrash } from "react-icons/fa";
 import * as Scroll from "react-scroll";
 import PostImages from "./PostImages";
-import { Post, Section } from "@/types";
+import { Post } from "@/types";
 import EditSection from "./EditSection";
 import { EditorState } from "draft-js";
 export default function EditPost({
