@@ -18,9 +18,9 @@ export default function Page() {
 
   return (
     <>
-      {posts && <Edit posts={posts} />}{" "}
-      {!posts && (
-        <div className="flex flex-col items-center justify-center space-y-6 w-full mx-auto h-screen">
+      {posts?.posts && <Edit posts={posts.posts} />}{" "}
+      {posts?.posts?.length === 0 && (
+        <div className="flex flex-col items-center justify-center space-y-6 w-full mx-auto h-[50vw]">
           <h1 className="text-3xl w-max mx-auto text-white drop-shadow shadow-black">
             Brak postów
           </h1>

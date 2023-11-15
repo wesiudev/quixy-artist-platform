@@ -3,6 +3,7 @@ import { Post, Section } from "@/types";
 import { Editor } from "react-draft-wysiwyg";
 import { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { type } from "os";
 
 export default function EditSection({
   selectedSection,
@@ -45,8 +46,10 @@ export default function EditSection({
 
   const handleMouseMove = (event: MouseEvent) => {
     if (isResizing) {
-      const newWidth = window?.innerWidth - event?.clientX;
-      setWidth(newWidth);
+      if (window !== undefined) {
+        const newWidth = window?.innerWidth - event?.clientX;
+        setWidth(newWidth);
+      }
     }
   };
 

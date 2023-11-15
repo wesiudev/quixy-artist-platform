@@ -23,7 +23,7 @@ export default function Edit({ posts }: { posts: Post[] }) {
           </h1>{" "}
           <div className="flex flex-col items-center justify-center">
             <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 lg:gap-6 ">
-              {posts &&
+              {posts?.length !== 0 &&
                 posts?.map((post: Post, i: number) => (
                   <div
                     onClick={() => setSelectedPost(post)}
