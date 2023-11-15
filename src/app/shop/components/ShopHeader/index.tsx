@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ShopHeader() {
   return (
-    <div className="relative font-coco grid grid-cols-1 lg:grid-cols-2 lg:pb-0 overflow-y-hidden mt-[100px] px-5 lg:px-[8vw] xl:px-[12vw]">
+    <div className="h-screen relative font-coco grid grid-cols-1 lg:grid-cols-2 lg:pb-0 overflow-y-hidden pt-[66px] px-5 lg:px-[8vw] xl:px-[12vw]">
       <div className="relative flex flex-col justify-center  w-full max-w-xl md:px-0 lg:max-w-screen-xl">
         <div className="mb-16 pt-24 lg:py-40 lg:max-w-lg relative">
           <span className="font-sans font-bold py-3 absolute top-6 left-0 ">
@@ -55,10 +55,10 @@ export default function ShopHeader() {
           </div>
         </div>
       </div>
-      <div className="flex w-full  my-auto items-center justify-center lg:justify-end relative">
+      <div className="flex w-full h-full my-auto items-center justify-center lg:justify-end relative">
         <Image
           src="/images/image/common/blackbell.webp"
-          className="w-full lg:h-3/4 h-auto lg:rounded-xl"
+          className="w-[95%] lg:h-auto h-auto lg:rounded-xl"
           alt="Sztuka Blackbell.c.e Eliza Czerwińska"
           width={1200}
           height={1500}

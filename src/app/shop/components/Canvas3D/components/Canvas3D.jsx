@@ -40,11 +40,11 @@ const Common = dynamic(
 
 export default function Canvas3D({ image, shape }) {
   return (
-    <div className="w-full lg:w-1/2 z-[55] bg-white overflow-x-hidden ">
+    <div className="w-full lg:w-1/2 z-[55] bg-white overflow-x-hidden mt-[25px] lg:mt-0">
       <View
         orbit
-        className="!h-[50vh] lg:!h-[100vh] block lg:fixed  left-0 top-[91px] lg:top-[66px] w-full lg:w-1/2 bg-gradient-radial from-yellow-300 via-blue-300 to-blue-400
-        rounded-b-xl lg:rounded-none"
+        className="!h-[50vh] lg:!h-[100vh] block lg:fixed  left-0   lg:top-[66px] w-full lg:w-1/2 bg-gradient-radial from-yellow-300 via-blue-300 to-blue-400
+        "
       >
         <React.Suspense fallback={null}>
           <Blob image={image} shape={shape} />

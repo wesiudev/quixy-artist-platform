@@ -13,7 +13,7 @@ export default function TopBar() {
       <nav className="fixed py-3 top-0 left-0 z-[60] border-b-2 border-[#606060] w-screen flex flex-row items-center justify-between px-5 lg:px-[8vw] xl:px-[12vw] bg-[#303030]">
         <Link
           href="/"
-          className="text-white text-4xl flex flex-row items-end relative drop-shadow-md shadow-black font-coco px-0"
+          className="text-white text-3xl lg:text-4xl flex flex-row items-center relative drop-shadow-md shadow-black font-coco px-0"
         >
           <Image
             src="/images/image/common/logobbwWhite.png"
@@ -75,11 +75,7 @@ export default function TopBar() {
             Blog
           </Link>
 
-          <Cart
-            isMenuShow={isMenuShow}
-            isCartOpen={isCartOpen}
-            setCartOpen={setCartOpen}
-          />
+          <Cart isCartOpen={isCartOpen} setCartOpen={setCartOpen} />
         </div>
       </nav>
     </header>

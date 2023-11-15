@@ -2,14 +2,14 @@
 import Link from "next/link";
 var randomId = require("random-id");
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { addImage, deleteImage, storage } from "../../../firebase/index";
+import { addImage, deleteImage, storage } from "../../../../firebase/index";
 import { useState } from "react";
 import { FaArrowLeft, FaInfo, FaInfoCircle } from "react-icons/fa";
 import Image from "next/image";
 import { polishToEnglish } from "@/utils/polishToEnglish";
 import { ArtworkData, Section } from "@/types";
 
-export default function UploadImage({ images }: any) {
+export default function UploadImage({ products }: any) {
   const [chosenImg, setChosenImg] = useState<any>();
   const [startDelete, setStartDelete] = useState("");
   const [justDeleted, setJustDeleted] = useState<any[]>([]);
@@ -58,6 +58,7 @@ export default function UploadImage({ images }: any) {
       price: artworkData.price,
       isPrint: artworkData.isPrint,
       sections: artworkData.sections,
+      description: artworkData.description,
       category: selectedCategory,
       alignment: selectedAlignment,
     };
@@ -465,13 +466,6 @@ export default function UploadImage({ images }: any) {
           dodano
         </div>
       )}{" "}
-      <Link
-        href="/admin"
-        className="w-full text-center bg-gray-500 text-white text-3xl py-6 flex items-center pl-3"
-      >
-        <FaArrowLeft className="mr-2" />
-        Powrót
-      </Link>
       <input
         className="w-full h-24 relative before:left-0 top-0 before:absolute before:h-full before:w-full before:bg-purple-500 before:text-white before:text-3xl before:text-center before:flex before:items-center before:justify-center  before:content-['DODAJ_NOWY_PRODUKT']"
         type="file"
@@ -488,8 +482,8 @@ export default function UploadImage({ images }: any) {
         Wszystkie obrazy na sklepie
       </h1>
       <div className="flex flex-row flex-wrap h-max bg-rose-200">
-        {images?.products.length > 0 &&
-          images.products.map((image: any, i: any) => (
+        {products?.products?.length > 0 &&
+          products?.products?.map((image: any, i: any) => (
             <div
               className={`flex flex-col relative h-max ${
                 justDeleted.includes(image.id) ? "hidden" : "block"
@@ -530,7 +524,7 @@ export default function UploadImage({ images }: any) {
                 className={`max-h-[300px] w-auto space-x-3 bg-gray-300 `}
                 width={1024}
                 height={1024}
-                src={image.src}
+                src={image.images[0]}
                 alt=""
                 key={i}
               />

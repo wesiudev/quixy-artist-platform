@@ -1,278 +1,146 @@
 "use client";
 
-import {
-  FaShoppingBag,
-  FaShoppingBasket,
-  FaShoppingCart,
-} from "react-icons/fa";
+import { removeFromCart, setCart } from "@/redux/slices/shopSlice";
+import { ArtworkData } from "@/types";
+import { redirect } from "next/navigation";
+import { useEffect } from "react";
+import { FaShoppingCart } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 
 /* eslint-disable @next/next/no-img-element */
 
 export default function Cart({
   isCartOpen,
   setCartOpen,
-  isMenuShow,
 }: {
   isCartOpen: boolean;
   setCartOpen: (isCartOpen: boolean) => void;
-  isMenuShow: boolean;
 }) {
+  const dispatch = useDispatch();
+
+  const cart = useSelector((state: any) => state.shop.cart);
+  // useEffect(() => {
+  //   const cart = localStorage.getItem("cart");
+  //   if (cart) {
+  //     dispatch(setCart(JSON.parse(cart)));
+  //   }
+  // }, [cart]);
   return (
     <>
-      <>
-        <button
-          onClick={() => setCartOpen(!isCartOpen)}
-          className={`${
-            isMenuShow
-              ? "scale-100 duration-300 delay-700"
-              : "scale-0 lg:scale-100"
-          } flex flex-row items-center group  p-1 lg:duration-150 lg:delay-0 relative`}
-        >
-          <div className="absolute rounded-full p-1 h-max w-auto bg-purple-400 text-white -right-1 -bottom-1 text-sm aspect-square">
-            1
-          </div>
-          <FaShoppingCart className="mr-2 text-5xl lg:text-2xl   group-hover:!text-green-300" />
-        </button>
-      </>
+      <button
+        onClick={() => setCartOpen(!isCartOpen)}
+        className={`hover:scale-125 duration-200  flex flex-row items-center group  p-6 pt-12 pl-12  bg-purple-400 rounded-tl-full  fixed bottom-0 right-0  z-[150]`}
+      >
+        <div className="absolute rounded-full p-1 h-max w-auto bg-white text-black text-xl  right-3 bottom-3  aspect-square">
+          {cart?.length}
+        </div>
+        <FaShoppingCart className="mr-2 text-5xl  text-white " />
+      </button>
+
       {isCartOpen && (
         <div
           className="max-h-[76vh] overflow-y-scroll borderBar border border-gray-600 bg-gray-100 px-4 py-8 sm:px-6 lg:px-8 h-max w-max fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]"
           aria-modal="true"
           role="dialog"
         >
-          <span className="text-black absolute left-4 top-4 text-lg">
-            Twój koszyk
-          </span>
-          <button
-            onClick={() => setCartOpen(false)}
-            className="absolute end-4 top-4 text-gray-600 transition hover:scale-110"
-          >
-            <span className="sr-only">Close cart</span>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-
+          <div className="flex flex-col items-center justify-center">
+            {!cart.length && (
+              <>
+                <FaShoppingCart className="text-7xl text-gray-400 mt-12" />
+                <p className="text-gray-400 mt-5 text-center">
+                  Twój koszyk jest pusty...
+                </p>
+              </>
+            )}
+            {cart?.length && (
+              <div className="grid grid-cols-1 mt-16 text-black w-max">
+                {cart?.map((item: ArtworkData, i: any) => (
+                  <div key={i}>
+                    <div className="flex flex-row items-start justify-between bg-gray-200 w-max ">
+                      <div className="flex flex-row  w-max px-2">
+                        <div className="aspect-square w-16 h-16 my-auto">
+                          <img
+                            src={item?.images[0]}
+                            alt=""
+                            className="w-full h-full object-cover my-auto"
+                          />
+                        </div>
+                        <div className="pl-2">
+                          <h3 className="text-lg font-bold">{item.title} </h3>
+                          <p className="text-gray-500 text-sm">
+                            {item.dimensions}
+                          </p>
+                          <button
+                            onClick={() => {
+                              dispatch(removeFromCart(item));
+                            }}
+                            className="text-sm text-gray-500 underline hover:text-gray-600"
+                          >
+                            usuń
+                          </button>
+                        </div>
+                      </div>
+                      <p className="font-bold text-lg px-2">{item.price}zł</p>
+                    </div>
+                    <hr className="border-gray-300 my-4" />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
           <div className="mt-8 space-y-6 relative">
-            <ul className="space-y-4">
-              <li className="flex items-center gap-4">
-                <img
-                  src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-                  alt=""
-                  className="h-16 w-16 rounded object-cover"
-                />
-
-                <div>
-                  <h3 className="text-sm text-gray-900">Basic Tee 6-Pack</h3>
-
-                  <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
-                    <div>
-                      <dt className="inline">Size:</dt>
-                      <dd className="inline">XXS</dd>
-                    </div>
-
-                    <div>
-                      <dt className="inline">Color:</dt>
-                      <dd className="inline">White</dd>
-                    </div>
-                  </dl>
-                </div>
-
-                <div className="flex flex-1 items-center justify-end gap-2">
-                  <form>
-                    <label htmlFor="Line1Qty" className="sr-only">
-                      {" "}
-                      Quantity{" "}
-                    </label>
-
-                    <input
-                      type="number"
-                      min="1"
-                      value="1"
-                      id="Line1Qty"
-                      className="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-                    />
-                  </form>
-
-                  <button className="text-gray-600 transition hover:text-red-600">
-                    <span className="sr-only">Remove item</span>
-
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="h-4 w-4"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </li>
-
-              <li className="flex items-center gap-4">
-                <img
-                  src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-                  alt=""
-                  className="h-16 w-16 rounded object-cover"
-                />
-
-                <div>
-                  <h3 className="text-sm text-gray-900">Basic Tee 6-Pack</h3>
-
-                  <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
-                    <div>
-                      <dt className="inline">Size:</dt>
-                      <dd className="inline">XXS</dd>
-                    </div>
-
-                    <div>
-                      <dt className="inline">Color:</dt>
-                      <dd className="inline">White</dd>
-                    </div>
-                  </dl>
-                </div>
-
-                <div className="flex flex-1 items-center justify-end gap-2">
-                  <form>
-                    <label htmlFor="Line2Qty" className="sr-only">
-                      {" "}
-                      Quantity{" "}
-                    </label>
-
-                    <input
-                      type="number"
-                      min="1"
-                      value="1"
-                      id="Line2Qty"
-                      className="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-                    />
-                  </form>
-
-                  <button className="text-gray-600 transition hover:text-red-600">
-                    <span className="sr-only">Remove item</span>
-
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="h-4 w-4"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </li>
-
-              <li className="flex items-center gap-4">
-                <img
-                  src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-                  alt=""
-                  className="h-16 w-16 rounded object-cover"
-                />
-
-                <div>
-                  <h3 className="text-sm text-gray-900">Basic Tee 6-Pack</h3>
-
-                  <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
-                    <div>
-                      <dt className="inline">Size:</dt>
-                      <dd className="inline">XXS</dd>
-                    </div>
-
-                    <div>
-                      <dt className="inline">Color:</dt>
-                      <dd className="inline">White</dd>
-                    </div>
-                  </dl>
-                </div>
-
-                <div className="flex flex-1 items-center justify-end gap-2">
-                  <form>
-                    <label htmlFor="Line3Qty" className="sr-only">
-                      {" "}
-                      Quantity{" "}
-                    </label>
-
-                    <input
-                      type="number"
-                      min="1"
-                      value="1"
-                      id="Line3Qty"
-                      className="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-                    />
-                  </form>
-
-                  <button className="text-gray-600 transition hover:text-red-600">
-                    <span className="sr-only">Remove item</span>
-
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="h-4 w-4"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </li>
-            </ul>
-
             <div className="space-y-4 text-center">
-              <a
-                href="#"
-                className="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400"
+              <button
+                onClick={() => {
+                  setCartOpen(false), redirect("/checkout");
+                }}
+                disabled={!cart.length}
+                className="disabled:cursor-not-allowed hover:disabled:blur-sm duration-200 block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-900 w-full"
               >
-                View my cart (2)
-              </a>
-
-              <a
-                href="#"
-                className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
-              >
-                Checkout
-              </a>
-
-              <a
-                href="#"
+                Do płatności
+              </button>
+              <button
+                onClick={() => setCartOpen(false)}
                 className="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600"
               >
-                Continue shopping
-              </a>
+                Kontynuuj zakupy
+              </button>
             </div>
           </div>
+          <CartNavigation setCartOpen={setCartOpen} />
         </div>
       )}
     </>
   );
 }
+
+const CartNavigation = ({ setCartOpen }: { setCartOpen: Function }) => {
+  return (
+    <>
+      <span className="text-black absolute left-4 top-4 text-lg">
+        Twój koszyk
+      </span>
+      <button
+        onClick={() => setCartOpen(false)}
+        className="absolute end-4 top-4 text-gray-600 transition hover:scale-110"
+      >
+        <span className="sr-only">Close cart</span>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="h-5 w-5"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </>
+  );
+};

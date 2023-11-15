@@ -14,7 +14,7 @@ export const Blob = ({ image, shape }) => {
     } else if (shape === "vertical-thin") {
       return [1.2, 3, 0.2];
     } else if (shape === "vertical") {
-      return [1.2, 3, 0.2];
+      return [2.1, 2.97, 0.2];
     } else if (shape === "square") {
       return [3, 3, 0.2];
     }

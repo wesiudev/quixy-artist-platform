@@ -9,12 +9,10 @@ import * as Scroll from "react-scroll";
 import PostImages from "./PostImages";
 import SectionContentEditor from "./PostSections/SectionContentEditor";
 import TagsHandler from "./TagsHandler";
-import { stateToHTML } from "draft-js-export-html";
 import { EditorState } from "draft-js";
 import EditSection from "../edit/EditSection";
 import SectionsList from "./PostSections/SectionsList";
 import FaqHandler from "./FaqHandler";
-import { stateFromHTML } from "draft-js-import-html";
 var randomId = require("random-id");
 export default function NewPost() {
   const [input, setInput] = useState({

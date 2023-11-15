@@ -20,4 +20,9 @@ export async function GET(req: NextRequest) {
       post,
     });
   }
+  if (!url) {
+    return NextResponse.json({
+      posts,
+    });
+  }
 }

@@ -6,7 +6,8 @@ import { Layout } from "../../components/Canvas3D/components/dom/Layout";
 import Canvas3D from "../../components/Canvas3D/components/Canvas3D";
 import ShopFooter from "../../components/ShopFooter";
 import Orders from "../../components/Orders";
-
+import Image from "next/image";
+import AddToCartBtn from "./AddToCartBtn";
 export async function generateStaticParams() {
   const products = await getShopProduct();
   return products.products.map((product: ArtworkData) => ({
@@ -26,18 +27,51 @@ export default async function Page({ params }: { params: ArtworkData }) {
   return (
     <div className="relative font-coco grid grid-cols-1 lg:grid-cols-2 lg:pb-0 mt-[66px] min-h-screen">
       <Layout>
-        <Canvas3D image={product.images[0]} shape="square" />
+        <Canvas3D image={product.images[0]} shape={product.alignment} />
       </Layout>
 
       <div className="bg-white w-[100%] relative z-[55] select-none mt-[50vh] lg:mt-[0vh] lg:absolute lg:right-0 lg:top-0 lg:w-[50vw] min-h-screen">
         <div className="p-3 lg:p-6 xl:p-8 ">
-          <h2 className="text-zinc-800 drop-shadow-lg shadow-black text-4xl sm:text-3xl xl:text-4xl text-center lg:text-left font-bold">
-            {product.title} <br />{" "}
-            <span className="text-zinc-600 drop-shadow-lg shadow-black text-lg">
-              ({product.dimensions})
+          <h2 className="text-zinc-800 drop-shadow-lg shadow-black text-4xl sm:text-3xl xl:text-4xl text-center lg:text-left font-bold flex flex-row items-center">
+            {product.title}
+            <span className="text-black bg-purple-300 p-2 rounded-xl drop-shadow-lg shadow-black text-lg ml-3">
+              {product.price}zł
             </span>
           </h2>
-          <p></p>
+          <span className="text-zinc-600 drop-shadow-lg shadow-black text-lg font-bold">
+            ({product.dimensions})
+          </span>
+          <p className="text-zinc-700 text-lg sm:text-base xl:text-lg text-left my-3">
+            {product.description}
+          </p>
+          <div className="grid grid-cols-3 lg:grid-cols-5 gap-2 mb-3">
+            {product.images.map((image: any, i: any) => (
+              <div key={i} className="aspect-square">
+                <Image
+                  src={image}
+                  width={1024}
+                  height={1024}
+                  alt=""
+                  className="w-full h-full object-cover drop-shadow-lg shadow-black"
+                />
+              </div>
+            ))}
+          </div>
+          <span className="text-zinc-600 drop-shadow-lg shadow-black text-lg">
+            Artysta: <strong>{product.artist}</strong>
+          </span>
+          <br />
+          <span className="text-zinc-600 drop-shadow-lg shadow-black text-lg">
+            Technika: <strong>{product.medium}</strong>
+          </span>
+          <br />
+          <span className="text-zinc-600 drop-shadow-lg shadow-black text-lg">
+            Rok produkcji: <strong>{product.year}</strong>
+          </span>
+
+          <div className="flex justify-center lg:justify-start mt-5">
+            <AddToCartBtn product={product} />
+          </div>
         </div>
         <Orders />
         <ShopFooter isProductSlug={true} />
