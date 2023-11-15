@@ -22,7 +22,6 @@ export default function Products({ products }: { products: ArtworkData[] }) {
       />
       <div className="border-l-4 border-purple-300 bg-gray-100 py-3 pl-3 lg:pl-6 mt-12">
         <h2 className="text-4xl  font-bold text-zinc-700 drop-shadow-lg shadow-black flex flex-row items-center">
-          <FaImages className="mr-2 text-purple-300" />
           Oryginalne obrazy
         </h2>
         <p className=" mt-3 text-gray-400 w-3/4 lg:w-1/2">
@@ -40,7 +39,7 @@ export default function Products({ products }: { products: ArtworkData[] }) {
           </>
         ))}{" "}
       </div>
-      <div className="pt-12 font-coco">
+      {/* <div className="pt-12 font-coco">
         <AboutShop
           title="Doskonałej jakości druki"
           description="Oferuję sprzedaż moich prac w formie druków. Jest to idealny wybór dla osób, które chcą mieć moje dzieło sztuki na ścianie w niewielkiej cenie. Druk jest wykonywany na wysokiej jakości papierze, który jest odporny na blaknięcie. Dzięki temu możesz cieszyć się moimi dziełami przez długie lata."
@@ -52,7 +51,7 @@ export default function Products({ products }: { products: ArtworkData[] }) {
             <Product product={product} key={i} />
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

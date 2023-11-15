@@ -1,9 +1,9 @@
-import { getImages } from "@/firebase";
+import { getProducts } from "@/firebase";
 import { ArtworkData } from "@/types";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
-  const products = await getImages();
+  const products = await getProducts();
   const secret = req.nextUrl.searchParams.get("secret");
   const category = req.nextUrl.searchParams.get("category");
   const slug = req.nextUrl.searchParams.get("slug");

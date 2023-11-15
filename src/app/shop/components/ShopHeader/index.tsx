@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ScrollTo from "../ScrollTo";
 
 export default function ShopHeader() {
   return (
@@ -39,12 +40,11 @@ export default function ShopHeader() {
             okultyzmu i wnętrza duchowego.
           </p>
           <div className="flex items-center">
-            <Link
-              href="/"
-              className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-            >
-              Zamów obraz
-            </Link>
+            <ScrollTo
+              title="Zamów obraz"
+              destination="orders"
+              className="cursor-pointer inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+            />
             <Link
               href="/"
               aria-label=""

@@ -39,11 +39,11 @@ export default function Cart({
 
       {isCartOpen && (
         <div
-          className="max-h-[76vh] overflow-y-scroll borderBar border border-gray-600 bg-gray-100 px-4 py-8 sm:px-6 lg:px-8 h-max w-max fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]"
+          className="max-h-[76vh] overflow-y-scroll borderBar border border-gray-600 bg-gray-100 px-4 py-8 sm:px-6 lg:px-8 h-max w-[95vw] lg:w-max fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]"
           aria-modal="true"
           role="dialog"
         >
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center w-full">
             {!cart.length && (
               <>
                 <FaShoppingCart className="text-7xl text-gray-400 mt-12" />

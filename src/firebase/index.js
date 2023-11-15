@@ -63,12 +63,12 @@ async function updateTattoo(tattooId, updatedTattoo) {
   }
 }
 // shop products
-async function getImages() {
+async function getProducts() {
   const docRef = doc(db, websiteName, "products");
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 }
-async function addImage(imageData) {
+async function addProduct(imageData) {
   const docRef = doc(db, websiteName, "products");
   const docSnap = await getDoc(docRef);
   if (!docSnap.data()) {
@@ -79,7 +79,7 @@ async function addImage(imageData) {
     });
   }
 }
-async function deleteImage(imageData) {
+async function deleteProduct(imageData) {
   const docRef = doc(db, websiteName, "products");
   await updateDoc(docRef, {
     products: arrayRemove(imageData),
@@ -163,9 +163,9 @@ async function updateOrder(orderId, updatedOrder) {
   }
 }
 export {
-  getImages,
-  addImage,
-  deleteImage,
+  getProducts,
+  addProduct,
+  deleteProduct,
   storage,
   auth,
   getBlogPosts,
