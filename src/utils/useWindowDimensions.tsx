@@ -21,10 +21,10 @@ export default function useWindowDimensions() {
     }
 
     handleResize(); // <-- invoke this on component mount
-    window.addEventListener("resize", handleResize);
+    window?.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window?.removeEventListener("resize", handleResize);
     };
   }, []);
 

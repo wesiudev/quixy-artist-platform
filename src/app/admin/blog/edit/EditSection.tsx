@@ -3,7 +3,6 @@ import { Post, Section } from "@/types";
 import { Editor } from "react-draft-wysiwyg";
 import { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
-import { type } from "os";
 import useWindowDimensions from "@/utils/useWindowDimensions";
 
 export default function EditSection({
