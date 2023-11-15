@@ -45,7 +45,7 @@ export default function EditSection({
 
   const handleMouseMove = (event: MouseEvent) => {
     if (isResizing) {
-      const newWidth = window.innerWidth - event.clientX;
+      const newWidth = window?.innerWidth - event?.clientX;
       setWidth(newWidth);
     }
   };
