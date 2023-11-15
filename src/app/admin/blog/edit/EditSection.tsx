@@ -1,9 +1,7 @@
 "use client";
 import { Post, Section } from "@/types";
 import { Editor } from "react-draft-wysiwyg";
-import { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
-import useWindowDimensions from "@/utils/useWindowDimensions";
 
 export default function EditSection({
   selectedSection,
@@ -34,43 +32,14 @@ export default function EditSection({
       setSelectedPost({ ...selectedPost, sections: updatedSections });
     }
   };
-  const [isResizing, setIsResizing] = useState(false);
-  const [componentWidth, setComponentWidth] = useState(600);
-  const handleMouseDown = () => {
-    setIsResizing(true);
-  };
 
-  const handleMouseUp = () => {
-    setIsResizing(false);
-  };
-  const { width } = useWindowDimensions();
-  const handleMouseMove = (event: MouseEvent) => {
-    if (isResizing) {
-      const newWidth = width - event?.clientX;
-      setComponentWidth(newWidth);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, [isResizing]);
   return (
     <div
-      style={{ width: `${componentWidth}px` }}
-      className={`h-screen z-[1000] fixed right-0 top-0 bg-[#222430]  text-white  ease-in-out ${
+      className={`h-screen w-[80vw] z-[1000] fixed right-0 top-0 bg-[#222430]  text-white  ease-in-out ${
         sectionEditorOpen ? "translate-x-[0%]" : "translate-x-[120%]"
-      } ${isResizing ? "select-none duration-0" : "duration-500"}`}
+      }`}
     >
       <div className="flex flex-col w-full relative">
-        <div
-          onMouseDown={handleMouseDown}
-          className="absolute left-0 top-0 h-screen w-[5px] bg-[#31323a] cursor-w-resize"
-        ></div>
         <button
           onClick={() => {
             setSectionEditorOpen(false);
