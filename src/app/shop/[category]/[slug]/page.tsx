@@ -115,7 +115,7 @@ export default async function Page({ params }: { params: ArtworkData }) {
               Więcej na moim blogu
             </Link>
           </div>
-          <div className="bg-gray-200 p-3 py-6">
+          {/* <div className="bg-gray-200 p-3 py-6">
             <h3 className="mt-8 text-zinc-800 drop-shadow-lg shadow-black text-lg sm:text-xl xl:text-2xl text-center lg:text-left font-bold flex flex-row items-center">
               Więcej moich produkcji:
             </h3>
@@ -141,7 +141,7 @@ export default async function Page({ params }: { params: ArtworkData }) {
                 </>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
         <Orders />
         <ShopFooter isProductSlug={true} />
