@@ -5,7 +5,6 @@ import { prepareCart, setCart } from "@/redux/slices/shopSlice";
 import { ArtworkData } from "@/types";
 import { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
-import { getCheckouts } from "@/firebase";
 
 export default function AddToCartBtn({
   product,

@@ -18,8 +18,6 @@ export async function generateStaticParams() {
   }));
 }
 
-export const dynamic = false;
-
 export default async function Page({ params }: { params: ArtworkData }) {
   const product: ArtworkData = await getShopProduct(
     params.category,
