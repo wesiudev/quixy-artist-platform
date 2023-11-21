@@ -120,7 +120,7 @@ export default async function Page({ params }: { params: ArtworkData }) {
               Więcej moich produkcji:
             </h3>
             <div className="grid grid-cols-3 w-max gap-3 gap-y-7 my-5">
-              {products?.map((item: any, i: any) => (
+              {products?.products?.map((item: any, i: any) => (
                 <>
                   {item.title !== product.title && i <= 6 && (
                     <Link
