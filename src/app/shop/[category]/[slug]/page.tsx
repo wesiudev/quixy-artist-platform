@@ -23,7 +23,6 @@ export default async function Page({ params }: { params: ArtworkData }) {
     params.category,
     params.slug
   );
-  const products = await getShopProduct();
   const orders = await fetch(
     `${process.env.NEXT_PUBLIC_SITE_URL}/api/stripe/orders?secret=${process.env.API_SECRET_KEY}`,
     { next: { revalidate: 30 } }
