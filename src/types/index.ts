@@ -5,6 +5,23 @@ export type Product = {
   name: string;
   price: number;
 };
+export type CartItem = {
+  productName: string;
+  price: number;
+  category: string;
+  slug: string;
+  currency: string;
+  error: boolean;
+};
+export type CustomerInfo = {
+  firstName: string;
+  lastName: string;
+  city: string;
+  postalCode: string;
+  street: string;
+  houseNumber?: string;
+  phoneNumber: string;
+};
 
 type Category = "artwork" | "sticker" | "print" | "inspiration";
 type Alignment =

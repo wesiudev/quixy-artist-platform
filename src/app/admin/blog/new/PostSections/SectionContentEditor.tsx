@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
 import { EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
-import { stateFromHTML } from "draft-js-import-html";
 export default function SectionContentEditor({
   addSection,
 }: {

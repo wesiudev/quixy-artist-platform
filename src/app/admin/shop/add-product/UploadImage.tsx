@@ -1,13 +1,12 @@
 "use client";
-import Link from "next/link";
 var randomId = require("random-id");
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { addProduct, deleteProduct, storage } from "../../../../firebase/index";
 import { useState } from "react";
-import { FaArrowLeft, FaInfo, FaInfoCircle } from "react-icons/fa";
+import { FaInfoCircle } from "react-icons/fa";
 import Image from "next/image";
 import { polishToEnglish } from "../../../../../utils/polishToEnglish";
-import { ArtworkData, Section } from "@/types";
+import { ArtworkData } from "@/types";
 
 export default function UploadImage({ products }: any) {
   const [chosenImg, setChosenImg] = useState<any>();
@@ -391,7 +390,7 @@ export default function UploadImage({ products }: any) {
                     ? "border-2 border-green-500"
                     : "border-2"
                 }`}
-                type="number"
+                type="text"
                 value={artworkData.keywords}
                 onChange={(e) =>
                   handleArtworkDataChange("keywords", e.target.value)

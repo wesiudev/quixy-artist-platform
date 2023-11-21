@@ -19,7 +19,8 @@ export function polishToEnglish(sentence: string): string {
     )
     .replace(/\s/g, "-")
     .replace(/[^\w\s-]/g, "")
-    .toLowerCase();
+    .toLowerCase()
+    .replace(/-+/g, "-");
 
   return sanitizedSentence;
 }

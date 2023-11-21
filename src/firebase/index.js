@@ -133,35 +133,57 @@ async function addExhibition(exhibition) {
     });
   }
 }
-// orders
-async function getOrders() {
-  const docRef = doc(db, websiteName, "orders");
+
+// checkouts
+async function getCheckout(id) {
+  const docRef = doc(db, websiteName, "checkouts");
   const docSnap = await getDoc(docRef);
+  const data = docSnap.data();
+  if (data) {
+    const checkouts = data.checkouts;
+    const checkout = checkouts.find((checkout) => checkout.id === id);
+    return checkout;
+  }
+  return null;
+}
+async function getCheckouts() {
+  const docRef = doc(db, websiteName, "checkouts");
+  const docSnap = await getDoc(docRef);
+
   return docSnap.data();
 }
-async function addOrder(order) {
-  const docRef = doc(db, websiteName, "orders");
-  const docSnap = await getDoc(docRef);
-  if (!docSnap.data()) {
-    await setDoc(doc(db, websiteName, "orders"), { orders: [order] });
-  } else {
-    await updateDoc(doc(db, websiteName, "orders"), {
-      orders: arrayUnion(order),
-    });
-  }
-}
-async function updateOrder(orderId, updatedOrder) {
-  const docRef = doc(db, websiteName, "orders");
+async function updateCheckout(checkoutId, updatedCheckout) {
+  const docRef = doc(db, websiteName, "checkouts");
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
-    const orders = docSnap.data().orders;
-    const orderIndex = orders.findIndex((order) => order.id === orderId);
-    if (orderIndex !== -1) {
-      orders[orderIndex] = updatedOrder;
-      await updateDoc(docRef, { orders });
+    const checkouts = docSnap.data().checkouts;
+    const checkoutIndex = checkouts.findIndex(
+      (checkout) => checkout.id === checkoutId
+    );
+    if (checkoutIndex !== -1) {
+      const updatedCheckouts = [...checkouts];
+      updatedCheckouts[checkoutIndex] = {
+        ...updatedCheckout,
+        payment_status: "paid",
+      };
+      await updateDoc(docRef, { checkouts: updatedCheckouts });
     }
   }
 }
+async function addCheckout(checkout) {
+  const docRef = doc(db, websiteName, "checkouts");
+  const docSnap = await getDoc(docRef);
+  if (!docSnap.data()) {
+    await setDoc(doc(db, websiteName, "checkouts"), {
+      checkouts: [checkout],
+    });
+  } else {
+    await updateDoc(doc(db, websiteName, "checkouts"), {
+      checkouts: arrayUnion(checkout),
+    });
+  }
+}
+
 export {
   getProducts,
   addProduct,
@@ -173,11 +195,12 @@ export {
   getExhibitions,
   addExhibition,
   updateBlogPost,
-  getOrders,
-  addOrder,
-  updateOrder,
   getTattoos,
   addTattoo,
   deleteTattoo,
   updateTattoo,
+  getCheckout,
+  addCheckout,
+  getCheckouts,
+  updateCheckout,
 };

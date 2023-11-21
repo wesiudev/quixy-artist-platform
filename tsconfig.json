@@ -34,7 +34,8 @@
     "src/app/shop/components/ItemPreview3D/components/canvas/View.jsx",
     "src/app/shop/components/ItemPreview3D/components/canvas/Shapes.jsx",
     "src/app/shop/components/ItemPreview3D/components/Canvas3D.jsx",
-    "src/redux/slices/shopSlice.js"
+    "src/redux/slices/shopSlice.js",
+    "src/app/checkout/page.tsx"
   ],
   "exclude": ["node_modules"]
 }

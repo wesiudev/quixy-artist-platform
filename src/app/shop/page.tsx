@@ -8,7 +8,7 @@ import ShopFooter from "./components/ShopFooter";
 import PrepareCart from "./components/PrepareCart";
 
 export default async function Shop() {
-  const { products } = await getShopProduct();
+  const products = await getShopProduct();
 
   return (
     <div className="bg-white flex flex-col justify-center w-full">

@@ -1,6 +1,6 @@
 "use client";
 import { prepareCart } from "@/redux/slices/shopSlice";
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 export default function PrepareCart() {

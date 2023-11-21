@@ -9,7 +9,7 @@ export default function Product({ product }: { product: ArtworkData }) {
       href={`${process.env.NEXT_PUBLIC_SITE_URL}/shop/${
         product.category
       }/${polishToEnglish(product.title)}`}
-      className="rounded-lg drop-shadow-md shadow-gray-500 aspect-square"
+      className="rounded-lg drop-shadow-md shadow-gray-500 aspect-square bg-gray-100 flex items-center justify-center flex-col"
     >
       <Image
         width={300}

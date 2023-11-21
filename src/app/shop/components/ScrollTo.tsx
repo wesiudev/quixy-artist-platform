@@ -1,8 +1,6 @@
 "use client";
 import * as Scroll from "react-scroll";
 
-import { FaLink } from "react-icons/fa";
-
 export default function ScrollTo({
   destination,
   title,

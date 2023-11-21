@@ -3,17 +3,48 @@
 import { useDispatch, useSelector } from "react-redux";
 import { prepareCart, setCart } from "@/redux/slices/shopSlice";
 import { ArtworkData } from "@/types";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { FaCheck } from "react-icons/fa";
+import { getCheckouts } from "@/firebase";
 
-export default function AddToCartBtn({ product }: { product: ArtworkData }) {
+export default function AddToCartBtn({
+  product,
+  orders,
+}: {
+  product: ArtworkData;
+  orders: any;
+}) {
+  const [isProductSold, setIsProductSold] = useState(false);
+
   const dispatch = useDispatch();
   const cart = useSelector((state: any) => state.shop.cart);
   useEffect(() => {
     dispatch(prepareCart());
-  }, []);
+    // && order.status === "paid"
+    const isSold = orders?.some((order: any) => {
+      let productsArray = order.metadata.products.includes(",")
+        ? order.metadata.products.split(",")
+        : order.metadata.products;
+      if (
+        productsArray.includes(product.title) &&
+        order.payment_status === "paid"
+      ) {
+        return true;
+      }
+    });
+    console.log(isSold);
+
+    if (isSold) {
+      setIsProductSold(true);
+    }
+  }, [orders]);
   const handleAddToCart = () => {
-    localStorage.setItem("cart", JSON.stringify(product));
-    dispatch(setCart(product));
+    if (isProductSold) {
+      return;
+    } else {
+      localStorage.setItem("cart", JSON.stringify(product));
+      dispatch(setCart(product));
+    }
   };
 
   const itemIndex = cart?.findIndex(
@@ -26,10 +57,22 @@ export default function AddToCartBtn({ product }: { product: ArtworkData }) {
       onClick={handleAddToCart}
       className={`bg-zinc-500 hover:bg-zinc-600 text-white py-3 px-8 text-lg sm:text-base xl:text-lg font-bold uppercase tracking-wider ${
         itemInCart ? "duration-300 opacity-50 cursor-not-allowed" : ""
+      }
+      ${
+        isProductSold === true
+          ? "duration-300 !bg-red-500 opacity-80 cursor-not-allowed"
+          : ""
       }`}
       disabled={itemInCart}
     >
-      {itemInCart ? "Dodano do koszyka" : "Dodaj do koszyka"}
+      {itemInCart ? (
+        <div className="flex flex-row items-center">
+          <FaCheck className="text-green-400 mr-2" />
+          Dodano do koszyka
+        </div>
+      ) : (
+        <>{isProductSold ? "Obraz sprzedany" : "Dodaj do koszyka"}</>
+      )}
     </button>
   );
 }

@@ -1,11 +1,12 @@
 "use client";
 
-import { removeFromCart, setCart } from "@/redux/slices/shopSlice";
+import { removeFromCart } from "@/redux/slices/shopSlice";
 import { ArtworkData } from "@/types";
+import Link from "next/link";
 import { redirect } from "next/navigation";
-import { useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { polishToEnglish } from "../../../../../utils/polishToEnglish";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -31,8 +32,8 @@ export default function Cart({
         onClick={() => setCartOpen(!isCartOpen)}
         className={`hover:scale-125 duration-200  flex flex-row items-center group  p-6 pt-12 pl-12  bg-purple-400 rounded-tl-full  fixed bottom-0 right-0  z-[150]`}
       >
-        <div className="absolute rounded-full p-1 h-max w-auto bg-white text-black text-xl  right-3 bottom-3  aspect-square">
-          {cart?.length}
+        <div className="absolute rounded-full p-1 h-max w-auto text-white font-bold text-2xl  right-3 bottom-3  aspect-square">
+          {cart?.length === 0 ? "" : cart?.length}
         </div>
         <FaShoppingCart className="mr-2 text-5xl  text-white " />
       </button>
@@ -56,7 +57,7 @@ export default function Cart({
               <div className="grid grid-cols-1 mt-16 text-black w-max">
                 {cart?.map((item: ArtworkData, i: any) => (
                   <div key={i}>
-                    <div className="flex flex-row items-start justify-between bg-gray-200 w-max ">
+                    <div className="flex flex-row items-start justify-between bg-gray-200 w-full">
                       <div className="flex flex-row  w-max px-2">
                         <div className="aspect-square w-16 h-16 my-auto">
                           <img
@@ -66,7 +67,12 @@ export default function Cart({
                           />
                         </div>
                         <div className="pl-2">
-                          <h3 className="text-lg font-bold">{item.title} </h3>
+                          <Link
+                            href={`/shop/${item.category}/${item.slug}`}
+                            className="text-lg font-bold "
+                          >
+                            {item.title}{" "}
+                          </Link>
                           <p className="text-gray-500 text-sm">
                             {item.dimensions}
                           </p>
@@ -80,7 +86,9 @@ export default function Cart({
                           </button>
                         </div>
                       </div>
-                      <p className="font-bold text-lg px-2">{item.price}zł</p>
+                      <p className="font-bold text-lg px-2 mt-1">
+                        {item.price}zł
+                      </p>
                     </div>
                     <hr className="border-gray-300 my-4" />
                   </div>
@@ -90,15 +98,23 @@ export default function Cart({
           </div>
           <div className="mt-8 space-y-6 relative">
             <div className="space-y-4 text-center">
-              <button
-                onClick={() => {
-                  setCartOpen(false), redirect("/checkout");
-                }}
-                disabled={!cart.length}
-                className="disabled:cursor-not-allowed hover:disabled:blur-sm duration-200 block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-900 w-full"
-              >
-                Do płatności
-              </button>
+              {!cart.length && (
+                <button
+                  disabled={!cart.length}
+                  className="disabled:cursor-not-allowed hover:disabled:blur-sm duration-200 block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-900 w-full"
+                >
+                  Do płatności
+                </button>
+              )}
+              {cart.length && (
+                <Link
+                  title="Przejdź do płatności"
+                  href="/checkout"
+                  className="duration-200 block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-900 w-full"
+                >
+                  Do płatności
+                </Link>
+              )}
               <button
                 onClick={() => setCartOpen(false)}
                 className="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600"
