@@ -33,7 +33,7 @@ export default function AddToCartBtn({
     });
     console.log(isSold);
 
-    if (isSold) {
+    if (isSold && product.category === "artwork") {
       setIsProductSold(true);
     }
   }, [orders]);
@@ -58,7 +58,7 @@ export default function AddToCartBtn({
         itemInCart ? "duration-300 opacity-50 cursor-not-allowed" : ""
       }
       ${
-        isProductSold === true
+        isProductSold
           ? "duration-300 !bg-red-500 opacity-80 cursor-not-allowed"
           : ""
       }`}
