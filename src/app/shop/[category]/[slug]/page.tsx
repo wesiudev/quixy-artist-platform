@@ -10,6 +10,7 @@ import Image from "next/image";
 import AddToCartBtn from "./AddToCartBtn";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
+import { getPolishCurrency } from "../../../../../utils/getPolishCurrency";
 export async function generateStaticParams() {
   const products = await getShopProduct();
   return products?.map((product: ArtworkData) => ({
@@ -39,8 +40,8 @@ export default async function Page({ params }: { params: ArtworkData }) {
         <div className="p-3 lg:p-6 xl:p-8 ">
           <h2 className="text-zinc-800 drop-shadow-lg shadow-black text-xl sm:text-3xl xl:text-4xl text-center lg:text-left font-bold flex flex-row items-center">
             {product.title}
-            <span className="text-black bg-purple-300 p-2 rounded-xl drop-shadow-lg shadow-black text-lg ml-3">
-              {product.price}zł
+            <span className="text-zinc-800 bg-purple-300 p-2 rounded-xl drop-shadow-lg shadow-black text-xl ml-3 !font-bold">
+              {getPolishCurrency(product.price)}
             </span>
           </h2>
           <span className="text-zinc-600 drop-shadow-lg shadow-black text-lg font-bold">
@@ -119,25 +120,37 @@ export default async function Page({ params }: { params: ArtworkData }) {
             <h3 className="mt-8 text-zinc-800 drop-shadow-lg shadow-black text-lg sm:text-xl xl:text-2xl text-center lg:text-left font-bold flex flex-row items-center">
               Więcej moich produkcji:
             </h3>
-            <div className="grid grid-cols-3 w-max gap-3 gap-y-7 my-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 2xl:grid-cols-4 w-full gap-3 gap-y-5 my-5">
               {products?.map((item: any, i: any) => (
                 <>
-                  {item.title !== product.title && i <= 6 && (
-                    <Link
-                      key={i}
-                      href={`/shop/${item.category}/${item.slug}`}
-                      className="text-blue-500 h-48 w-48 flex flex-col"
-                    >
-                      <Image
-                        src={item.images[0]}
-                        width={1024}
-                        height={1024}
-                        alt=""
-                        className="w-full h-full object-cover drop-shadow-lg shadow-black"
-                      />
-                      <span>{item.title}</span>
-                    </Link>
-                  )}
+                  {item.title !== product.title &&
+                    !["print", "sticker", "inspiration"].includes(
+                      item.category
+                    ) &&
+                    i <= 6 && (
+                      <Link
+                        key={i}
+                        href={`/shop/${item.category}/${item.slug}`}
+                        className="text-blue-400 flex flex-col relative overflow-y-hidden group"
+                      >
+                        <Image
+                          src={item.images[0]}
+                          width={1024}
+                          height={1024}
+                          alt={`Obraz na płótnie ${item.title}`}
+                          className=" w-full h-full object-cover drop-shadow-lg shadow-black"
+                        />
+                        <div
+                          className={`absolute bottom-0 left-0 bg-[#444444] p-2 flex flex-col items-start justify-start w-full translate-y-[100%] duration-500 group-hover:translate-y-[0%] transition-all`}
+                        >
+                          <span>{item.title}</span>
+                          <span className="text-sm text-gray-300">
+                            {item?.description?.slice(0, 48)}
+                            {item?.description?.length > 48 ? "..." : ""}
+                          </span>
+                        </div>
+                      </Link>
+                    )}
                 </>
               ))}
             </div>

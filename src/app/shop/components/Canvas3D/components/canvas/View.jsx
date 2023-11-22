@@ -13,7 +13,7 @@ import useWindowDimensions from "../../../../../../../utils/useWindowDimensions"
 export const Common = ({ color }) => {
   const { width, height } = useWindowDimensions();
   function returnFov() {
-    if (width < 1366 && width > 1024) {
+    if (width <= 1366 && width >= 1024) {
       return 55;
     } else if (width > 1366) {
       return 45;
