@@ -11,7 +11,7 @@ import AddToCartBtn from "./AddToCartBtn";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 export async function generateStaticParams() {
-  const { products } = await getShopProduct();
+  const products = await getShopProduct();
   return products?.map((product: ArtworkData) => ({
     category: product.category,
     slug: product.slug,

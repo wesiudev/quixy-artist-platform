@@ -17,7 +17,6 @@ export default async function Checkout({ params }: { params: { id: string } }) {
   const order = orders?.data?.find(
     (order: any) => order.metadata.id === params.id
   );
-  console.log(order.products);
   return (
     <div className="p-5 lg:p-7 xl:p-12">
       <Link

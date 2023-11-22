@@ -18,7 +18,6 @@ export default function CheckoutSummary({ cart }: { cart: any }) {
         setLoading(false);
       }, 1000);
     }
-    console.log("fired");
   }, [cart?.length]);
   const cartPrice = cart?.reduce((acc: any, item: any) => {
     return acc + item.price;

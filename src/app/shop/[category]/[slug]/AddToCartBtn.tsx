@@ -31,7 +31,6 @@ export default function AddToCartBtn({
         return true;
       }
     });
-    console.log(isSold);
 
     if (isSold && product.category === "artwork") {
       setIsProductSold(true);

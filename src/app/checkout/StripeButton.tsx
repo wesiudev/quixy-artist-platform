@@ -69,10 +69,8 @@ function StripeButton({
       createCheckout(cartItems, customerInfo).then((data) => {
         if (data.error) {
           setMalwareError(data.error);
-          console.log(data.error);
         } else {
           router.replace(`${data.url}`);
-          console.log(data.url);
         }
       });
     }
