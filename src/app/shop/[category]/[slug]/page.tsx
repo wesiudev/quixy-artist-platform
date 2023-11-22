@@ -12,7 +12,7 @@ import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 export async function generateStaticParams() {
   const products = await getShopProduct();
-  return products.map((product: ArtworkData) => ({
+  return products?.map((product: ArtworkData) => ({
     category: product.category,
     slug: product.slug,
   }));
