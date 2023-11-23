@@ -9,7 +9,8 @@ export default function ScrollTo({ section }: { section: Section }) {
 
   return (
     <ScrollTo
-      className=" text-black flex flex-row items-center cursor-pointer hover:bg-gray-400 duration-150 absolute left-0 top-0 z-20 h-full w-full"
+      title={section.title}
+      className=" text-black flex flex-row items-center cursor-pointer hover:bg-gray-300 p-2 duration-150 absolute left-0 top-0 z-20 h-full w-full"
       activeClass="active"
       to={`${polishToEnglish(section.title)}`}
       spy={true}
@@ -17,7 +18,7 @@ export default function ScrollTo({ section }: { section: Section }) {
       offset={50}
       duration={500}
     >
-      <FaLink className="text-green-300 mr-2 min-w-[25px]" /> {section.title}
+      <FaLink className="text-zinc-800 mr-2 min-w-[25px]" /> {section.title}
     </ScrollTo>
   );
 }

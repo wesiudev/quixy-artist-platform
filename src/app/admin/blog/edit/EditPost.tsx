@@ -10,6 +10,8 @@ import PostImages from "./PostImages";
 import { Post } from "@/types";
 import EditSection from "./EditSection";
 import { EditorState } from "draft-js";
+import SectionContentEditor from "../new/PostSections/SectionContentEditor";
+import SectionsList from "../new/PostSections/SectionsList";
 export default function EditPost({
   selectedPost,
   setSelectedPost,
@@ -57,7 +59,7 @@ export default function EditPost({
     newTags.splice(idx, 1);
     setSelectedPost({ ...selectedPost, tags: newTags });
   };
-  const [sectionEditorOpen, setSectionEditorOpen] = useState(false);
+  const [sectionEditorOpen, setSectionEditorOpen] = useState(true);
 
   return (
     <div className="relative">
@@ -185,32 +187,18 @@ export default function EditPost({
               >
                 Dodaj
               </button>
-              {selectedPost.sections.length > 0 && (
-                <div className="bg-[#2F313C] p-3 rounded-md my-4">
-                  <h1 className="">Twoje sekcje:</h1>
-                  {selectedPost.sections.map((section: any, idx: number) => (
-                    <div key={idx}>
-                      <div className="flex flex-row items-center my-2 hover:bg-[#34363d] p-1">
-                        {section.title}{" "}
-                        <button
-                          onClick={() =>
-                            setSelectedSection({ ...section, id: idx })
-                          }
-                          className="ml-3"
-                        >
-                          <FaEdit />
-                        </button>
-                        <button
-                          onClick={() => removeSection(idx)}
-                          className="ml-3"
-                        >
-                          <FaTrash />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
+              <div className="text-black !font-coco">
+                <SectionContentEditor
+                  addSection={addSection}
+                  removeSection={removeSection}
+                />
+                <SectionsList
+                  input={selectedPost}
+                  setSelectedSection={setSelectedSection}
+                  setSectionEditorOpen={setSectionEditorOpen}
+                  removeSection={removeSection}
+                />
+              </div>
             </div>
           </div>
           <div className="flex flex-col my-3">

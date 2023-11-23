@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { FaArtstation, FaHome } from "react-icons/fa";
+import { FaArtstation, FaHome, FaShoppingCart } from "react-icons/fa";
 import Cart from "../Cart";
 import Image from "next/image";
 
@@ -64,10 +64,21 @@ export default function TopBar() {
             Strona główna
           </Link>
           <Link
-            href="/blog"
+            href="/shop"
             className={`${
               isMenuShow
                 ? "scale-100 duration-300 delay-500"
+                : "scale-0 lg:scale-100"
+            } flex flex-row items-center hover:text-white lg:duration-150 lg:delay-0 group`}
+          >
+            <FaShoppingCart className="mr-2 group-hover:!text-green-300" />
+            Sklep
+          </Link>
+          <Link
+            href="/blog"
+            className={`${
+              isMenuShow
+                ? "scale-100 duration-100 delay-700"
                 : "scale-0 lg:scale-100"
             } flex flex-row items-center hover:text-white lg:duration-150 lg:delay-0 group`}
           >

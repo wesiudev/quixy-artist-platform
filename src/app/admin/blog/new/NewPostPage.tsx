@@ -28,6 +28,7 @@ export default function NewPostPage() {
     faq: [],
     url: "",
     blogType: "",
+    creationTime: Date.now(),
   });
   const [selectedSection, setSelectedSection] = useState({
     title: "",
@@ -207,36 +208,34 @@ export default function NewPostPage() {
                 removeTag={removeTag}
                 input={input}
               />
-              {!input.url && (
-                <button
-                  onClick={() => {
-                    setInput({ ...input, url: polishToEnglish(input.title) }),
-                      setMessageVisible(true);
-                    setTimeout(() => {
-                      setMessageVisible(false);
-                    }, 6000);
-                  }}
-                  className="py-6 bg-green-500 text-2xl text-white hover:bg-green-400 duration-200"
-                >
-                  UTWÓRZ LINK
-                </button>
-              )}
-              {input.url !== "" && (
-                <button
-                  onClick={() => {
-                    addBlogPost(input);
-                    setTimeout(() => {
-                      setInput({
-                        ...input,
-                        url: "",
-                      });
-                    }, 3000);
-                  }}
-                  className="py-6 bg-green-500 text-2xl text-white hover:bg-green-400 duration-200"
-                >
-                  OPUBLIKUJ
-                </button>
-              )}
+
+              <div className="my-4">
+                <span>Utwórz link</span>
+                <br />
+                <input
+                  className="!text-black  bg-slate-400 mt-1 p-2 outline-none placeholder:text-gray-500"
+                  type="text"
+                  value={input.url}
+                  onChange={(e) =>
+                    setInput({ ...input, url: polishToEnglish(e.target.value) })
+                  }
+                />
+              </div>
+
+              <button
+                onClick={() => {
+                  addBlogPost(input);
+                  setTimeout(() => {
+                    setInput({
+                      ...input,
+                      url: "",
+                    });
+                  }, 3000);
+                }}
+                className="py-6 bg-green-500 text-2xl text-white hover:bg-green-400 duration-200"
+              >
+                OPUBLIKUJ
+              </button>
             </div>
             <div className="flex flex-col relative w-full ">
               <div className="absolute w-full ">

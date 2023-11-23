@@ -1,4 +1,5 @@
 import { EditorState } from "draft-js";
+import { Timestamp } from "firebase/firestore/lite";
 
 export type Product = {
   id: number;
@@ -87,11 +88,12 @@ export type Post = {
     answer: string;
   }[];
   blogType: string;
+  creationTime: number;
 };
 
 export type Section = {
   title: string;
-  content: EditorState;
+  content: any;
   id?: number;
 };
 

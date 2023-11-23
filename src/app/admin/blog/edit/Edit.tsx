@@ -6,7 +6,6 @@ import Image from "next/image";
 
 export default function Edit({ posts }: { posts: Post[] }) {
   const [selectedPost, setSelectedPost] = useState<Post>();
-  console.log(posts);
 
   return (
     <div>

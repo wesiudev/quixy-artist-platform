@@ -13,9 +13,9 @@ export function polishToEnglish(sentence: string): string {
   };
 
   const sanitizedSentence = sentence
-    .replace(
+    ?.replace(
       /[ąćęłńśóżź]/gi,
-      (matched) => translationDict[matched.toLowerCase()] || ""
+      (matched) => translationDict[matched?.toLowerCase()] || ""
     )
     .replace(/\s/g, "-")
     .replace(/[^\w\s-]/g, "")

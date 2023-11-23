@@ -25,8 +25,7 @@ export default function SectionsList({
                 <button
                   onClick={() => {
                     setSectionEditorOpen(true);
-                    setSelectedSection({ ...section, id: idx }),
-                      console.log({ ...section, id: idx });
+                    setSelectedSection({ ...section, id: idx });
                   }}
                   className="ml-3"
                 >

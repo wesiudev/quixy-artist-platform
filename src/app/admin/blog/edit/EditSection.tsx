@@ -1,8 +1,17 @@
 "use client";
 import { Post, Section } from "@/types";
+import {
+  EditorState,
+  convertToRaw,
+  convertFromRaw,
+  ContentState,
+} from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import htmlToDraft from "html-to-draftjs";
 import { FaArrowRight } from "react-icons/fa";
-
+import draftToHtml from "draftjs-to-html";
+import React, { useEffect, useState } from "react";
 export default function EditSection({
   selectedSection,
   setSelectedSection,
@@ -18,20 +27,41 @@ export default function EditSection({
   setSectionEditorOpen: Function;
   sectionEditorOpen: boolean;
 }) {
+  const [editorState, setEditorState] = useState<any>();
+  useEffect(() => {
+    if (selectedSection) {
+      let contentBlock;
+      if (typeof selectedSection?.content === "string") {
+        contentBlock = htmlToDraft(selectedSection?.content);
+        const contentState = ContentState.createFromBlockArray(
+          contentBlock.contentBlocks
+        );
+
+        setEditorState(EditorState.createWithContent(contentState));
+      } else {
+        setEditorState("");
+      }
+    }
+  }, [selectedSection]);
   const updateSelectedPost = () => {
     if (selectedSection) {
+      const content = draftToHtml(
+        convertToRaw(editorState.getCurrentContent())
+      );
+
       const updatedSections = selectedPost.sections.map((section, i) =>
         i === selectedSection.id
           ? {
               ...section,
               title: selectedSection.title,
-              content: selectedSection.content,
+              content: content,
             }
           : section
       );
       setSelectedPost({ ...selectedPost, sections: updatedSections });
     }
   };
+
   return (
     <div
       className={`h-screen w-[80vw] z-[1000] fixed right-0 top-0 bg-[#222430]  text-white  ease-in-out ${
@@ -68,17 +98,12 @@ export default function EditSection({
               height: "300px",
               padding: "3px 15px",
             }}
-            editorState={selectedSection?.content}
-            onEditorStateChange={(newEditorState) => {
-              setSelectedSection({
-                ...selectedSection,
-                content: newEditorState,
-              });
-            }}
+            editorState={editorState}
+            onEditorStateChange={setEditorState}
           />
           <button
-            className="bg-transparent hover:bg-green-700 duration-500 ease-in-out p-6 w-full mt-6"
-            onClick={() => updateSelectedPost()}
+            className="bg-gradient-to-tr from-green-400 via-green-600 to-green-400 font-bold text-white text-3xl hover:from-green-300 hover:via-green-500 hover:to-green-300 duration-500 ease-in-out p-6 w-full mt-6 rounded-xl"
+            onClick={updateSelectedPost}
           >
             Zatwierdź sekcję
           </button>
