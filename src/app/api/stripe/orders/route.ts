@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const stripe = require("stripe")(process.env.STRIPE_PUBLISHABLE)(
-  process.env.STRIPE_SECRET
+const stripe = require("stripe")(`${process.env.STRIPE_PUBLISHABLE}`)(
+  `${process.env.STRIPE_SECRET}`
 );
 
 export async function GET(req: NextRequest, res: NextResponse) {

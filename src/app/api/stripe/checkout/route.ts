@@ -2,8 +2,8 @@ import { CartItem } from "@/types";
 import { NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
 
-const stripe = require("stripe")(process.env.STRIPE_PUBLISHABLE)(
-  process.env.STRIPE_SECRET
+const stripe = require("stripe")(`${process.env.STRIPE_PUBLISHABLE}`)(
+  `${process.env.STRIPE_SECRET}`
 );
 
 export async function POST(request: Request) {
