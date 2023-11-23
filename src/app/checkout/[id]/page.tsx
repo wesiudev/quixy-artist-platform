@@ -1,6 +1,7 @@
 import { getCheckout } from "@/firebase";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+import ClearCache from "./ClearCache";
 
 export default async function Checkout({ params }: { params: { id: string } }) {
   const orders = await fetch(
@@ -32,6 +33,7 @@ export default async function Checkout({ params }: { params: { id: string } }) {
       <div className="flex flex-col items-center justify-center text-white h-screen absolute left-0 top-0 w-screen">
         {order.payment_status === "paid" && (
           <>
+            <ClearCache />
             <h1 className="text-3xl font-bold text-center">
               Dziękujemy za zakupy!
             </h1>
