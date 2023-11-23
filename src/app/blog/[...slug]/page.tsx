@@ -120,8 +120,8 @@ export default async function Page({ params }: { params: any }) {
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-6 mt-8">
             {posts.posts.map((post: Post, i: number) => (
               <>
-                {post.url !== params.slug[1] &&
-                  post.blogType === params.slug[0] && (
+                {post?.url !== params.slug[1] &&
+                  post?.blogType === params.slug[0] && (
                     <Link
                       href={`/blog/tattoo/${post.url}`}
                       key={i}
