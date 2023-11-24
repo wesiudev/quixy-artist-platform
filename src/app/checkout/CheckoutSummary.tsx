@@ -5,7 +5,7 @@ import { ArtworkData } from "@/types";
 import Link from "next/link";
 import { format } from "path";
 import { use, useEffect, useState } from "react";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaArrowLeft, FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { getPolishCurrency } from "../../../utils/getPolishCurrency";
 
@@ -24,7 +24,7 @@ export default function CheckoutSummary({ cart }: { cart: any }) {
   }, 0);
 
   return (
-    <div className="flex flex-col  justify-center py-24 lg:py-0 w-full h-full">
+    <div className="flex flex-col  justify-center w-full h-full">
       {isLoading ? (
         <div className="bg-white w-24 h-24 mx-auto rounded-md flex flex-col items-center justify-center">
           <img
@@ -46,6 +46,13 @@ export default function CheckoutSummary({ cart }: { cart: any }) {
           )}
           {cart?.length && (
             <>
+              <Link
+                href="https://blackbellart.com/shop"
+                className="text-white font-bold text-xl flex flex-row items-center mb-12 px-6 sm:px-36 lg:px-24"
+              >
+                <FaArrowLeft className="mr-2" />
+                Powrót
+              </Link>
               <h2 className="mb-3 px-6 sm:px-36 lg:px-24 text-base text-[#A5B4FC]">
                 Do zapłaty
               </h2>

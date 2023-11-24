@@ -18,6 +18,22 @@ export default async function Checkout({ params }: { params: { id: string } }) {
   const order = orders?.data?.find(
     (order: any) => order.metadata.id === params.id
   );
+  if (!order) {
+    return (
+      <div className="flex flex-col items-center justify-center text-white h-screen absolute left-0 top-0 w-screen">
+        <h1 className="text-3xl font-bold text-center">
+          Nie znaleziono zamówienia
+        </h1>
+        <Link
+          href="https://blackbellart.com/shop"
+          className="text-white font-bold text-xl flex flex-row items-center relative z-50"
+        >
+          <FaArrowLeft className="mr-2" />
+          Powrót
+        </Link>
+      </div>
+    );
+  }
   return (
     <div className="p-5 lg:p-7 xl:p-12">
       <Link

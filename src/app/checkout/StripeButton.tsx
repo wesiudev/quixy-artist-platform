@@ -10,10 +10,12 @@ function StripeButton({
   formErrors,
   customerInfo,
   cart,
+  acceptedTerms,
 }: {
   setFormErrors: Function;
   formErrors: any;
   customerInfo: CustomerInfo;
+  acceptedTerms: boolean;
   cart: any;
 }) {
   const router = useRouter();
@@ -40,23 +42,35 @@ function StripeButton({
       "houseNumber",
     ];
     let hasError = false;
+
     const newFormErrors = { ...formErrors };
     requiredFields.forEach((field) => {
       if (!customerInfo[field as keyof CustomerInfo]?.length) {
         newFormErrors[field] = "Proszę uzupełnić to pole";
         hasError = true;
+        setLoading(false);
       } else {
         delete newFormErrors[field];
       }
     });
+
     setFormErrors(newFormErrors);
+    if (acceptedTerms === false) {
+      hasError = true;
+      setLoading(false);
+      setFormErrors({
+        ...formErrors,
+        acceptedTerms: "Proszę zaakceptować regulamin",
+      });
+    }
     setTimeout(() => {
       setFormErrors();
       setIsFormError(false);
     }, 3500);
     setIsFormError(hasError);
-    setLoading(false);
+
     if (hasError) {
+      setLoading(false);
       return true;
     } else {
       return false;
@@ -78,7 +92,7 @@ function StripeButton({
   return (
     <>
       <button
-        className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded h-max flex flex-row items-center justify-center disabled:bg-blue-300 disabled:text-zinc-700  disabled:cursor-not-allowed ${
+        className={`bg-[#312E81] hover:bg-[#23215e] text-white font-bold py-2 px-4 rounded h-max flex flex-row items-center justify-center disabled:bg-blue-300 disabled:text-zinc-700  disabled:cursor-not-allowed ${
           (malwareError || isFormError) && "!bg-red-500 !text-white"
         }`}
         disabled={isLoading || malwareError !== ""}
@@ -93,7 +107,7 @@ function StripeButton({
             />
           </div>
         )}{" "}
-        {!isLoading && !malwareError && !isFormError && "Zamawiam i płacę"}
+        {!isLoading && !malwareError && !isFormError && "Przejdź do płatności"}
         {malwareError && malwareError}
         {isFormError && "Spróbuj ponownie"}
       </button>

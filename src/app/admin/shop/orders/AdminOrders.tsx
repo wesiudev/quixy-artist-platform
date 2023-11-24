@@ -10,15 +10,15 @@ export default function AdminOrders({ orders }: { orders: any }) {
   }));
 
   return (
-    <div className="min-h-screen w-full bg-gray-100">
+    <div className="min-h-screen w-full bg-gray-200">
       <div className="flex flex-col pt-24 px-3 lg:px-6">
         <h1 className="text-3xl font-bold mb-4 text-gray-800">
           Twoje zamówienia
         </h1>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 px-3 lg:px-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 px-3 lg:px-6 gap-4">
         {newOrders?.map((session: any, i: any) => (
-          <div key={i} className="bg-white shadow-md rounded-md p-4 mb-4">
+          <div key={i} className="bg-white shadow-md rounded-md p-4">
             <div className="flex items-center mb-2">
               <h2 className="text-lg font-bold text-gray-800">
                 {session?.metadata?.productName}
