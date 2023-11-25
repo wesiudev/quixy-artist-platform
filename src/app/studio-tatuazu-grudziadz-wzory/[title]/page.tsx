@@ -145,13 +145,15 @@ export async function generateMetadata({ params }: { params: any }) {
 
   if (tattoo)
     return {
-      title: `Grudziądz Tatuaże | BlackbellArt.com: Znajdź Wzory Tatuażu, Które Cię Inspirują`,
-      description: `Zobacz tatuaż ${tattoo.title}. Sprawdź nasze wzory tatuaży i wybierz ten, który najbardziej Ci się podoba.`,
+      title: "Blackbell - Studio Tatuażu Grudziądz - Tatuażystka Blackbell",
+      description: `Zobacz tatuaż ${tattoo.title}. Sprawdź moje wzory tatuaży i wybierz ten, który najbardziej Ci się podoba.`,
       openGraph: {
         type: "website",
-        url: "https://blackbellart.com/studio-tatuazu-grudziadz-wzory",
-        title: `Grudziądz Tatuaże | BlackbellArt.com: Znajdź Wzory Tatuażu, Które Cię Inspirują`,
-        description: `Zobacz tatuaż ${tattoo.title}. Sprawdź nasze wzory tatuaży i wybierz ten, który najbardziej Ci się podoba.`,
+        url: `https://blackbellart.com/studio-tatuazu-grudziadz-wzory/${polishToEnglish(
+          tattoo.title
+        )}`,
+        title: "Blackbell - Studio Tatuażu Grudziądz - Tatuażystka Blackbell",
+        description: `Zobacz tatuaż ${tattoo.title}. Sprawdź moje wzory tatuaży i wybierz ten, który najbardziej Ci się podoba.`,
         siteName: "BlackbellArt",
         images: [
           {

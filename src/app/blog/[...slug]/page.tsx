@@ -171,13 +171,13 @@ export async function generateMetadata({ params }: { params: any }) {
     mainEntity: faqQuestions,
   };
   return {
-    title: post.metaTitle,
-    description: post.metaDescription,
+    title: post?.metaTitle,
+    description: post?.metaDescription,
     openGraph: {
       type: "website",
       url: "https://blackbellart.com/",
-      title: post.metaTitle,
-      description: post.metaDescription,
+      title: post?.metaTitle,
+      description: post?.metaDescription,
       siteName: "blackbellart",
       images: [
         {
@@ -200,8 +200,8 @@ export async function generateMetadata({ params }: { params: any }) {
     twitter: {
       cardType: "summary_large_image",
       site: "@blackbellart",
-      title: post.metaTitle,
-      description: post.metaDescription,
+      title: post?.metaTitle,
+      description: post?.metaDescription,
       image: {
         url: "/favicons/android-chrome-512x512.png",
         alt: "blackbellart logo",
