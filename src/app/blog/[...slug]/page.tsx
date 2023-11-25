@@ -170,52 +170,49 @@ export async function generateMetadata({ params }: { params: any }) {
     "@type": "FAQPage",
     mainEntity: faqQuestions,
   };
-  const title = `${post?.metaTitle}`;
-  const description = `${post?.metaDescription}`;
-  if (post)
-    return {
-      title: title,
-      description: description,
-      openGraph: {
-        type: "website",
-        url: "https://blackbellart.com/",
-        title,
-        description,
-        siteName: "Quixy",
-        images: [
-          {
-            url: "/favicons/favicon-16x16.png",
-            sizes: "16x16",
-            type: "image/png",
-          },
-          {
-            url: "/favicons/favicon-32x32.png",
-            sizes: "32x32",
-            type: "image/png",
-          },
-          {
-            url: "/favicons/favicon.ico",
-            sizes: "48x48",
-            type: "image/x-icon",
-          },
-        ],
-      },
-      twitter: {
-        cardType: "summary_large_image",
-        site: "@blackbellart",
-        title,
-        description,
-        image: {
-          url: "/favicons/android-chrome-512x512.png",
-          alt: "blackbellart logo",
-        },
-      },
-      schema: [faqPage],
-      meta: [
+  return {
+    title: post.metaTitle,
+    description: post.metaDescription,
+    openGraph: {
+      type: "website",
+      url: "https://blackbellart.com/",
+      title: post.metaTitle,
+      description: post.metaDescription,
+      siteName: "blackbellart",
+      images: [
         {
-          name: "theme-color",
-          content: "white", // replace with your desired theme color
+          url: "/favicons/favicon-16x16.png",
+          sizes: "16x16",
+          type: "image/png",
+        },
+        {
+          url: "/favicons/favicon-32x32.png",
+          sizes: "32x32",
+          type: "image/png",
+        },
+        {
+          url: "/favicons/favicon.ico",
+          sizes: "48x48",
+          type: "image/x-icon",
         },
       ],
-    };
+    },
+    twitter: {
+      cardType: "summary_large_image",
+      site: "@blackbellart",
+      title: post.metaTitle,
+      description: post.metaDescription,
+      image: {
+        url: "/favicons/android-chrome-512x512.png",
+        alt: "blackbellart logo",
+      },
+    },
+    schema: [faqPage],
+    meta: [
+      {
+        name: "theme-color",
+        content: "white", // replace with your desired theme color
+      },
+    ],
+  };
 }

@@ -17,7 +17,9 @@ export const Common = ({ color }) => {
       return 55;
     } else if (width > 1366) {
       return 45;
-    } else if (width < 1024) {
+    } else if (width <= 1024) {
+      return 40;
+    } else if (width < 768) {
       return 55;
     }
   }

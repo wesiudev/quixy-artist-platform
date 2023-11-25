@@ -11,10 +11,10 @@ export default function Products({ products }: { products: ArtworkData[] }) {
         description={
           <p>
             Zacznijmy od oryginalnych obrazów na płótnie mojego autorstwa.
-            Maluję różnymi materiałami, od akwareli po farby olejne. Najczęściej
-            używam gwaszu, akwareli oraz farb olejnych. Moje obrazy są jedyne w
-            swoim rodzaju i nie powielam ich. Każdy z nich jest wyjątkowy i
-            niepowtarzalny.
+            Główne media artystyczne jakich używam to akryle, farby olejne i
+            gwasz. Moje obrazy są wykonane ze starannością i każdy z nich jest
+            jedyny w swoim rodzaj, gdyż ich znaczenia płyną prosto ze źrodła
+            inspiracji, która napędza mnie do tworzenia.
           </p>
         }
         imageAlt="Oryginalne obrazy na płótnie"
@@ -39,7 +39,7 @@ export default function Products({ products }: { products: ArtworkData[] }) {
           </>
         ))}{" "}
       </div>
-      {/* <div className="pt-12 font-coco">
+      <div className="pt-12 font-coco">
         <AboutShop
           title="Doskonałej jakości druki"
           description="Oferuję sprzedaż moich prac w formie druków. Jest to idealny wybór dla osób, które chcą mieć moje dzieło sztuki na ścianie w niewielkiej cenie. Druk jest wykonywany na wysokiej jakości papierze, który jest odporny na blaknięcie. Dzięki temu możesz cieszyć się moimi dziełami przez długie lata."
@@ -48,10 +48,14 @@ export default function Products({ products }: { products: ArtworkData[] }) {
         />
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-12">
           {products.map((product: ArtworkData, i) => (
-            <Product product={product} key={i} />
+            <>
+              {product.category === "print" && (
+                <Product product={product} key={i} />
+              )}
+            </>
           ))}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
