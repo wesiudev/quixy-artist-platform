@@ -1,6 +1,7 @@
 import { Post } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
 async function getBlogData() {
   const req = await fetch(
     `${process.env.NEXT_PUBLIC_SITE_URL}/api/blog?secret=${process.env.API_SECRET_KEY}`,
@@ -96,3 +97,63 @@ export default async function Page() {
     </div>
   );
 }
+export const metadata: Metadata = {
+  viewport: "width=device-width, initial-scale=1",
+  themeColor: "#1d1d1d",
+  publisher: "Black Bell Tattoo & Art",
+  manifest: "/manifest.json",
+  keywords: [
+    "Blog o tatuażach",
+    "Kultura tatuażu",
+    "Znaczenia tatuaży",
+    "Moda tatuażowa",
+    "Trendy w sztuce ciała",
+    "Inspiracje tuszem",
+    "Symbolika tatuaży",
+    "Style tatuaży",
+    "Pomysły na wzory tatuaży",
+    "Wyrażenia artystyczne",
+    "Skóra jako płótno",
+    "Trwały tusz",
+    "Estetyka tatuażu",
+    "Modyfikacje ciała",
+    "Kulturowe znaczenie tatuaży",
+    "Tatuaże personalizowane",
+    "Historia tatuaży",
+    "Lokalizacja tatuaży",
+    "Artyści tatuażu",
+    "Unikalne wzory",
+    "Symboliczne sztuki ciała",
+  ],
+  verification: {
+    google: "google85185d3abec28326.html",
+  },
+  icons: [
+    {
+      url: "/favicons/favicon-16x16.png",
+      sizes: "16x16",
+      type: "image/png",
+    },
+    {
+      url: "/favicons/favicon-32x32.png",
+      sizes: "32x32",
+      type: "image/png",
+    },
+    {
+      url: "/favicons/favicon.ico",
+      sizes: "48x48",
+      type: "image/x-icon",
+    },
+  ],
+  title: "BlackbellArt - Blog | Nowości o Tatuażach | Znaczenia tatuaży",
+  description:
+    "Blog dotyczący tatuaży. Sprawdź jakie znaczenie niesie za sobą Twój wymarzony tatuaż! Zobacz jakie wzory są dziś modne.",
+  openGraph: {
+    type: "website",
+    url: "https://blackbellart.com",
+    title: "BlackbellArt - Blog | Nowości o Tatuażach | Znaczenia tatuaży",
+    description:
+      "Blog dotyczący tatuaży. Sprawdź jakie znaczenie niesie za sobą Twój wymarzony tatuaż! Zobacz jakie wzory są dziś modne.",
+    siteName: "Black Bell Tattoo & Art",
+  },
+};

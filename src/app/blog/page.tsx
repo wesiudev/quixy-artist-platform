@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Orders from "../shop/components/Orders";
 
 export default function Blog() {
   return (

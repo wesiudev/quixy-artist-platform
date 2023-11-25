@@ -117,15 +117,13 @@ export const metadata: Metadata = {
       type: "image/x-icon",
     },
   ],
-  title:
-    "Studio Tatuażu Grudziądz - Unikalne wzory | Personalizowanie Projektów",
+  title: "Blackbell - Studio Tatuażu Grudziądz | Umów się na sesję tatuażu",
   description:
     "Salon Tatuażu w Grudziądzu. Sprawdź wzory i zarezerwuj termin. Stworzę tatuaż według Twoich indywidualnych potrzeb.",
   openGraph: {
     type: "website",
     url: "https://blackbellart.com",
-    title:
-      "Studio Tatuażu Grudziądz - Unikalne wzory | Personalizowanie Projektów",
+    title: "Blackbell - Studio Tatuażu Grudziądz | Umów się na sesję tatuażu",
     description:
       "Salon Tatuażu w Grudziądzu. Sprawdź wzory i zarezerwuj termin. Stworzę tatuaż według Twoich indywidualnych potrzeb.",
     siteName: "Black Bell Tattoo & Art",
