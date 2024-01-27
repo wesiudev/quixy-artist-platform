@@ -1,7 +1,5 @@
+import Header from "@/components/Header";
 import { Metadata } from "next";
-import TopBar from "../shop/components/ShopHeader/TopBar";
-import Orders from "../shop/components/Orders";
-import ShopFooter from "../shop/components/ShopFooter";
 
 export default async function RootLayout({
   children,
@@ -10,10 +8,8 @@ export default async function RootLayout({
 }) {
   return (
     <div className={`bg-[#ffffff]`}>
-      <TopBar />
+      <Header />
       {children}
-      <Orders />
-      <ShopFooter />
     </div>
   );
 }
