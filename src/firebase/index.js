@@ -1,15 +1,20 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import {
   getFirestore,
-  doc,
+  collection,
+  getDocs,
+  query,
   getDoc,
   setDoc,
+  doc,
   updateDoc,
   arrayUnion,
-  arrayRemove,
+  where,
+  deleteDoc,
 } from "firebase/firestore/lite";
 import { getStorage } from "firebase/storage";
-import { getAuth } from "firebase/auth";
+import { getAnalytics, isSupported } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -21,186 +26,146 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASURMENT_ID,
 };
 
-const websiteName = process.env.NEXT_PUBLIC_APP_NAME;
-
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const storage = getStorage(app);
 const auth = getAuth(app);
-// tattoo list
-async function getTattoos() {
-  const docRef = doc(db, websiteName, "tattoos");
-  const docSnap = await getDoc(docRef);
-  return docSnap.data();
+const storage = getStorage(app);
+
+const analytics = isSupported().then((yes) => (yes ? getAnalytics(app) : null));
+
+async function addBooking(req, id) {
+  await setDoc(doc(db, "bookings", id), req);
 }
-async function addTattoo(tattooData) {
-  const docRef = doc(db, websiteName, "tattoos");
-  const docSnap = await getDoc(docRef);
-  if (!docSnap.data()) {
-    await setDoc(doc(db, websiteName, "tattoos"), { tattoos: [tattooData] });
-  } else {
-    await updateDoc(doc(db, websiteName, "tattoos"), {
-      tattoos: arrayUnion(tattooData),
-    });
-  }
-}
-async function deleteTattoo(tattooData) {
-  const docRef = doc(db, websiteName, "tattoos");
+async function updateBooking(uid, id) {
+  const docRef = doc(db, "bookings", id);
   await updateDoc(docRef, {
-    tattoos: arrayRemove(tattooData),
+    uid: uid,
+    isReliable: true,
   });
 }
-async function updateTattoo(tattooId, updatedTattoo) {
-  const docRef = doc(db, websiteName, "tattoos");
-  const docSnap = await getDoc(docRef);
-  if (docSnap.exists()) {
-    const tattoos = docSnap.data().tattoos;
-    const tattooIndex = tattoos.findIndex((tattoo) => tattoo.id === tattooId);
-    if (tattooIndex !== -1) {
-      tattoos[tattooIndex] = updatedTattoo;
-      await updateDoc(docRef, { tattoos });
-    }
-  }
+async function getBookingById(id) {
+  const docRef = doc(db, "bookings", id);
+  const docSnapshot = await getDoc(docRef);
+  const booking = {
+    id: docSnapshot.id,
+    ...docSnapshot.data(),
+  };
+  return booking;
 }
-// shop products
-async function getProducts() {
-  const docRef = doc(db, websiteName, "products");
-  const docSnap = await getDoc(docRef);
-  return docSnap.data();
+async function getBookingsByUserId(uid) {
+  const ref = collection(db, "bookings");
+  const filter = query(ref, where("uid", "==", uid));
+  const response = await getDocs(filter);
+  const bookings = response.docs.map((doc) => doc.data());
+  return bookings;
 }
-async function addProduct(imageData) {
-  const docRef = doc(db, websiteName, "products");
-  const docSnap = await getDoc(docRef);
-  if (!docSnap.data()) {
-    await setDoc(doc(db, websiteName, "products"), { products: [imageData] });
-  } else {
-    await updateDoc(doc(db, websiteName, "products"), {
-      products: arrayUnion(imageData),
+async function getAllBookings() {
+  const ref = collection(db, "bookings");
+  const response = await getDocs(ref);
+  const bookings = response.docs.map((doc) => doc.data());
+  return bookings;
+}
+async function getBookings(uid) {
+  const requestsCollection = collection(db, "bookings");
+  const userRequestsQuery = query(requestsCollection, where("uid", "==", uid));
+  const querySnapshot = await getDocs(userRequestsQuery);
+  const bookings = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+  return bookings;
+}
+async function getUsers() {
+  const ref = collection(db, "users");
+  const response = await getDocs(ref);
+  const users = response.docs.map((doc) => doc.data());
+  return users;
+}
+async function getDocument(collectionName, key) {
+  const docRef = doc(db, collectionName, key);
+  const docSnapshot = await getDoc(docRef);
+
+  return docSnapshot.data();
+}
+async function getDocuments(collectionName) {
+  const ref = collection(db, collectionName);
+  const response = await getDocs(ref);
+  const res = response.docs.map((doc) => doc.data());
+  return res;
+}
+async function addDocument(collectionName, uniqueId, data) {
+  await setDoc(doc(db, collectionName, uniqueId), data);
+}
+async function removeDocument(collectionName, uniqueId) {
+  await deleteDoc(doc(db, collectionName, uniqueId));
+}
+async function updateDocument(keys, values, collectionName, id) {
+  const docRef = doc(db, collectionName, id);
+  const docSnapshot = await getDoc(docRef);
+
+  if (docSnapshot.exists()) {
+    const existingData = docSnapshot.data();
+    const updatedData = { ...existingData };
+    keys.forEach((key, index) => {
+      updatedData[key] = values[index];
     });
+    await updateDoc(docRef, updatedData);
+  } else {
+    const initialData = {};
+    keys.forEach((key, index) => {
+      initialData[key] = values[index];
+    });
+
+    await setDoc(docRef, initialData);
   }
 }
-async function deleteProduct(imageData) {
-  const docRef = doc(db, websiteName, "products");
-  await updateDoc(docRef, {
-    products: arrayRemove(imageData),
-  });
-}
-// blog
+
 async function getBlogPosts() {
-  const docRef = doc(db, websiteName, "blog");
+  const docRef = doc(db, "blog", "blog");
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 }
 async function addBlogPost(post) {
-  const docRef = doc(db, websiteName, "blog");
+  const docRef = doc(db, "blog", "blog");
   const docSnap = await getDoc(docRef);
   if (!docSnap.data()) {
-    await setDoc(doc(db, websiteName, "blog"), { posts: [post] });
+    await setDoc(doc(db, "blog", "blog"), { posts: [post] });
   } else {
-    await updateDoc(doc(db, websiteName, "blog"), {
+    await updateDoc(doc(db, "blog", "blog"), {
       posts: arrayUnion(post),
     });
   }
 }
 async function updateBlogPost(postId, updatedPost) {
-  const docRef = doc(db, websiteName, "blog");
+  const docRef = doc(db, "blog", "blog");
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
     const posts = docSnap.data().posts;
-    const postIndex = posts.findIndex((post) => post.id === postId);
+    const postIndex = posts.findIndex((post) => post.postId === postId);
     if (postIndex !== -1) {
       posts[postIndex] = updatedPost;
       await updateDoc(docRef, { posts });
     }
   }
 }
-// exhibitions
-async function getExhibitions() {
-  const docRef = doc(db, websiteName, "exhibitions");
-  const docSnap = await getDoc(docRef);
-  return docSnap.data();
-}
-async function addExhibition(exhibition) {
-  const docRef = doc(db, websiteName, "exhibitions");
-  const docSnap = await getDoc(docRef);
-  if (!docSnap.data()) {
-    await setDoc(doc(db, websiteName, "exhibitions"), {
-      exhibitions: [exhibition],
-    });
-  } else {
-    await updateDoc(doc(db, websiteName, "exhibitions"), {
-      exhibitions: arrayUnion(exhibition),
-    });
-  }
-}
-
-// checkouts
-async function getCheckout(id) {
-  const docRef = doc(db, websiteName, "checkouts");
-  const docSnap = await getDoc(docRef);
-  const data = docSnap.data();
-  if (data) {
-    const checkouts = data.checkouts;
-    const checkout = checkouts.find((checkout) => checkout.id === id);
-    return checkout;
-  }
-  return null;
-}
-async function getCheckouts() {
-  const docRef = doc(db, websiteName, "checkouts");
-  const docSnap = await getDoc(docRef);
-
-  return docSnap.data();
-}
-async function updateCheckout(checkoutId, updatedCheckout) {
-  const docRef = doc(db, websiteName, "checkouts");
-  const docSnap = await getDoc(docRef);
-  if (docSnap.exists()) {
-    const checkouts = docSnap.data().checkouts;
-    const checkoutIndex = checkouts.findIndex(
-      (checkout) => checkout.id === checkoutId
-    );
-    if (checkoutIndex !== -1) {
-      const updatedCheckouts = [...checkouts];
-      updatedCheckouts[checkoutIndex] = {
-        ...updatedCheckout,
-        payment_status: "paid",
-      };
-      await updateDoc(docRef, { checkouts: updatedCheckouts });
-    }
-  }
-}
-async function addCheckout(checkout) {
-  const docRef = doc(db, websiteName, "checkouts");
-  const docSnap = await getDoc(docRef);
-  if (!docSnap.data()) {
-    await setDoc(doc(db, websiteName, "checkouts"), {
-      checkouts: [checkout],
-    });
-  } else {
-    await updateDoc(doc(db, websiteName, "checkouts"), {
-      checkouts: arrayUnion(checkout),
-    });
-  }
-}
 
 export {
-  getProducts,
-  addProduct,
-  deleteProduct,
-  storage,
+  addBooking,
   auth,
+  addDocument,
+  getBookings,
+  removeDocument,
+  getUsers,
+  updateDocument,
+  getAllBookings,
+  updateBooking,
+  getBookingById,
+  getBookingsByUserId,
   getBlogPosts,
   addBlogPost,
-  getExhibitions,
-  addExhibition,
   updateBlogPost,
-  getTattoos,
-  addTattoo,
-  deleteTattoo,
-  updateTattoo,
-  getCheckout,
-  addCheckout,
-  getCheckouts,
-  updateCheckout,
+  getDocument,
+  getDocuments,
+  db,
+  storage,
 };

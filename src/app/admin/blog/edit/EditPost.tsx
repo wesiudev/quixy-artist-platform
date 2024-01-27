@@ -84,7 +84,7 @@ export default function EditPost({
         <div className="flex flex-col space-y-3 w-full bg-[#13151f] px-5 pb-12">
           <button
             onClick={() => setSelectedPost()}
-            className="flex flex-row items-center pt-12 text-2xl"
+            className="flex flex-row items-center pt-24 text-2xl"
           >
             <FaLongArrowAltLeft className="mr-3" />
             Powrót
@@ -250,23 +250,7 @@ export default function EditPost({
               </div>
             ))}
           </div>
-          {!selectedPost.url && (
-            <button
-              onClick={() => {
-                setSelectedPost({
-                  ...selectedPost,
-                  url: polishToEnglish(selectedPost.title),
-                }),
-                  setMessageVisible(true);
-                setTimeout(() => {
-                  setMessageVisible(false);
-                }, 6000);
-              }}
-              className="py-6 bg-green-500 text-2xl text-white hover:bg-green-400 duration-200"
-            >
-              UTWÓRZ LINK
-            </button>
-          )}
+
           {selectedPost.url !== "" && (
             <button
               onClick={() => {
@@ -279,9 +263,9 @@ export default function EditPost({
           )}
         </div>
         <div className="flex flex-col relative w-full ">
-          <div className="absolute w-full ">
+          <div className="absolute w-full z-[50]">
             <div className="fixed h-screen overflow-y-scroll scrollbarMain w-full">
-              <h1 className="w-full px-3 pl-12 text-3xl text-white font-bold z-[50] pt-24">
+              <h1 className="w-full px-3 pl-12 text-3xl text-white font-bold z-[50] pt-24 mt-[50px]">
                 Podgląd
               </h1>
               <div className="flex flex-col p-12  prose lg:prose-xl prose-invert pr-28">

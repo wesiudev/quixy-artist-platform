@@ -28,6 +28,7 @@ export default function EditSection({
   sectionEditorOpen: boolean;
 }) {
   const [editorState, setEditorState] = useState<any>();
+  const [updated, setUpdated] = useState(false);
   useEffect(() => {
     if (selectedSection) {
       let contentBlock;
@@ -102,10 +103,21 @@ export default function EditSection({
             onEditorStateChange={setEditorState}
           />
           <button
-            className="bg-gradient-to-tr from-green-400 via-green-600 to-green-400 font-bold text-white text-3xl hover:from-green-300 hover:via-green-500 hover:to-green-300 duration-500 ease-in-out p-6 w-full mt-6 rounded-xl"
-            onClick={updateSelectedPost}
+            disabled={updated}
+            className={`bg-gradient-to-tr 
+                from-blue-400 via-blue-600 to-blue-400
+              
+            } font-bold disabled:from-green-400 disabled:via-green-600 disabled:to-green-400 text-white text-3xl hover:from-blue-300 hover:via-blue-500 hover:to-blue-300 duration-500 ease-in-out p-6 w-full mt-6 rounded-xl`}
+            onClick={() => {
+              updateSelectedPost(),
+                setUpdated(true),
+                setTimeout(() => {
+                  setSectionEditorOpen(false), setUpdated(false);
+                }, 4000);
+            }}
           >
-            Zatwierdź sekcję
+            {!updated && "Zatwierdź sekcję"}
+            {updated && "Sekcja zaaktualizowana"}
           </button>
         </div>
       </div>

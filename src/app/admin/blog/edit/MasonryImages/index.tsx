@@ -2,14 +2,14 @@
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { storage } from "@/firebase";
-import { FaCheck, FaExclamationCircle, FaPlusSquare } from "react-icons/fa";
+import { FaCheck, FaPlusSquare } from "react-icons/fa";
 var randomId = require("random-id");
 
 import Image from "next/image";
 import { FaImage } from "react-icons/fa";
 import { ImageType } from "@/types";
 
-export default function PostImages({
+export default function MasonryImages({
   selectedPost,
   setSelectedPost,
 }: {
@@ -17,27 +17,15 @@ export default function PostImages({
   setSelectedPost: Function;
 }) {
   useEffect(() => {
-    if (selectedPost.mainImage !== "") {
-      setEmptyRows((prevEmptyRows) => {
-        const newEmptyRows = [...prevEmptyRows];
-        newEmptyRows[0].src = selectedPost.mainImage;
-        return newEmptyRows;
-      });
+    if (!masonryImages?.length && selectedPost) {
+      setMasonryImages(selectedPost.masonryImages);
     }
-  }, []);
-  const [emptyRows, setEmptyRows] = useState<ImageType[]>([
-    { src: "", alt: "" },
-    { src: "", alt: "" },
-    { src: "", alt: "" },
-    { src: "", alt: "" },
-    { src: "", alt: "" },
-    { src: "", alt: "" },
-    { src: "", alt: "" },
-    { src: "", alt: "" },
-  ]);
-  const [loading, setLoading] = useState(-1);
+  }, [selectedPost]);
+  //zrobić masonry grid image uploader tutaj (waż ne)
+  const [masonryImages, setMasonryImages] = useState<ImageType[]>([]);
+  const [loading, setLoading] = useState(false);
   function handleImageUpload(img: File, idx: number) {
-    setLoading(idx);
+    setLoading(true);
     const randId = `image-${randomId(20, "aA0")}`;
     const imageRef = ref(storage, randId);
     uploadBytes(imageRef, img).then(() =>
@@ -50,13 +38,7 @@ export default function PostImages({
       })
     );
   }
-  function updateAltText(idx: number) {
-    setEmptyRows((prevEmptyRows) => {
-      const newEmptyRows = [...prevEmptyRows];
 
-      return newEmptyRows;
-    });
-  }
   const [clipboardContent, setClipboardContent] = useState("");
   function copyToClipboard(src: string, alt: string) {
     navigator.clipboard.writeText(`![${alt}](${src})`);
@@ -83,7 +65,7 @@ export default function PostImages({
                 />
                 <label htmlFor={`input${idx}`}>
                   <div className="aspect-square flex items-center justify-center bg-[#2F313C] border-2 border-transparent hover:border-[#525358] rounded-lg cursor-pointer">
-                    {loading == idx ? (
+                    {loading == true ? (
                       <SpinningWheel />
                     ) : (
                       <FaImage className="text-5xl text-gray-400" />

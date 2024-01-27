@@ -12,12 +12,12 @@ const config: Config = {
     extend: {
       fontFamily: {
         coco: ["var(--font-cocosharp)"],
-        anton: ["var(--font-anton)"],
+        cardo: ["var(--font-cardo)"],
       },
+
       backgroundImage: {
-        "form-img": "url('/images/bg-lines/form.png')",
-        "form-orders": "url('/images/shop/bg-orders.webp')",
-        "hero-svg": "url('/images/bg-lines/hero-bg-line.svg')",
+        "woman-pc": "url('/assets/woman-pc.webp')",
+        "guitar-man": "url('/assets/guitar-man.webp')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

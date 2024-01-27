@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <div className="prose lg:prose-xl py-24 px-5 lg:px-[8vw] xl:px-[12vw] mt-[66px] min-w-[90vw]">
       <h1 className="text-5xl text-zinc-700 drop-shadow-lg shadow-black">
-        Regulamin BlackbellArt.com
+        Regulamin quixy.pl
       </h1>
       <h2 className="text-3xl  text-zinc-700 drop-shadow-lg shadow-black">
         1.Postanowienia Ogólne
@@ -16,10 +16,10 @@ export default function Page() {
         </h5>
         <h5>
           1.2. Regulamin reguluje kwestie korzystania ze strony internetowej
-          BlackbellArt.com, dostępnej pod adresem https://www.blackbellart.com/.
+          quixy.pl, dostępnej pod adresem https://www.quixy.pl/.
         </h5>
         <h5>
-          1.3. Operatorem strony internetowej BlackbellArt.com (zwanej dalej
+          1.3. Operatorem strony internetowej quixy.pl (zwanej dalej
           &quot;Stroną&quot; lub &quot;Sklepem&quot;) jest firma &quot;Usługi
           Artystyczne BLACKBELL ART Eliza Czerwińska&quot;, wpisana do
           Centralnej Ewidencji i Informacji o Działalności Gospodarczej
@@ -55,33 +55,33 @@ export default function Page() {
           Usługi Artystyczne BLACKBELL ART Eliza Czerwińska, z siedzibą przy ul.
           Janusza Korczaka 15/71, 86-300 Grudziądz, Polska.{" "}
         </h5>
-        <h4>2.2. BlackbellArt.com:</h4>
+        <h4>2.2. quixy.pl:</h4>
         <h5>
-          Serwis internetowy dostępny pod adresem domeny BlackbellArt.com,
-          będący własnością Sklepu, służący prezentacji dzieł artystycznych oraz
+          Serwis internetowy dostępny pod adresem domeny quixy.pl, będący
+          własnością Sklepu, służący prezentacji dzieł artystycznych oraz
           realizacji sprzedaży detalicznej.
         </h5>
         <h4>2.3. Artysta:</h4>
         <h5>
           Osoba pełnoletnia, posiadająca zdolność do czynności prawnych, będąca
-          autorem dzieł, które znajdują się w ofercie sklepu BlackbellArt.com.
+          autorem dzieł, które znajdują się w ofercie sklepu quixy.pl.
         </h5>
         <h4>2.4. Klient: </h4>
         <h5>
           Osoba pełnoletnia, posiadająca zdolność do czynności prawnych, osoba
           prawna lub jednostka organizacyjna nieposiadająca osobowości prawnej,
           zdolna do nabywania praw i zaciągania zobowiązań, dokonująca
-          rezerwacji lub zakupu Dzieła Artysty na BlackbellArt.com.{" "}
+          rezerwacji lub zakupu Dzieła Artysty na quixy.pl.{" "}
         </h5>
         <h4>2.5. Dzieło:</h4>
         <h5>
           Obiekt zaprojektowany i (lub) wykonany przez Artystę, prezentowany w
-          opisie i fotografii na BlackbellArt.com.{" "}
+          opisie i fotografii na quixy.pl.{" "}
         </h5>
         <h4>2.6. Zamówienie:</h4>
         <h5>
           Składanie zamówienia przez Klienta to proces, w którym Klient korzysta
-          z dostępnego formularza zamówienia na BlackbellArt.com. Po złożeniu
+          z dostępnego formularza zamówienia na quixy.pl. Po złożeniu
           zamówienia, Sklep podejmuje niezbędne kroki w celu weryfikacji
           dostępności wybranego Dzieła, ustalenia ceny, kosztów dostawy i
           ewentualnej rezerwacji. Po spełnieniu wszystkich warunków, Sklep
@@ -90,9 +90,9 @@ export default function Page() {
         </h5>
         <h4> 2.7. Sprzedaż:</h4>
         <h5>
-          Umowy sprzedaży Dzieła wystawionego na BlackbellArt.com, w tym
-          zawarcie umowy na odległość między Klientem a Sklepem, potwierdzone
-          uznaniem wpłaty Klienta za Dzieło na rachunku bankowym Sklepu.
+          Umowy sprzedaży Dzieła wystawionego na quixy.pl, w tym zawarcie umowy
+          na odległość między Klientem a Sklepem, potwierdzone uznaniem wpłaty
+          Klienta za Dzieło na rachunku bankowym Sklepu.
         </h5>
       </div>
       <div>
@@ -103,31 +103,29 @@ export default function Page() {
 
           <h4>3.1. Charakterystyka Sklepu:</h4>
           <h5>
-            Sklep internetowy &quot;blackbellart.com&quot; to platforma
-            specjalizująca się w sprzedaży dzieł sztuki artystki
-            &quot;blackbell.c.e&quot;. Sklep ten umożliwia Klientom nabywanie
-            unikatowych dzieł artystycznych poprzez wygodne korzystanie z
-            platformy online.
+            Sklep internetowy &quot;quixy.pl&quot; to platforma specjalizująca
+            się w sprzedaży dzieł sztuki różnych artystów. Sklep ten umożliwia
+            Klientom nabywanie unikatowych dzieł artystycznych poprzez wygodne
+            korzystanie z platformy online.
           </h5>
 
           <h4>3.2. Promocja i Sprzedaż Dzieł:</h4>
           <h5>
-            3.2.1. Sklep pełni rolę aktywnego promotora dzieł sztuki artystki
-            &quot;blackbell.c.e&quot;, zapewniając dostęp do jej twórczości
-            szerokiemu gronu odbiorców.
+            3.2.1. Sklep pełni rolę aktywnego promotora dzieł sztuki artystów
+            korzystających z platformy &quot;quixy.pl&quot;, zapewniając dostęp
+            do twórczości szerokiemu gronu odbiorców.
           </h5>
           <h5>
-            3.2.2. Sklep jest odpowiedzialny za sprzedaż dzieł sztuki artystki
-            na własny rachunek, umożliwiając Klientom dokonywanie zakupów
-            online.
+            3.2.2. Sklep jest odpowiedzialny za sprzedaż dzieł artystów na
+            własny rachunek, umożliwiając Klientom dokonywanie zakupów online.
           </h5>
 
           <h4>3.3. Zamówienia Indywidualne:</h4>
           <h5>
             Sklep może dodatkowo działać jako pośrednik w zrealizowaniu zamówień
-            indywidualnych Klienta, przy czym reprezentuje artystkę
-            &quot;blackbell.c.e&quot; w procesie obsługi zamówień na
-            niestandardowe dzieła sztuki.
+            indywidualnych Klienta, przy czym reprezentuje artystów
+            &quot;quixy.pl&quot; w procesie obsługi zamówień na niestandardowe
+            dzieła sztuki.
           </h5>
 
           <h4>3.4. Strona Umowy Sprzedaży:</h4>
@@ -141,7 +139,7 @@ export default function Page() {
           <h4>3.5. Prezentacja i Informacje:</h4>
           <h5>
             3.5.1. Sklep prezentuje cyfrowe zdjęcia oferowanych dzieł sztuki
-            artystki &quot;blackbell.c.e&quot;, starając się zapewnić najwyższą
+            artystów &quot;quixy.pl&quot;, starając się zapewnić najwyższą
             jakość prezentacji, która wiernie odzwierciedla rzeczywisty stan i
             kolorystykę dzieł.
           </h5>
@@ -154,8 +152,8 @@ export default function Page() {
 
           <h4>3.6. Prawa Autorskie:</h4>
           <h5>
-            Artystka &quot;blackbell.c.e&quot; zachowuje pełnię praw autorskich
-            do sprzedawanych dzieł, zgodnie z obowiązującymi przepisami prawa
+            Artyści &quot;quixy.pl&quot; zachowują pełnię praw autorskich do
+            sprzedawanych dzieł, zgodnie z obowiązującymi przepisami prawa
             autorskiego.
           </h5>
 
@@ -208,16 +206,15 @@ export default function Page() {
         </div>
         <div>
           <div>
-            <h3>4. Prawa i obowiązki Klienta na BlackbellArt.com</h3>
+            <h3>4. Prawa i obowiązki Klienta na quixy.pl</h3>
             <h5>
-              4.1. Przed złożeniem każdego Zamówienia na BlackbellArt.com,
-              Klient zaleca się zapoznać z prezentacją Dzieła, dokładnie
-              czytając opisy i oglądając zdjęcia umieszczone w prezentacji. W
-              przypadku jakichkolwiek pytań lub wątpliwości dotyczących Dzieła
-              lub zasad jego zakupu, Klient powinien skontaktować się
-              bezpośrednio z naszym Sklepem, wysyłając wiadomość e-mail na
-              adres: blackbellart.c.e@gmail.com, podany na stronie
-              BlackbellArt.com.
+              4.1. Przed złożeniem każdego Zamówienia na quixy.pl, Klient zaleca
+              się zapoznać z prezentacją Dzieła, dokładnie czytając opisy i
+              oglądając zdjęcia umieszczone w prezentacji. W przypadku
+              jakichkolwiek pytań lub wątpliwości dotyczących Dzieła lub zasad
+              jego zakupu, Klient powinien skontaktować się bezpośrednio z
+              naszym Sklepem, wysyłając wiadomość e-mail na adres:
+              blackbellart.c.e@gmail.com, podany na stronie quixy.pl.
             </h5>
             <h5>
               4.2. Klient, składając Zamówienie, zobowiązuje się do prawidłowego
@@ -231,37 +228,35 @@ export default function Page() {
             <h5>
               4.3. Przed złożeniem Zamówienia, Klient jest zobowiązany do
               dokładnego zapoznania się z niniejszym Regulaminem. Korzystanie z
-              BlackbellArt.com przez Klienta oznacza, że zaakceptował Regulamin
-              bez zastrzeżeń.
+              quixy.pl przez Klienta oznacza, że zaakceptował Regulamin bez
+              zastrzeżeń.
             </h5>
             <h5>
               4.4. Klient powinien pamiętać, że terminy i warunki zakupów,
               zwroty oraz wszelkie kwestie związane z obsługą Zamówień są
-              uregulowane w Regulaminie BlackbellArt.com.
+              uregulowane w Regulaminie quixy.pl.
             </h5>
           </div>
           <div>
             <div>
-              <h3>
-                5. Zasady i procedura składania zamówień na BlackbellArt.com
-              </h3>
+              <h3>5. Zasady i procedura składania zamówień na quixy.pl</h3>
               <h4>5.1. Godziny przyjmowania zamówień</h4>
               <h5>
-                Platforma BlackbellArt.com przyjmuje zamówienia przez całą dobę,
-                przez wszystkie dni w roku. Zamówienia złożone w niedziele i
-                święta będą rozpatrywane w kolejności ich złożenia w pierwszym
-                dniu roboczym po dniu złożenia zamówienia.
+                Platforma quixy.pl przyjmuje zamówienia przez całą dobę, przez
+                wszystkie dni w roku. Zamówienia złożone w niedziele i święta
+                będą rozpatrywane w kolejności ich złożenia w pierwszym dniu
+                roboczym po dniu złożenia zamówienia.
               </h5>
 
               <h4>5.2. Rzeczywisty wygląd dzieł sztuki</h4>
               <h5>
-                Rzeczywisty wygląd dzieł sztuki prezentowanych na
-                BlackbellArt.com może różnić się od ich reprodukcji
-                fotograficznych ze względu na specyfikę przekazu
-                teleinformatycznego. Klient zobowiązuje się zgłaszać wszelkie
-                wątpliwości dotyczące wyglądu dzieła przed potwierdzeniem oferty
-                złożonej przez sklep. Sklep nie ponosi odpowiedzialności za
-                ewentualne różnice po potwierdzeniu oferty przez Klienta.
+                Rzeczywisty wygląd dzieł sztuki prezentowanych na quixy.pl może
+                różnić się od ich reprodukcji fotograficznych ze względu na
+                specyfikę przekazu teleinformatycznego. Klient zobowiązuje się
+                zgłaszać wszelkie wątpliwości dotyczące wyglądu dzieła przed
+                potwierdzeniem oferty złożonej przez sklep. Sklep nie ponosi
+                odpowiedzialności za ewentualne różnice po potwierdzeniu oferty
+                przez Klienta.
               </h5>
 
               <h4>5.3. Zmiany w ofercie</h4>
@@ -277,7 +272,7 @@ export default function Page() {
                   <h5>Krok 1 - Składanie zamówienia:</h5>
                   <p>
                     Klient składa zamówienie za pośrednictwem platformy
-                    BlackbellArt.com.
+                    quixy.pl.
                   </p>
                 </li>
 
@@ -338,12 +333,12 @@ export default function Page() {
             </div>
             <div>
               <div>
-                <h4>6. Płatności i Dostawa Dzieł na BlackbellArt.com</h4>
+                <h4>6. Płatności i Dostawa Dzieł na quixy.pl</h4>
 
                 <h5>
-                  6.1. Ceny Dzieł prezentowanych na BlackbellArt.com są wyrażone
-                  w złotych polskich, zawierają podatek VAT i nie obejmują
-                  kosztów dostawy (dostarczenia, odebrania Dzieła oraz jego
+                  6.1. Ceny Dzieł prezentowanych na quixy.pl są wyrażone w
+                  złotych polskich, zawierają podatek VAT i nie obejmują kosztów
+                  dostawy (dostarczenia, odebrania Dzieła oraz jego
                   ubezpieczenia podczas transportu). Dla Klientów spoza Polski
                   ceny są przeliczane według aktualnego kursu sprzedaży walut na
                   dzień złożenia Zamówienia, w banku obsługującym rachunek
@@ -353,7 +348,7 @@ export default function Page() {
                 <h5>
                   6.2. Dostawa zamówionych Dzieł odbywa się na koszt Klienta.
                   Szczegółowe informacje na temat kosztów przesyłki są dostępne
-                  na stronie BlackbellArt.com.
+                  na stronie quixy.pl.
                 </h5>
 
                 <h5>
@@ -381,8 +376,8 @@ export default function Page() {
                   <li>
                     <h5>
                       Przelew na rachunek bankowy Sklepu, dane do przelewu:
-                      BlackbellArt.com, ul. Janusza Korczaka 15/71, Grudziądz,
-                      nr konta: 55 1020 5040 0000 6902 0179 7695.
+                      quixy.pl, ul. Janusza Korczaka 15/71, Grudziądz, nr konta:
+                      55 1020 5040 0000 6902 0179 7695.
                     </h5>
                   </li>
 
@@ -392,10 +387,9 @@ export default function Page() {
                 </ul>
 
                 <h5>
-                  6.6. BlackbellArt.com dostarcza zamówione Dzieło za
-                  pośrednictwem Poczty Polskiej, przesyłkami kurierskimi lub
-                  umożliwia odbiór osobisty po wcześniejszym uzgodnieniu z
-                  Klientem.
+                  6.6. quixy.pl dostarcza zamówione Dzieło za pośrednictwem
+                  Poczty Polskiej, przesyłkami kurierskimi lub umożliwia odbiór
+                  osobisty po wcześniejszym uzgodnieniu z Klientem.
                 </h5>
 
                 <h5>
@@ -405,7 +399,7 @@ export default function Page() {
               </div>
               <div>
                 <div>
-                  <h4>7. Odstąpienie od Umowy Sprzedaży na BlackbellArt.com</h4>
+                  <h4>7. Odstąpienie od Umowy Sprzedaży na quixy.pl</h4>
 
                   <h5>
                     7.1. Klient będący konsumentem, zgodnie z przepisami ustawy
@@ -460,12 +454,12 @@ export default function Page() {
                 </div>
                 <div>
                   <div>
-                    <h3>8. Reklamacje na BlackbellArt.com</h3>
+                    <h3>8. Reklamacje na quixy.pl</h3>
 
                     <h5>
-                      8.1. Sprzedawca na BlackbellArt.com zobowiązuje się
-                      dostarczyć zakupiony towar w stanie wolnym od wad
-                      fizycznych i prawnych.
+                      8.1. Sprzedawca na quixy.pl zobowiązuje się dostarczyć
+                      zakupiony towar w stanie wolnym od wad fizycznych i
+                      prawnych.
                     </h5>
 
                     <h5>
@@ -516,9 +510,7 @@ export default function Page() {
                     </h5>
                     <div>
                       <div>
-                        <h4>
-                          Schemat Składania Reklamacji na BlackbellArt.com
-                        </h4>
+                        <h4>Schemat Składania Reklamacji na quixy.pl</h4>
                         <ul>
                           <li>Wypełnij Formularz Reklamacyjny:</li>
                           <ul>
@@ -557,7 +549,7 @@ export default function Page() {
                           <ul>
                             <li>
                               Reklamacje można składać mailowo pod adresem
-                              e-mail: reklamacje@blackbellart.com.
+                              e-mail: reklamacje@quixy.pl.
                             </li>
                           </ul>
                           <h4> Rozpatrzenie Reklamacji:</h4>
@@ -587,7 +579,7 @@ export default function Page() {
                     </div>
 
                     <div>
-                      <h3>9. Ochrona Danych Osobowych na BlackbellArt.com</h3>
+                      <h3>9. Ochrona Danych Osobowych na quixy.pl</h3>
                       <h4>Cele Przetwarzania Danych:</h4>
                       <ul>
                         <li>
@@ -599,8 +591,7 @@ export default function Page() {
                       <h4>Administrator Danych:</h4>
                       <ul>
                         <li>
-                          Administratorem danych osobowych jest Sklep
-                          BlackbellArt.com.
+                          Administratorem danych osobowych jest Sklep quixy.pl.
                         </li>
                       </ul>
                       <h4>Rodzaje Danych Przetwarzanych:</h4>
@@ -663,13 +654,13 @@ export default function Page() {
                         <li>
                           W sprawach związanych z ochroną danych osobowych,
                           można skontaktować się pod adresem e-mail:
-                          daneosobowe@blackbellart.com.
+                          daneosobowe@quixy.pl.
                         </li>
                       </ul>
                       <h4>Zgoda na Przetwarzanie Danych:</h4>
                       <ul>
                         <li>
-                          Korzystając z BlackbellArt.com, Klient wyraża zgodę na
+                          Korzystając z quixy.pl, Klient wyraża zgodę na
                           przetwarzanie swoich danych zgodnie z polityką ochrony
                           prywatności.
                         </li>
@@ -683,24 +674,24 @@ export default function Page() {
                         </li>
                       </ul>
                       <p>
-                        Ochrona danych osobowych na BlackbellArt.com jest
-                        priorytetem, a wszelkie działania są podejmowane zgodnie
-                        z obowiązującymi przepisami prawa.
+                        Ochrona danych osobowych na quixy.pl jest priorytetem, a
+                        wszelkie działania są podejmowane zgodnie z
+                        obowiązującymi przepisami prawa.
                       </p>
                       <div>
-                        <h3>10.Klauzula Poufności - BlackbellArt.com</h3>
+                        <h3>10.Klauzula Poufności - quixy.pl</h3>
                         <div>
                           <h4>10.1 Definicje:</h4>
                           <p>
                             Terminy użyte w niniejszej klauzuli mają znaczenie
                             zgodne z definicjami zawartymi w polityce
-                            prywatności Sklepu BlackbellArt.com.
+                            prywatności Sklepu quixy.pl.
                           </p>
                           <h4>10.2 Ochrona Informacji:</h4>
                           <p>
-                            Sklep BlackbellArt.com zobowiązuje się do ochrony
-                            poufności wszelkich informacji uzyskanych od
-                            Klientów w trakcie korzystania ze strony.
+                            Sklep quixy.pl zobowiązuje się do ochrony poufności
+                            wszelkich informacji uzyskanych od Klientów w
+                            trakcie korzystania ze strony.
                           </p>
                           <h4>10.3 Przetwarzanie Danych:</h4>
                           <p>
@@ -710,8 +701,8 @@ export default function Page() {
                           </p>
                           <h4>10.4 Dane Przejściowe:</h4>
                           <p>
-                            Sklep BlackbellArt.com nie udostępnia, nie sprzedaje
-                            ani nie wymienia danych osobowych Klientów na cele
+                            Sklep quixy.pl nie udostępnia, nie sprzedaje ani nie
+                            wymienia danych osobowych Klientów na cele
                             marketingowe zewnętrznym podmiotom.
                           </p>
                           <h4>10.5 Poufność Zamówień:</h4>
@@ -728,7 +719,7 @@ export default function Page() {
                           </p>
                           <h4>10.7 Przekazywanie Informacji:</h4>
                           <p>
-                            Sklep BlackbellArt.com przekazuje jedynie niezbędne
+                            Sklep quixy.pl przekazuje jedynie niezbędne
                             informacje niezbędne do realizacji zamówienia, takie
                             jak dane adresowe, firmie kurierskiej
                             odpowiedzialnej za dostawę.
@@ -748,20 +739,18 @@ export default function Page() {
                           </p>
                           <h4>10.10 Akceptacja Klauzuli:</h4>
                           <p>
-                            Korzystając z usług Sklepu BlackbellArt.com, Klient
+                            Korzystając z usług Sklepu quixy.pl, Klient
                             akceptuje postanowienia niniejszej klauzuli
                             poufności.
                           </p>
                         </div>
                         <div>
                           <div>
-                            <h3>
-                              11. Postanowienia Końcowe - BlackbellArt.com
-                            </h3>
+                            <h3>11. Postanowienia Końcowe - quixy.pl</h3>
                             <div>
                               <h4>11.1 Zmiany w Regulaminie:</h4>
                               <p>
-                                Sklep BlackbellArt.com zastrzega sobie prawo do
+                                Sklep quixy.pl zastrzega sobie prawo do
                                 wprowadzania zmian w niniejszym Regulaminie.
                                 Wprowadzone modyfikacje mają zastosowanie do
                                 zamówień złożonych po datę ich publikacji na
@@ -771,24 +760,22 @@ export default function Page() {
                               <p>
                                 Wszystkie prawa własności intelektualnej do
                                 treści, grafiki, zdjęć oraz innych elementów
-                                znajdujących się na stronie BlackbellArt.com są
+                                znajdujących się na stronie quixy.pl są
                                 własnością Sklepu i są chronione prawem
                                 autorskim.
                               </p>
                               <h4>11.3 Postanowienia Prawne:</h4>
                               <p>
-                                Umowy zawierane za pośrednictwem Sklepu
-                                BlackbellArt.com podlegają polskiemu prawu, a
-                                wszelkie spory wynikłe z umów sprzedaży
-                                podlegają sądom właściwym zgodnie z polskim
-                                prawem.
+                                Umowy zawierane za pośrednictwem Sklepu quixy.pl
+                                podlegają polskiemu prawu, a wszelkie spory
+                                wynikłe z umów sprzedaży podlegają sądom
+                                właściwym zgodnie z polskim prawem.
                               </p>
                               <h4>11.4 Kontakt:</h4>
                               <p>
                                 Wszelkie kwestie związane z Regulaminem,
                                 zamówieniami, reklamacjami czy ochroną danych
-                                można zgłaszać pod adres e-mail:
-                                info@blackbellart.com.
+                                można zgłaszać pod adres e-mail: info@quixy.pl.
                               </p>
                               <h4>11.5 Skuteczność Postanowień:</h4>
                               <p>
@@ -800,24 +787,23 @@ export default function Page() {
                               <h4>11.6 Tryb Rozstrzygania Sporów:</h4>
                               <p>
                                 Wszelkie spory wynikłe z umów zawartych za
-                                pośrednictwem Sklepu BlackbellArt.com będą
-                                rozstrzygane drogą mediacji. W przypadku
-                                niemożności uzyskania porozumienia, spory będą
-                                rozpatrywane przez sąd właściwy zgodnie z
-                                polskim prawem.
+                                pośrednictwem Sklepu quixy.pl będą rozstrzygane
+                                drogą mediacji. W przypadku niemożności
+                                uzyskania porozumienia, spory będą rozpatrywane
+                                przez sąd właściwy zgodnie z polskim prawem.
                               </p>
                               <h4>11.7 Akceptacja Regulaminu:</h4>
                               <p>
-                                Korzystając z usług Sklepu BlackbellArt.com,
-                                Klient akceptuje postanowienia niniejszego
-                                Regulaminu oraz zobowiązuje się do
-                                przestrzegania jego treści.
+                                Korzystając z usług Sklepu quixy.pl, Klient
+                                akceptuje postanowienia niniejszego Regulaminu
+                                oraz zobowiązuje się do przestrzegania jego
+                                treści.
                               </p>
                               <h4>11.8 Data Wejścia w Życie:</h4>
                               <p>
                                 Niniejszy Regulamin wchodzi w życie z dniem
                                 10.11.2023r. wraz z opublikowaniem na stronie
-                                internetowej Sklepu BlackbellArt.com.
+                                internetowej Sklepu quixy.pl.
                               </p>
                               <h4>11.9 Postanowienia Ostateczne:</h4>
                               <p>

@@ -28,9 +28,7 @@ const CookieInfo = () => {
             : "-translate-y-[20%] scale-50 top-[100%]"
         }`}
       >
-        <h1 className="text-lg font-bold mb-2">
-          Strona Artystki Blackbell używa cookies
-        </h1>
+        <h1 className="text-lg font-bold mb-2">Quixy.pl używa cookies</h1>
         <p className="mb-2 !text-sm md:!text-lg lg:!text-xl">
           Używamy plików cookie w celu personalizacji treści i reklam,
           dostarczania funkcji mediów społecznościowych oraz analizowania ruchu
@@ -46,14 +44,14 @@ const CookieInfo = () => {
         </div>
         <div className="flex justify-center items-center space-x-3">
           <button
-            className="bg-[#8f26f3] duration-100 text-white py-2 px-4 rounded w-full"
+            className="bg-[#8f26f3] font-bold duration-100 text-white py-2 px-4 rounded w-full"
             onClick={handleAccept}
           >
             Akceptuj
           </button>
 
           <button
-            className="bg-[#8f26f3] duration-100 text-white py-2 px-4 rounded w-full"
+            className="duration-100 text-black text-light py-2 px-4 rounded w-full"
             onClick={handleAccept}
           >
             Odrzuć

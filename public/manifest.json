@@ -1,11 +1,11 @@
 {
-  "name": "Black Bell Tattoo",
-  "short_name": "Black Bell",
-  "description": "Eliza Czerwińska to doświadczony artysta w Grudziądzu, specjalizujący się w tworzeniu unikalnych i artystycznych tatuaży oraz obrazów na zamówienie. Oferuję szeroki wybór wzorów oraz profesjonalną obsługę, aby zapewnić klientom niezapomniane doświadczenie podczas zdobywania swojego wymarzonego tatuażu lub obrazu na zamówienie.",
-  "start_url": "/",
+  "name": "Oryginalne obrazy artystów - Quixy",
+  "short_name": "Quixy",
+  "description": "Platforma online do wystawiania prac artystycznych i kupowania sztuki.",
+  "start_url": "https://quixy.pl/",
   "display": "standalone",
-  "background_color": "#1d1d1d",
-  "theme_color": "#1d1d1d",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "/favicons/favicon.ico",

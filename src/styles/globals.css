@@ -352,3 +352,77 @@ html {
   opacity: 0;
   transition: 0.5s;
 }
+.px {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.pl {
+  padding-left: 1rem;
+}
+
+.pr {
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .px,
+  .pl,
+  .pr {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .px,
+  .pl,
+  .pr {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+.blue {
+  color: #126b91;
+}
+.bgBlue {
+  background-color: #126b91;
+}
+.bgBlue:hover {
+  background-color: #126b91c7;
+}
+.blueLink {
+  color: #001e00;
+}
+.blueLink:hover {
+  color: #126b91;
+}
+
+@keyframes slideBg {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.infinite-bg {
+  background: radial-gradient(circle at center, #e799da 0%, #69d9e7 100%);
+  background-size: 150% 100%;
+  animation: slideBg 6s linear infinite;
+  animation-direction: alternate;
+}
+.button:hover {
+  background-color: #126b91c7;
+}
+.button {
+  border-radius: 24px;
+  background-color: #126b91;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-weight: bold;
+  color: white;
+}

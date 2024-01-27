@@ -1,9 +1,10 @@
 import "../styles/globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Anton } from "next/font/google";
+import { Cardo } from "next/font/google";
 import { Providers } from "@/redux/Provider";
 import Script from "next/script";
+import Header from "@/components/Header";
 
 export default async function RootLayout({
   children,
@@ -12,8 +13,11 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="pl">
-      <body className={`${cocosharp.variable} ${anton.variable} bg-[#1d1d1d]`}>
-        <Providers>{children}</Providers>
+      <body className={`${cocosharp.variable} ${cardo.variable} pb-24`}>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
         <Script src="https://www.googletagmanager.com/gtag/js?id=GT-WRDF58Q" />
         <Script id="google-analytics">
           {`
@@ -28,12 +32,13 @@ export default async function RootLayout({
   );
 }
 
-const anton = Anton({
+const cardo = Cardo({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-anton",
+  display: "swap",
+  variable: "--font-cardo",
 });
-
 const cocosharp = localFont({
   src: [
     {
@@ -72,30 +77,25 @@ const cocosharp = localFont({
 });
 export const metadata: Metadata = {
   viewport: "width=device-width, initial-scale=1",
-  themeColor: "#1d1d1d",
-  publisher: "Black Bell Tattoo & Art",
+  themeColor: "#ffffff",
+  publisher: "wesiu.dev",
   manifest: "/manifest.json",
   keywords: [
-    "Najlepsi artyści tatuażu w Grudziądzu",
-    "Projekt tatuażu Grudziądz",
-    "Profesjonalne studio tatuażu Grudziądz",
-    "Unikalne tatuaże Grudziądz",
-    "Salon tatuażu Grudziądz",
-    "Tatuaż na zamówienie Grudziądz",
-    "Sztuka tatuażu Grudziądz",
-    "Ceny tatuażu Grudziądz",
-    "Porady dotyczące pielęgnacji tatuażu",
-    "Umówienie się na tatuaż Grudziądz",
-    "Bezpieczny tatuaż Grudziądz",
-    "Tatuaż na nadgarstku Grudziądz",
-    "Kolorowe tatuaże Grudziądz",
-    "Tatuaż dla kobiet Grudziądz",
-    "Tatuaż dla mężczyzn Grudziądz",
-    "Tatuaż z cytatem Grudziądz",
-    "Mały tatuaż Grudziądz",
-    "Tatuaż na przedramieniu Grudziądz",
-    "Tatuaż dla par Grudziądz",
-    "Tatuaż religijny Grudziądz",
+    "sztuka online",
+    "wystawa artystyczna",
+    "platforma artystyczna",
+    "galeria internetowa",
+    "sztuka współczesna",
+    "wystawianie prac",
+    "twórczość artystyczna",
+    "portfolio artysty",
+    "prace artystyczne",
+    "ekspozycja online",
+    "sztuka cyfrowa",
+    "galeria sztuki online",
+    "kolekcja artystyczna",
+    "artystyczna społeczność",
+    "wirtualna wystawa",
   ],
   verification: {
     google: "google85185d3abec28326.html",
@@ -107,20 +107,30 @@ export const metadata: Metadata = {
       type: "image/png",
     },
     {
-      url: "/favicons/favicon.ico",
+      url: "/favicon.ico",
       sizes: "48x48",
       type: "image/x-icon",
     },
+    {
+      url: "/favicons/android-chrome-192x192.png",
+      sizes: "192x192",
+      type: "image/png",
+    },
+    {
+      url: "/favicons/android-chrome-512x512.png",
+      sizes: "512x512",
+      type: "image/png",
+    },
   ],
-  title: "Blackbell - Studio Tatuażu Grudziądz | Umów się na sesję tatuażu",
+  title: "Quixy | Platforma Dla Artystów",
   description:
-    "Salon Tatuażu w Grudziądzu. Sprawdź wzory i zarezerwuj termin. Stworzę tatuaż według Twoich indywidualnych potrzeb.",
+    "Artyści wystawiaja tutaj swoje prace. Zamów indywidualny projekt, lub zamów istniejące dzieło sztuki.",
   openGraph: {
     type: "website",
-    url: "https://blackbellart.com",
-    title: "Blackbell - Studio Tatuażu Grudziądz | Umów się na sesję tatuażu",
+    url: "https://quixy.pl",
+    title: "Quixy | Platforma Dla Artystów",
     description:
-      "Salon Tatuażu w Grudziądzu. Sprawdź wzory i zarezerwuj termin. Stworzę tatuaż według Twoich indywidualnych potrzeb.",
-    siteName: "Black Bell Tattoo & Art",
+      "Artyści wystawiaja tutaj swoje prace. Zamów indywidualny projekt, lub zamów istniejące dzieło sztuki.",
+    siteName: "Quixy",
   },
 };
